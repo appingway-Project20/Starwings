@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 public class NotificationActivity extends AppCompatActivity {
     RecyclerView rv;
+    Toolbar toolbar;
     ArrayList<NotificationData> arrayList;
     LinearLayoutManager layoutManager;
     @Override
@@ -21,6 +23,8 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notification_layout);
         init();
+
+        setSupportActionBar(toolbar);
         layoutManager=new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
         arrayList.add(new NotificationData("This is the title","Here comes the notification details:"));
@@ -30,5 +34,6 @@ public class NotificationActivity extends AppCompatActivity {
     private void init() {
         arrayList=new ArrayList<>();
         rv= (RecyclerView) findViewById(R.id.notrv);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
     }
 }

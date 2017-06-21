@@ -1,4 +1,4 @@
-package com.example.internproject;
+package com.example.admin.starwingsapp;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

@@ -35,7 +35,7 @@ public class OurCourses extends FragmentActivity implements ActionBar.TabListene
 		bar.setTitle("Our Courses");
 		bar.setDisplayUseLogoEnabled(false);
 		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		
+		bar.setDisplayShowHomeEnabled(false);
 		bar.addTab(bar.newTab().setText("CPT").setTabListener(this));
 		bar.addTab(bar.newTab().setText("IPCC").setTabListener(this));
 		bar.addTab(bar.newTab().setText("FINAL").setTabListener(this));

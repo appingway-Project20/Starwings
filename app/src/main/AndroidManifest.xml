@@ -20,6 +20,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".NotificationActivity" />
+         <activity
+            android:name=".OurCourses"
+            android:label="Our Courses" >
+            <intent-filter>
+                <action android:name="com.example.internproject.OURCOURSES" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

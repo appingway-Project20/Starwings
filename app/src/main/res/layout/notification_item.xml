@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/nottitle"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        android:background="#7C7C7C"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/notimg"
+            android:src="@drawable/notification"/>
+        <TextView
+            android:layout_toRightOf="@+id/notimg"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:text="Testing notification title"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:id="@+id/nottitletv"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:background="#000000"
+        android:id="@+id/notcv"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/notcvtv"
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:text="Here comes the notification content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

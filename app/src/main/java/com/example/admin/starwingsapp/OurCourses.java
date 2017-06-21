@@ -71,14 +71,6 @@ public class OurCourses extends FragmentActivity implements ActionBar.TabListene
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		
-		getMenuInflater().inflate(R.menu.our_courses, menu);
-		return true;
-	}
-
-	
 
 	@Override
 	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {

@@ -35,7 +35,7 @@
         android:layout_marginBottom="134dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/about_us"
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_above="@+id/textView"

@@ -7,6 +7,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.example.admin.starwingsapp.adpaters.NotificationAdapter;
+import com.example.admin.starwingsapp.models.NotificationData;
+
 import java.util.ArrayList;
 
 /**
@@ -29,6 +32,7 @@ public class NotificationActivity extends AppCompatActivity {
         rv.setLayoutManager(layoutManager);
         arrayList.add(new NotificationData("This is the title","Here comes the notification details:"));
         rv.setAdapter(new NotificationAdapter(arrayList,this));
+
     }
 
     private void init() {

@@ -1,9 +1,14 @@
-package com.example.admin.starwingsapp;
+package com.example.admin.starwingsapp.adpaters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.admin.starwingsapp.fragments.CPT;
+import com.example.admin.starwingsapp.fragments.FINAL;
+import com.example.admin.starwingsapp.fragments.IFRS;
+import com.example.admin.starwingsapp.fragments.IPCC;
 
 public class FragmentPageAdapter extends FragmentPagerAdapter {
 

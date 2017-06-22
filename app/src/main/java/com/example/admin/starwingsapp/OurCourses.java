@@ -4,16 +4,14 @@ package com.example.admin.starwingsapp;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import com.example.admin.starwingsapp.adpaters.FragmentPageAdapter;
 
 
 public class OurCourses extends FragmentActivity implements ActionBar.TabListener {

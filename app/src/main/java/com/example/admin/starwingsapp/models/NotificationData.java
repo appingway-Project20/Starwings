@@ -1,4 +1,4 @@
-package com.example.admin.starwingsapp;
+package com.example.admin.starwingsapp.models;
 
 /**
  * Created by AKASH on 21-06-2017.

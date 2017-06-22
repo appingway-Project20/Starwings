@@ -1,10 +1,12 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.AboutUsAdapter;
@@ -23,6 +25,14 @@ public class AboutUsActivity extends AppCompatActivity {
         setTitle("About Us");
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        View v = toolbar.findViewById(R.id.dashboard);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AboutUsActivity.this,Dashboard.class);
+                startActivity(intent);
+            }
+        });
         titleView = (TextView)toolbar.findViewById(R.id.title);
         titleView.setText("About Us");
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);

@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUsActivity">
-
+        <activity android:name=".AboutUsActivity"
+            android:parentActivityName=".Dashboard">
         </activity>
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -20,15 +20,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".NotificationActivity" />
-         <activity
+        <activity
             android:name=".OurCourses"
-            android:label="Our Courses" >
+            android:label="Our Courses">
             <intent-filter>
                 <action android:name="com.example.internproject.OURCOURSES" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".Dashboard"
+            android:launchMode="singleTop"></activity>
     </application>
 
 </manifest>

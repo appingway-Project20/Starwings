@@ -1,28 +1,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#696969"
-                android:weightSum="10" >
+                android:background="#464646"
+                android:weightSum="10">
 
                 <TextView
                     android:id="@+id/tv6"
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="30dp"
                     android:layout_weight="2"
                     android:paddingLeft="10dp"
                     android:text="Query regarding"
@@ -32,7 +34,7 @@
                 <TextView
                     android:id="@+id/tv5"
                     android:layout_width="fill_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="40dp"
                     android:layout_weight="8"
                     android:gravity="center"
                     android:text="Select"
@@ -43,42 +45,71 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <EditText
                     android:id="@+id/editText1"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@null"
                     android:ems="10"
                     android:hint="Name"
-                    android:inputType="textPersonName" >
+                    android:inputType="textPersonName"
+                    android:paddingLeft="10dp"
+                    android:textSize="18dp"></EditText>
 
-                    <requestFocus />
-                </EditText>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#060606"/>
 
                 <EditText
                     android:id="@+id/editText2"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@null"
                     android:ems="10"
                     android:hint="Mobile"
-                    android:inputType="phone" />
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#060606"/>
 
                 <EditText
                     android:id="@+id/editText3"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@null"
                     android:ems="10"
                     android:hint="Email"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="10dp"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.1dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#060606"/>
 
                 <EditText
                     android:id="@+id/editText4"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:ems="10"
+                    android:gravity="center"
                     android:hint="Write us your query about the (min 20 char)"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv1"
@@ -93,45 +124,49 @@
                 <TextView
                     android:id="@+id/tv2"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="* Name is required"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#FF0000" />
+                    android:textColor="#FF0000"
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/tv3"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="* Mobile is required"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#FF0000" />
+                    android:textColor="#FF0000"
+                    android:textSize="10sp" />
 
                 <TextView
                     android:id="@+id/tv4"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="* Email is required"
                     android:textAlignment="center"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="#FF0000" />
+                    android:textColor="#FF0000"
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/button1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#7078f1"
                     android:enabled="false"
                     android:text="Submit"
-                    android:background="#000FFF"
-                    
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#ffffff" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

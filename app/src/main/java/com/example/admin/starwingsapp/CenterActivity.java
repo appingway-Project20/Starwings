@@ -8,8 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.example.admin.starwingsapp.adpaters.NotificationAdapter;
-import com.example.admin.starwingsapp.models.NotificationData;
+import com.example.admin.starwingsapp.adpaters.CentreAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

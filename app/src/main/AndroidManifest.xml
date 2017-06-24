@@ -46,6 +46,10 @@
             android:parentActivityName=".BatchesActivity"/>
         <activity android:name=".GSTCourseActivity"
             android:parentActivityName=".BatchesActivity"></activity>
+        <activity android:name=".CenterActivity" />
+        <activity android:name=".Downloads" />
+        <activity android:name=".Login" />
+        <activity android:name=".Support" />
     </application>
 
 </manifest>

@@ -1,18 +1,15 @@
-package com.example.admin.starwingsapp;
+package com.example.admin.starwingsapp.adpaters;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.admin.starwingsapp.adpaters.NotificationAdapter;
-import com.example.admin.starwingsapp.models.NotificationData;
+import com.example.admin.starwingsapp.R;
 
 import java.util.ArrayList;
 import java.util.List;

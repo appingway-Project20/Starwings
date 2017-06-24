@@ -60,16 +60,20 @@ public class Dashboard extends AppCompatActivity {
 
     @OnClick({R.id.about_us, R.id.courses, R.id.schedule, R.id.batches, R.id.editText,R.id.centers, R.id.downloads, R.id.notifications, R.id.lms, R.id.contact_details, R.id.support})
     public void onViewClicked(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.about_us:
-                Intent intent = new Intent(Dashboard.this, AboutUsActivity.class);
+                intent = new Intent(Dashboard.this, AboutUsActivity.class);
                 startActivity(intent);
                 break;
             case R.id.courses:
+
                 break;
             case R.id.schedule:
                 break;
             case R.id.batches:
+                intent = new Intent(Dashboard.this, BatchesActivity.class);
+                startActivity(intent);
                 break;
             case R.id.editText:
                 break;
@@ -82,6 +86,8 @@ public class Dashboard extends AppCompatActivity {
             case R.id.lms:
                 break;
             case R.id.contact_details:
+                intent = new Intent(Dashboard.this,ContactInfoActivity.class);
+                startActivity(intent);
                 break;
             case R.id.support:
                 break;

@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="#FF4C00"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp" >
+
+                <TextView
+                    android:id="@+id/tvfiles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="0.50"
+                    android:text="# No Files found !"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="17dp" />
+
+                <Button
+                    android:id="@+id/btrefresh"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/btrefresh" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvrefresh"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="13dp"
+                android:text="* If you have downloaded earlier with this login, Click Refresh"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fabe0a"
+                android:textSize="15dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

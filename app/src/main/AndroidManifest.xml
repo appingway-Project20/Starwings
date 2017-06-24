@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutUsActivity"
-            android:parentActivityName=".Dashboard">
-        </activity>
+        <activity
+            android:name=".AboutUsActivity"
+            android:parentActivityName=".Dashboard" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,8 +29,23 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Dashboard"
-            android:launchMode="singleTop"></activity>
+        <activity
+            android:name=".Dashboard"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ContactInfoActivity"
+            android:parentActivityName=".Dashboard" />
+        <activity android:name=".BatchesActivity"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".ACCACourseActivity"
+            android:parentActivityName=".BatchesActivity" />
+        <activity android:name=".CAActivity"
+            android:parentActivityName=".BatchesActivity"/>
+        <activity android:name=".ExcelCourseActivity"
+            android:parentActivityName=".BatchesActivity"/>
+        <activity android:name=".GSTCourseActivity"
+            android:parentActivityName=".BatchesActivity"></activity>
     </application>
 
 </manifest>

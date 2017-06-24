@@ -1,8 +1,11 @@
 package com.example.admin.starwingsapp;
 
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -10,81 +13,90 @@ import android.app.FragmentTransaction;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.example.admin.starwingsapp.adpaters.FragmentPageAdapter;
+import com.example.admin.starwingsapp.fragments.CPT;
+import com.example.admin.starwingsapp.fragments.FINAL;
+import com.example.admin.starwingsapp.fragments.IFRS;
+import com.example.admin.starwingsapp.fragments.IPCC;
+import com.ogaclejapan.smarttablayout.SmartTabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class OurCourses extends FragmentActivity implements ActionBar.TabListener {
+public class OurCourses extends AppCompatActivity {
 	ActionBar bar;
+	Toolbar toolbar;
 	ViewPager viewpager;
+	TabLayout tabLayout;
 	FragmentPageAdapter ft;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_our_courses);
 		viewpager = (ViewPager) findViewById(R.id.pager);
+		toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		toolbar.setTitle("Courses");
 
 		ft = new FragmentPageAdapter(getSupportFragmentManager(),
 				this.getApplicationContext());
 		viewpager.setAdapter(ft);
-		
-		final ActionBar bar = getActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
-		bar.setTitle("Our Courses");
-		bar.setDisplayUseLogoEnabled(false);
-		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		bar.setDisplayShowHomeEnabled(false);
-		bar.addTab(bar.newTab().setText("CPT").setTabListener(this));
-		bar.addTab(bar.newTab().setText("IPCC").setTabListener(this));
-		bar.addTab(bar.newTab().setText("FINAL").setTabListener(this));
-		bar.addTab(bar.newTab().setText("IFRS").setTabListener(this));
-		viewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			
-			@Override
-			public void onPageSelected(int arg0) {
-				// TODO Auto-generated method stub
-				bar.setSelectedNavigationItem(arg0);
 
-				Fragment fragment = ((FragmentPageAdapter) viewpager
-						.getAdapter()).getItem(arg0);
 
-				if (arg0 <4 && fragment != null) {
-					fragment.onResume();
-				}
+		tabLayout = (TabLayout) findViewById(R.id.tabs);
+		tabLayout.setupWithViewPager(viewpager);
 
-			}
 
-			@Override
-			public void onPageScrollStateChanged(int arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+	/*	PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+		tabsStrip.setUnderlineColor(Color.parseColor("#000000"));*/
 
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				// TODO Auto-generated method stub
-				
-			
-			}
-		});
+		/*SmartTabLayout viewPagerTab = (SmartTabLayout) findViewById(R.id.viewpagertab);
+		viewPagerTab.setViewPager(viewpager);*/
+
+	}
+	private void setupWithViewPager(ViewPager viewPager) {
+		ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+		adapter.addFragment(new CPT(), "CPT");
+		adapter.addFragment(new FINAL(), "FINAL");
+		adapter.addFragment(new IFRS(), "IFRS");
+		adapter.addFragment(new IPCC(), "IPCC");
+		viewPager.setAdapter(adapter);
 	}
 
+	class ViewPagerAdapter extends FragmentPagerAdapter {
+		private final List<Fragment> mFragmentList = new ArrayList<>();
+		private final List<String> mFragmentTitleList = new ArrayList<>();
 
-	@Override
-	public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
+		public ViewPagerAdapter(FragmentManager manager) {
+			super(manager);
+		}
+
+		@Override
+		public Fragment getItem(int position) {
+			return mFragmentList.get(position);
+		}
+
+		@Override
+		public int getCount() {
+			return mFragmentList.size();
+		}
+
+		public void addFragment(Fragment fragment, String title) {
+			mFragmentList.add(fragment);
+			mFragmentTitleList.add(title);
+		}
+
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return mFragmentTitleList.get(position);
+		}
 	}
 
-	@Override
-	public void onTabSelected(Tab tab, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		viewpager.setCurrentItem(tab.getPosition());
-	}
-
-	@Override
-	public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
-		// TODO Auto-generated method stub
-		
-	}
 }

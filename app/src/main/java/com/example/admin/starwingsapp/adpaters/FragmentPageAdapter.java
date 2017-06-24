@@ -12,6 +12,7 @@ import com.example.admin.starwingsapp.fragments.IPCC;
 
 public class FragmentPageAdapter extends FragmentPagerAdapter {
 
+	public String name[]={"CPT","IPCC","FINAL","IFRS"};
 	public FragmentPageAdapter(FragmentManager fm, Context context) {
 		super(fm);
 
@@ -41,7 +42,11 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 3;
+		return 4;
 	}
 
+	@Override
+	public CharSequence getPageTitle(int position) {
+		return name[position];
+	}
 }

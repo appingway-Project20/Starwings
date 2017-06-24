@@ -1,16 +1,71 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.starwingsapp.OurCourses" >
+    android:orientation="vertical"
+    android:background="#383535">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#ffffff"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical" />
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-</RelativeLayout>
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:fitsSystemWindows="true"
+            android:background="#FF7E26"
+            android:titleTextColor="#ffffff"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:minHeight="30dp"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:adndroid="http://schemas.android.com/apk/res-auto">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="end"
+                    android:id="@+id/dashboard"
+                    android:background="@drawable/shape10"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/homewhite"/>
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dashboard"
+                        android:textColor="#ffffff"/>
+                </LinearLayout>
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:background="#055887"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabSelectedTextColor="#ffffff"
+            app:tabTextColor="#afafaf"
+            app:tabMode="fixed"
+            app:tabGravity="fill"/>
+    </android.support.design.widget.AppBarLayout>
+    <android.support.v4.view.ViewPager
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:background="#ffffff"
+        android:layout_height="match_parent"/>
+</android.support.design.widget.CoordinatorLayout>

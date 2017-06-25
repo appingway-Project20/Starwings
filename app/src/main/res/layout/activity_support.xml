@@ -1,51 +1,62 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
-    <include layout="@layout/toolbar" />
-
+<include layout="@layout/toolbar" />
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#464646"
-                android:weightSum="10">
+                android:weightSum="10" >
 
                 <TextView
                     android:id="@+id/tv6"
-                    android:layout_width="fill_parent"
-                    android:layout_height="30dp"
-                    android:layout_weight="2"
-                    android:paddingLeft="10dp"
+                    android:layout_width="254dp"
+                    android:layout_height="40dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="5dp"
                     android:text="Query regarding"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="#ffffff" />
 
-                <TextView
-                    android:id="@+id/tv5"
-                    android:layout_width="fill_parent"
-                    android:layout_height="40dp"
-                    android:layout_weight="8"
-                    android:gravity="center"
-                    android:text="Select"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#ffffff" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" >
+
+                    <TextView
+                        android:id="@+id/tv5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="8"
+                        android:gravity="center"
+                        android:text="Select"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#ffffff" />
+
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/dropdown" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical" >
 
                 <EditText
                     android:id="@+id/editText1"
@@ -57,13 +68,14 @@
                     android:hint="Name"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
-                    android:textSize="18dp"></EditText>
+                    android:textSize="18dp" >
+                </EditText>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="0.1dp"
                     android:layout_marginTop="5dp"
-                    android:background="#060606"/>
+                    android:background="#060606" />
 
                 <EditText
                     android:id="@+id/editText2"
@@ -81,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.1dp"
                     android:layout_marginTop="5dp"
-                    android:background="#060606"/>
+                    android:background="#060606" />
 
                 <EditText
                     android:id="@+id/editText3"
@@ -99,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.1dp"
                     android:layout_marginTop="5dp"
-                    android:background="#060606"/>
+                    android:background="#060606" />
 
                 <EditText
                     android:id="@+id/editText4"

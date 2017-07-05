@@ -31,14 +31,18 @@ public class ContactInfoAdapter extends RecyclerView.Adapter<ContactInfoAdapter.
         return 1;
     }
     class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView home,phone;
-        TextView addresstv,phnotv;
+        ImageView hophone,bophone;
+        TextView home,hoaddresstv,hophnotv,bo,boaddresstv,bophnotv;
         public ViewHolder(View itemView) {
             super(itemView);
-            home = (ImageView)itemView.findViewById(R.id.home);
-            phone = (ImageView)itemView.findViewById(R.id.phone);
-            addresstv = (TextView)itemView.findViewById(R.id.address);
-            phnotv = (TextView)itemView.findViewById(R.id.phone_number);
+            home = (TextView)itemView.findViewById(R.id.home);
+            hophone = (ImageView)itemView.findViewById(R.id.ho_phone);
+            hoaddresstv = (TextView)itemView.findViewById(R.id.ho_address);
+            hophnotv = (TextView)itemView.findViewById(R.id.ho_phone_number);
+            bo = (TextView)itemView.findViewById(R.id.bo);
+            bophone = (ImageView)itemView.findViewById(R.id.bo_phone);
+            boaddresstv = (TextView)itemView.findViewById(R.id.bo_address);
+            bophnotv = (TextView)itemView.findViewById(R.id.bo_phone_number);
         }
     }
 }

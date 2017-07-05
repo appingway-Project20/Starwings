@@ -5,14 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.admin.starwingsapp.fragments.CPT;
-import com.example.admin.starwingsapp.fragments.FINAL;
-import com.example.admin.starwingsapp.fragments.IFRS;
-import com.example.admin.starwingsapp.fragments.IPCC;
+import com.example.admin.starwingsapp.fragments.Eleven;
+import com.example.admin.starwingsapp.fragments.Twelve;
 
 public class FragmentPageAdapter extends FragmentPagerAdapter {
 
-	public String name[]={"CPT","IPCC","FINAL","IFRS"};
+	public String name[]={"11th CLASS ACCOUNTS","12th CLASS ACCOUNTS"};
 	public FragmentPageAdapter(FragmentManager fm, Context context) {
 		super(fm);
 
@@ -22,16 +20,10 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
 	public Fragment getItem(int arg0) {
 		switch (arg0) {
 		case 0:
-			return new CPT();
+			return new Eleven();
 
 		case 1:
-			return new IPCC();
-
-		case 2:
-			return new FINAL();
-			
-		case 3:
-			return new IFRS();
+			return new Twelve();
 
 		default:
 			break;
@@ -42,7 +34,7 @@ public class FragmentPageAdapter extends FragmentPagerAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 4;
+		return 2;
 	}
 
 	@Override

@@ -18,20 +18,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <ImageView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_home"
                 android:padding="16dp"
+                android:text="H.O."
                 android:id="@+id/home"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C-56, Preet Vihar, New Delhi -110096"
+                android:text="884-A SomBazaar Majafgarh,Glamour Classes and Starwings Learning Destination"
                 android:layout_gravity="center_vertical"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:id="@+id/address"/>
+                android:id="@+id/ho_address"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -47,18 +47,64 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_phone_receiver"
                 android:padding="16dp"
-                android:id="@+id/phone"/>
+                android:id="@+id/ho_phone"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+911-3232873992"
+                android:text="9643068841"
                 android:textSize="16sp"
                 android:layout_gravity="center_vertical"
                 android:textColor="#ff0000"
-                android:id="@+id/phone_number"
+                android:id="@+id/ho_phone_number"
                 />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:id="@+id/bo"
+                    android:text="B.O."/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1625 B/3 Main Thana Road Opp. Petrol Pump, Majafgarh, New Delhi- 110043"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:id="@+id/bo_address"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#c0c0c0"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_phone_receiver"
+                android:padding="16dp"
+                android:id="@+id/bo_phone"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9716640675 , 9278250408"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#ff0000"
+                android:id="@+id/bo_phone_number"
+                />
         </LinearLayout>
         <View
             android:layout_width="match_parent"

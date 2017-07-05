@@ -5,9 +5,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -25,11 +27,20 @@ public class Support extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_support);
 		tvChoice=(TextView) findViewById(R.id.tvChoice);
-		/*	toolbar= (Toolbar) findViewById(R.id.toolbar);
+		toolbar= (Toolbar) findViewById(R.id.toolbar);
+		TextView toolbartitle= (TextView) toolbar.findViewById(R.id.title);
+		toolbartitle.setText("Support");
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		TextView toolbartitle= (TextView) toolbar.findViewById(R.id.title);
-		toolbartitle.setText("Support");*/
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		View v = toolbar.findViewById(R.id.dashboard);
+		v.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent(Support.this,Dashboard.class);
+				startActivity(intent);
+			}
+		});
 		
 	
 	}
@@ -49,7 +60,14 @@ public class Support extends AppCompatActivity {
 		my_dialog=builder.create();
 		my_dialog.show();
 	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// handle arrow click here
+		if (item.getItemId() == android.R.id.home) {
+			finish(); // close this activity and return to preview activity (if there is any)
+		}
 
-	
-	
+		return super.onOptionsItemSelected(item);
+	}
+
 }

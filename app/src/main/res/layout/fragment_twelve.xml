@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Partnership Accounts"
+                    android:textSize="16sp"
+                    android:textColor="#000000"/>
+                <TextView
+                    android:padding="10dp"
+                    android:id="@+id/tvPartnership"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" 1. Fundamentals of Partnership\n 2. Goodwill\n 3. Change in Profit Sharing Ratio\n 4. Admission of Partner\n 5. Retirement/Death of a Partner\n 6. Dissolution of Partnership firm"
+                    android:textSize="12sp"
+                    android:textColor="#5e5e5e"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Company Accounts"
+                    android:textSize="16sp"
+                    android:textColor="#000000"/>
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:text=" 1. Issue of Shares\n 2. Issue of Debentures\n 3. Redemption of Debentures "
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#5e5e5e"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Analysis Of Financial Statements"
+                    android:textSize="16sp"
+                    android:textColor="#000000"/>
+                <TextView
+                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" 1. Financial Statements\n 2. Tools of Financial Statements\n 3. Comparative and Common Size Statements\n 4. Ratio Analysis\n 5. Cash Flow Statements"
+                    android:textSize="12sp"
+                    android:textColor="#5e5e5e"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</ScrollView>

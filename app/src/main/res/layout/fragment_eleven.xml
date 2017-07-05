@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapters"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="  1. Introduction of Accounting\n
+ 2. Accounting Terms\n
+ 3. ACcounting Principles and Concept\n
+ 4. Vouchers\n
+ 5. Accounting Equations\n
+ 6. Rules of Debit and Credit\n
+ 7. Journal Entries, Ledger and Trial Balance\n
+ 8. Cash Book\n
+ 9. Subsidiary Books\n
+10. Depreciation\n
+11. Rectification of Errors\n
+12. Bank Reconcilation Statement\n
+13. Bills of Exchange\n
+14. Final Accounts\n
+15. Single Entries\n
+16. NPO"
+            android:textSize="12sp"
+            android:textColor="#5e5e5e"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
+    </ScrollView>

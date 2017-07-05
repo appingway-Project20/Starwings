@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,6 +25,9 @@ public class ContactInfoActivity extends AppCompatActivity {
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         TextView title = (TextView)toolbar.findViewById(R.id.title);
         title.setText("Contact us");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         View view = toolbar.findViewById(R.id.dashboard);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +41,14 @@ public class ContactInfoActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ContactInfoAdapter();
         mRecyclerView.setAdapter(adapter);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

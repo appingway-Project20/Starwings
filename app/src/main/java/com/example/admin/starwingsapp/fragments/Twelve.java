@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.example.admin.starwingsapp.R;
 
-public class IPCC extends Fragment{
+public class Twelve extends Fragment{
 	View myFragmentView;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class IPCC extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		myFragmentView=inflater.inflate(R.layout.fragment_ipcc, container, false);
+		myFragmentView=inflater.inflate(R.layout.fragment_twelve, container, false);
 		return myFragmentView;
 	}
 

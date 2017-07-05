@@ -1,11 +1,14 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.CentreAdapter;
@@ -32,6 +35,16 @@ public class CenterActivity extends AppCompatActivity {
         init();
         toolbartitle.setText("States");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        View v = toolbar.findViewById(R.id.dashboard);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CenterActivity.this,Dashboard.class);
+                startActivity(intent);
+            }
+        });
         layoutManager=new LinearLayoutManager(this);
         cenrv.setLayoutManager(layoutManager);
         List<String> Centres = Arrays.asList(getResources().getStringArray(R.array.Centres));
@@ -43,6 +56,15 @@ public class CenterActivity extends AppCompatActivity {
         }
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void init() {

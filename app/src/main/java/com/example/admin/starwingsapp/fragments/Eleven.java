@@ -8,18 +8,19 @@ import android.view.ViewGroup;
 
 import com.example.admin.starwingsapp.R;
 
-public class FINAL extends Fragment{
+
+public class Eleven extends Fragment{
 	View myFragmentView;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+		
 		super.onCreate(savedInstanceState);
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			@Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-		myFragmentView=inflater.inflate(R.layout.fragment_final, container, false);
+		myFragmentView=inflater.inflate(R.layout.fragment_eleven, container, false);
 		return myFragmentView;
 	}
 

@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
@@ -46,6 +47,9 @@ String[] courses = {"ACCA","C.A","Excel","G.S.T"};
         toolbar = (Toolbar)findViewById(R.id.toolbar);
         TextView title = (TextView)toolbar.findViewById(R.id.title);
         title.setText("Courses");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         View v = toolbar.findViewById(R.id.dashboard);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +111,15 @@ String[] courses = {"ACCA","C.A","Excel","G.S.T"};
         }, 50);
 
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

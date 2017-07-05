@@ -23,11 +23,11 @@ public class CAActivity extends AppCompatActivity {
         //using same layout file as About Us screen.
         setContentView(R.layout.about_us);
 
-        String courses[] = {"F5 Performance Management","F7 Financial Reporting", "CPT(old course)"
+        String courses[] = {"F5 Performance Management","F7 Financial Reporting", "Eleven(old course)"
                             ,"Final - 1(old course)","Final - 3(old course)","FINAL - 1(New Course)"
                             ,"FINAL - 2(New Course)","Foundation (New  Course)",
                             "Intermediate -1 (New Course)","Intermediate -2 (New Course",
-                            "IPCC - 1(old course)","IPCC - 2(old course)"};
+                            "Twelve - 1(old course)","Twelve - 2(old course)"};
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

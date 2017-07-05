@@ -29,13 +29,21 @@ public class AboutUsAdapter extends RecyclerView.Adapter<AboutUsAdapter.AboutUsV
     @Override
     public void onBindViewHolder(AboutUsAdapter.AboutUsViewHolder holder, int position) {
         switch(position){
-            case 0:holder.tv1.setTextSize(24);holder.tv1.setText("Starwings");
+            case 0:
+                holder.tv1.setTextSize(24);
+                holder.tv1.setText("STARWINGS LEARNING DESTINATION Pvt. Ltd.");
                 holder.tv1.setTextColor(Color.BLACK);
                 holder.tv2.setText(placeHolderText);break;
             case 1:
-                holder.tv1.setTextSize(20);holder.tv1.setText("Experienced Faculty");
+                holder.tv1.setTextSize(20);
+                holder.tv1.setText("ABOUT SACHIN KAUSHIK");
                 holder.tv1.setTextColor(Color.BLACK);
-                holder.tv2.setText(placeHolderText);
+                holder.tv2.setText(" Sachin Kaushik is a throughout first class Graduate with distinction in B.Com from Delhi University. " +
+                        "He obtained 100% marks in Cost Accounting and INCOME TAX.\n Now he is pursuing in Chartered Accountant(final) as" +
+                        " well as Company Secretary (Prof.) as well as he passed exam of MCX, NCX. Now he is working as Financial Analyst " +
+                        "in PaisaVassoli.com (a Financial Research Company).\n He is topper in Account in XII class in his Area.\n He is " +
+                        "inspired by his mother Smt. Sunita Kaushik who always motivated and encouraged him.\n His technique of approaching the " +
+                        "subject matter, style of revision and guidelines for preparation of examination are quite popular among students.");
                 holder.companyLogo.setVisibility(View.INVISIBLE);
         }
 

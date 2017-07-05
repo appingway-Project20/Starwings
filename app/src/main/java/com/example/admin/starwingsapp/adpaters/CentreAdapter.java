@@ -14,10 +14,6 @@ import com.example.admin.starwingsapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by AKASH on 22-06-2017.
- */
-
 public class CentreAdapter extends RecyclerView.Adapter<CentreAdapter.myHolder> {
 
     List<String> arrayList=new ArrayList<>();

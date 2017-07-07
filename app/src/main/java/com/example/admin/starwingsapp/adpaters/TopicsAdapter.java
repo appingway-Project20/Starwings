@@ -51,7 +51,8 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
             public void onClick(View v) {
                 Toast.makeText(context, "downloading Chapter", Toast.LENGTH_SHORT).show();
                 PDFDownload_Async task=new PDFDownload_Async((Activity) context,arrayList.get(position).getTitle());
-                task.execute(arrayList.get(position).getLink());
+                //task.execute(arrayList.get(position).getLink());
+                task.execute("https://www.tutorialspoint.com/body_language/body_language_tutorial.pdf");
                 Toast.makeText(context, "Async task running", Toast.LENGTH_SHORT).show();
                 holder.topdwn.setVisibility(View.GONE);
             }
@@ -83,11 +84,12 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
     private void onPdfClick(String title)
     {
 
-        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/sdcard/mydownload/"+title+".pdf");
 
-        Uri uri=Uri.parse("/sdcard/mydownload/xyz.pdf");
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/mydownload/"+title+".pdf");
+
+       // Uri uri=Uri.parse(Environment.getExternalStorageDirectory().getAbsolutePath()+"/sdcard/mydownload/"+title+".pdf");
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(uri, "application/*");
+        intent.setDataAndType(Uri.fromFile(file), "application/*");
         context.startActivity(intent);
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#e1e0e0"
     android:layout_height="match_parent">
     <include layout="@layout/toolbar"/>
     <TextView
@@ -8,14 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TOPICS"
+        android:background="#000"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_marginTop="3dp"
+        android:padding="5dp"
         android:textSize="18sp"
-        android:textColor="#004d13"
+        android:textColor="#dfdfdf"
         android:textStyle="normal"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/trv"
+        android:background="#e1e0e0"
         android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -1,25 +1,44 @@
 package com.example.admin.starwingsapp;
 
-import android.app.ActionBar;
-import android.app.Activity;
+
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class Login extends AppCompatActivity {
 	Toolbar toolbar;
+	EditText etname,etregisno;
+	Button btlogin;
+	ProgressBar progressBar;
+	String name,reg_number;
+	TextView responseView;
+	private static final String API_URL="https://techinsta22.000webhostapp.com/app_api/apiLogin.php?";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		toolbar= (Toolbar) findViewById(R.id.toolbar);
+		bridge();
+		progressBar.setVisibility(View.INVISIBLE);
 		setSupportActionBar(toolbar);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -33,12 +52,102 @@ public class Login extends AppCompatActivity {
 				startActivity(intent);
 			}
 		});
+
+		btlogin.setOnClickListener(new Button.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				name=etname.getText().toString();
+				reg_number=etregisno.getText().toString();
+				if(name.equals("")){
+					Toast.makeText(Login.this,"What's your good name?",Toast.LENGTH_SHORT).show();
+				}else if(reg_number.equals("")){
+					Toast.makeText(Login.this,"You do have a registration number,don't you?",Toast.LENGTH_SHORT).show();
+				}
+				else {
+					try {
+						new RetrieveFeedTask().execute();
+
+					} catch (Exception e) {
+						Toast.makeText(Login.this,"Error Occured! Please try again.",Toast.LENGTH_SHORT).show();
+					}
+
+				}
+			}
+		});
+	}
+	public void bridge() {
+		toolbar= (Toolbar) findViewById(R.id.toolbar);
+		etname= (EditText) findViewById(R.id.et_name);
+		etregisno= (EditText) findViewById(R.id.et_regisno);
+		responseView= (TextView) findViewById(R.id.responseView);
+		btlogin= (Button) findViewById(R.id.bt_login);
+		progressBar= (ProgressBar) findViewById(R.id.progressBar);
+
+	}
+
+	class RetrieveFeedTask extends AsyncTask<Void, Void, String> {
+
+		private Exception exception;
+
+		protected void onPreExecute() {
+			progressBar.setVisibility(View.VISIBLE);
+			responseView.setText("");
+		}
+
+		protected String doInBackground(Void... urls) {
+			// Do some validation here
+
+			try {
+				URL url = new URL(API_URL + "username=" + name + "&userpass=" + reg_number + "&apikey=zxcvbnm123&type=1");
+				HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+					StringBuilder stringBuilder = new StringBuilder();
+					String line="";
+					while ((line = bufferedReader.readLine()) != null) {
+						stringBuilder.append(line).append("\n");
+					}
+					bufferedReader.close();
+					return stringBuilder.toString();
+				}
+				finally{
+					urlConnection.disconnect();
+				}
+			}
+			catch(Exception e) {
+				Log.e("ERROR", e.getMessage(), e);
+				return null;
+			}
+		}
+
+		protected void onPostExecute(String response) {
+			String success="";
+			if(response == null) {
+				response = "THERE WAS AN ERROR";
+			}
+			progressBar.setVisibility(View.GONE);
+			Log.i("INFO", response);
+			try {
+				JSONObject root=new JSONObject(response);
+				success=root.getString("auth_value");
+				if(success.equals("1")){
+					Intent intent =new Intent(Login.this,VideoActivity.class);
+					startActivity(intent);
+				}else{
+					responseView.setText("Invalid Name or Registration Number");
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// handle arrow click here
+
 		if (item.getItemId() == android.R.id.home) {
-			finish(); // close this activity and return to preview activity (if there is any)
+			finish();
 		}
 
 		return super.onOptionsItemSelected(item);

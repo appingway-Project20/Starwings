@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">StarwingsApp</string>
-
+    <string name="hint_name"><font size="13">Name</font></string>
+    <string name="hint_regis"><font size="13">Registration Number</font></string>
     <string-array name="Centres">
         <item>Assam</item>
         <item>Bihar</item>

@@ -1,7 +1,10 @@
 package com.example.admin.starwingsapp.adpaters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,10 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.admin.starwingsapp.ChapterActivity;
+import com.example.admin.starwingsapp.PDFDownload_Async;
 import com.example.admin.starwingsapp.R;
 import com.example.admin.starwingsapp.models.CourseChapterData;
 import com.example.admin.starwingsapp.models.TopicData;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -37,14 +42,24 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
     }
 
     @Override
-    public void onBindViewHolder(myViewHolder holder, int position) {
+    public void onBindViewHolder(final myViewHolder holder, final int position) {
         holder.tpicauth.setText(arrayList.get(position).getAuthor());
         holder.topicupdate.setText(arrayList.get(position).getDate());
-        holder.topicupdate.setText(arrayList.get(position).getTitle());
+        holder.topicnm.setText(arrayList.get(position).getTitle());
         holder.topdwn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "downloading data task", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "downloading Chapter", Toast.LENGTH_SHORT).show();
+                PDFDownload_Async task=new PDFDownload_Async((Activity) context,arrayList.get(position).getTitle());
+                task.execute(arrayList.get(position).getLink());
+                Toast.makeText(context, "Async task running", Toast.LENGTH_SHORT).show();
+                holder.topdwn.setVisibility(View.GONE);
+            }
+        });
+        holder.topicnm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    onPdfClick(arrayList.get(position).getTitle());
             }
         });
     }
@@ -64,5 +79,15 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
             topicupdate = (TextView) itemView.findViewById(R.id.datetv);
             tpicauth = (TextView) itemView.findViewById(R.id.authtv);
         }
+    }
+    private void onPdfClick(String title)
+    {
+
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/sdcard/mydownload/"+title+".pdf");
+
+        Uri uri=Uri.parse("/sdcard/mydownload/xyz.pdf");
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(uri, "application/*");
+        context.startActivity(intent);
     }
 }

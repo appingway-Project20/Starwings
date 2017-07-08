@@ -54,7 +54,7 @@ public class TopicsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Courses");
 
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
-        url = "https://techinsta22.000webhostapp.com/app_api/apiTopic.php?apikey=zxcvbnm123zxdewas&chapter_id=0";
+        url = "https://techinsta22.000webhostapp.com/app_api/apiTopic.php?apikey=zxcvbnm123zxdewas&chapter_id=669774461904187";
         trv = (RecyclerView) findViewById(R.id.trv);
         layoutManager = new LinearLayoutManager(this);
         trv.setLayoutManager(layoutManager);
@@ -64,7 +64,7 @@ public class TopicsActivity extends AppCompatActivity {
     }
 
     public void loaddata() {
-        arrayList.add(new TopicData("1", "hello", "chapter", "hello"));
+
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject mainObject) {

@@ -46,14 +46,15 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
         holder.tpicauth.setText(arrayList.get(position).getAuthor());
         holder.topicupdate.setText(arrayList.get(position).getDate());
         holder.topicnm.setText(arrayList.get(position).getTitle());
+        holder.topicno.setText(position);
         holder.topdwn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "downloading Chapter", Toast.LENGTH_SHORT).show();
                 PDFDownload_Async task=new PDFDownload_Async((Activity) context,arrayList.get(position).getTitle());
                 //task.execute(arrayList.get(position).getLink());
-                task.execute("https://www.tutorialspoint.com/body_language/body_language_tutorial.pdf");
-                Toast.makeText(context, "Async task running", Toast.LENGTH_SHORT).show();
+                task.execute("http://starwing.appingway.com/php/web_api/"+arrayList.get(position).getLink());
+                Toast.makeText(context, "Async task running"+"http://starwing.appingway.com/php/web_api/"+arrayList.get(position).getLink(), Toast.LENGTH_SHORT).show();
                 holder.topdwn.setVisibility(View.GONE);
             }
         });
@@ -71,7 +72,7 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
     }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
-        TextView topicnm, tpicauth, topicupdate, topdwn;
+        TextView topicnm, tpicauth, topicupdate, topdwn,topicno;
 
         public myViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +80,7 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
             topdwn = (TextView) itemView.findViewById(R.id.downloadtv);
             topicupdate = (TextView) itemView.findViewById(R.id.datetv);
             tpicauth = (TextView) itemView.findViewById(R.id.authtv);
+            topicno=(TextView)itemView.findViewById(R.id.notv);
         }
     }
     private void onPdfClick(String title)

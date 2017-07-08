@@ -57,7 +57,7 @@ public class ChapterActivity extends AppCompatActivity {
     }
 
     public void loaddata() {
-        arrayList.add(new CourseChapterData("1", "hello", "chapter"));
+        arrayList.add(new CourseChapterData("1", "Oprerating Systems", "nofotopics"));
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject mainObject) {

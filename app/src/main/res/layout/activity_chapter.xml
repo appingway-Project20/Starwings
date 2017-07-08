@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:gravity="end|center_vertical"
             android:paddingRight="10dp"
-            android:text="Name of the Chapter"
+            android:text="No of topics"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>

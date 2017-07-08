@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Starwings.iml" filepath="$PROJECT_DIR$/Starwings.iml" />
-      <module fileurl="file://$PROJECT_DIR$/StarwingsApp.iml" filepath="$PROJECT_DIR$/StarwingsApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

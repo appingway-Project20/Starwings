@@ -26,7 +26,8 @@ public class CenterActivity extends AppCompatActivity {
     Toolbar toolbar;
     TextView toolbartitle;
     LinearLayoutManager layoutManager;
-    List<String> arrayList=new ArrayList<>();
+    String[] arrayList={"Dwarka Ramphal Chowk (Coming Soon)","Laxmi Nagar Near Metrostation (Coming Soon)",
+            "Pitam Pura near Metrostation (Coming Soon)","Janak Puri (Coming Soon)"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,13 +48,13 @@ public class CenterActivity extends AppCompatActivity {
         });
         layoutManager=new LinearLayoutManager(this);
         cenrv.setLayoutManager(layoutManager);
-        List<String> Centres = Arrays.asList(getResources().getStringArray(R.array.Centres));
+        //List<String> Centres = Arrays.asList(getResources().getStringArray(R.array.Centres));
 
         cenrv.setAdapter(new CentreAdapter(arrayList,this));
-        for(String item : Centres){
+        /*for(String item : Centres){
             arrayList.add(item);
             cenrv.getAdapter().notifyDataSetChanged();
-        }
+        }*/
 
 
     }

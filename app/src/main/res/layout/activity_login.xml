@@ -4,15 +4,16 @@
     android:background="#FFA100"
     android:orientation="vertical" >
     <include layout="@layout/toolbar"/>
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -37,29 +38,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#FFFFFF"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/etregis"
+                    android:id="@+id/et_name"
                     android:layout_width="315dp"
                     android:layout_height="50dp"
                     android:background="@drawable/my_custom_background"
                     android:ems="10"
-                    android:hint="Type your registration number"
-                    android:paddingLeft="10dp" >
-                </EditText>
+                    android:hint="@string/hint_name"
+                    android:paddingLeft="10dp"></EditText>
 
                 <EditText
-                    android:id="@+id/etpassword"
+                    android:id="@+id/et_regisno"
                     android:layout_width="315dp"
                     android:layout_height="50dp"
                     android:background="@drawable/my_custom_background"
                     android:ems="10"
-                    android:hint="Password"
-                    android:password="true"
-                    
-                    android:paddingLeft="10dp" >
-                </EditText>
+                    android:hint="@string/hint_regis"
+                    android:paddingLeft="10dp"></EditText>
 
                 <CheckBox
                     android:id="@+id/checkBox1"
@@ -74,10 +71,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:gravity="bottom"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button1"
+                    android:id="@+id/bt_login"
                     android:layout_width="313dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center_horizontal"
@@ -85,6 +82,32 @@
                     android:text="Log In"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:indeterminate="true" />
+
+                <TextView
+                    android:id="@+id/responseView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:paddingTop="15dp"
+                    android:layout_below="@+id/progressBar"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#0000FF"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="wrap_content"

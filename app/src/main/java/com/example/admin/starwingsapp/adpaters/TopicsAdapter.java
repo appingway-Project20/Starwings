@@ -46,7 +46,8 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
         holder.tpicauth.setText(arrayList.get(position).getAuthor());
         holder.topicupdate.setText(arrayList.get(position).getDate());
         holder.topicnm.setText(arrayList.get(position).getTitle());
-        holder.topicno.setText(position);
+
+        holder.topicno.setText(Integer.toString(position+1));
         holder.topdwn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

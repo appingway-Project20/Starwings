@@ -1,5 +1,6 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class ChapterActivity extends AppCompatActivity {
     public JsonObjectRequest request;
     public RequestQueue mRequestQueue;
     RecyclerView rv;
+    TextView title;
     private Toolbar toolbar;
 
     LinearLayoutManager layoutManager;
@@ -43,11 +46,22 @@ public class ChapterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        title= (TextView) toolbar.findViewById(R.id.title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Courses");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setTitle("Notes");
+        View v = toolbar.findViewById(R.id.dashboard);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChapterActivity.this,Dashboard.class);
+                startActivity(intent);
+            }
+        });
         String cid = getIntent().getStringExtra("cid");
-        url = "https://techinsta22.000webhostapp.com/app_api/apiChapter.php?course_id=669774461904187&apikey=zxcvbnm123zxdewas";
+        url = "https://techinsta22.000webhostapp.com/app_api/apiChapter.php?course_id="+cid+"&apikey=zxcvbnm123zxdewas";
+
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
         rv = (RecyclerView) findViewById(R.id.rv);
         layoutManager = new LinearLayoutManager(this);
@@ -57,7 +71,7 @@ public class ChapterActivity extends AppCompatActivity {
     }
 
     public void loaddata() {
-        arrayList.add(new CourseChapterData("1", "Oprerating Systems", "nofotopics"));
+        arrayList.add(new CourseChapterData("1", "Oprerating Systems", "noofnotes"));
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject mainObject) {
@@ -73,10 +87,8 @@ public class ChapterActivity extends AppCompatActivity {
                         String noc = actor.getString(2);
 
                         arrayList.add(new CourseChapterData(chapter_id, chapter_name, noc));
-                        Toast.makeText(ChapterActivity.this, jarray.toString() + "    " + chapter_id + " " + chapter_name + " " + noc, Toast.LENGTH_SHORT).show();
-                    }
+                          }
                     rv.setAdapter(new CourseChapterAdapter(arrayList, ChapterActivity.this));
-                    Toast.makeText(ChapterActivity.this, arrayList.toString(), Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(ChapterActivity.this,

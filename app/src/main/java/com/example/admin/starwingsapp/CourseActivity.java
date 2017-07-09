@@ -1,5 +1,6 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,16 +40,35 @@ public class CourseActivity extends AppCompatActivity {
     public JsonObjectRequest request;
     public RequestQueue mRequestQueue;
     RecyclerView rv;
+    TextView title;
+    String uid;
     LinearLayoutManager layoutManager;
     private Toolbar toolbar;
     public ArrayList<CourseChapterData> arrayList = new ArrayList<>();
-    public String url = "https://techinsta22.000webhostapp.com/app_api/apiCourse.php?token=51154096008101110054&apikey=zxcvbnm123zxdewas";
+    public String url;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursesapi);
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        title= (TextView) toolbar.findViewById(R.id.title);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setTitle("Courses");
+        View v = toolbar.findViewById(R.id.dashboard);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CourseActivity.this,Dashboard.class);
+                startActivity(intent);
+            }
+        });
+
+        uid=getIntent().getStringExtra("uid");
+        url = "https://techinsta22.000webhostapp.com/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Courses");

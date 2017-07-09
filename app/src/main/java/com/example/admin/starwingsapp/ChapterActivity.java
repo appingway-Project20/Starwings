@@ -47,7 +47,8 @@ public class ChapterActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Courses");
         String cid = getIntent().getStringExtra("cid");
-        url = "https://techinsta22.000webhostapp.com/app_api/apiChapter.php?course_id=669774461904187&apikey=zxcvbnm123zxdewas";
+        url = "https://techinsta22.000webhostapp.com/app_api/apiChapter.php?course_id="+cid+"&apikey=zxcvbnm123zxdewas";
+
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
         rv = (RecyclerView) findViewById(R.id.rv);
         layoutManager = new LinearLayoutManager(this);
@@ -57,7 +58,7 @@ public class ChapterActivity extends AppCompatActivity {
     }
 
     public void loaddata() {
-        arrayList.add(new CourseChapterData("1", "Oprerating Systems", "nofotopics"));
+        arrayList.add(new CourseChapterData("1", "Oprerating Systems", "noofnotes"));
         request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject mainObject) {

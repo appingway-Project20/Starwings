@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
@@ -41,7 +40,7 @@
             android:layout_weight="1"
             android:gravity="end|center_vertical"
             android:paddingRight="10dp"
-            android:text="No of chapters"
+            android:text="No of notes"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>

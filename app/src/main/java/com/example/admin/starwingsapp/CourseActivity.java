@@ -37,16 +37,20 @@ public class CourseActivity extends AppCompatActivity {
     public JsonObjectRequest request;
     public RequestQueue mRequestQueue;
     RecyclerView rv;
+    String uid;
     LinearLayoutManager layoutManager;
     private Toolbar toolbar;
     public ArrayList<CourseChapterData> arrayList = new ArrayList<>();
-    public String url = "https://techinsta22.000webhostapp.com/app_api/apiCourse.php?token=51154096008101110054&apikey=zxcvbnm123zxdewas";
+    public String url;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursesapi);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        uid=getIntent().getStringExtra("uid");
+        url = "https://techinsta22.000webhostapp.com/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Courses");

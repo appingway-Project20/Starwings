@@ -132,8 +132,10 @@ public class Login extends AppCompatActivity {
 			try {
 				JSONObject root=new JSONObject(response);
 				success=root.getString("auth_value");
+				String uid=root.getString("uid");
 				if(success.equals("1")){
-					Intent intent =new Intent(Login.this,VideoActivity.class);
+					Intent intent =new Intent(Login.this,ResourcesActivity.class);
+					intent.putExtra("uid",uid);
 					startActivity(intent);
 				}else{
 					responseView.setText("Invalid Name or Registration Number");

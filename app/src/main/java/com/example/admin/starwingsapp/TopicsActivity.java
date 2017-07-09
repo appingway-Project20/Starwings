@@ -1,5 +1,6 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,7 +38,7 @@ public class TopicsActivity extends AppCompatActivity {
     RecyclerView trv;
     LinearLayoutManager layoutManager;
     private Toolbar toolbar;
-    TextView titlen;
+    TextView titlen,title;
     public ArrayList<TopicData> arrayList = new ArrayList<>();
     public String url = "";
 
@@ -49,9 +51,19 @@ public class TopicsActivity extends AppCompatActivity {
         titlen = (TextView) findViewById(R.id.tname);
         titlen.setText(tname);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        title= (TextView) toolbar.findViewById(R.id.title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Topics");
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setTitle("Topics");
+        View v = toolbar.findViewById(R.id.dashboard);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TopicsActivity.this,Dashboard.class);
+                startActivity(intent);
+            }
+        });
 
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
         url = "https://techinsta22.000webhostapp.com/app_api/apiTopic.php?apikey=zxcvbnm123zxdewas&chapter_id="+topic_id;

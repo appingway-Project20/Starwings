@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:background="#257b00"
         android:layout_height="wrap_content"
-        android:text="Courses"
+        android:text="Notes"
         android:padding="10dp"
         android:textColor="#fff"
         android:textSize="24sp"

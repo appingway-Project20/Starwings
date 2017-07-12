@@ -73,6 +73,8 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.schedule:
+                intent=new Intent(Dashboard.this,DailyScheduleActivity.class);
+                startActivity(intent);
                 break;
             case R.id.batches:
                 intent = new Intent(Dashboard.this, BatchesActivity.class);

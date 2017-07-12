@@ -3,7 +3,8 @@
     package="com.example.admin.starwingsapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -52,18 +53,22 @@
             android:parentActivityName=".BatchesActivity" />
         <activity
             android:name=".GSTCourseActivity"
-            android:parentActivityName=".BatchesActivity"></activity>
+            android:parentActivityName=".BatchesActivity" />
         <activity android:name=".CenterActivity" />
         <activity android:name=".Downloads" />
         <activity android:name=".TopicsActivity" />
         <activity android:name=".ChapterActivity" />
         <activity android:name=".CourseActivity" />
-        <activity android:name=".Login"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name=".Support"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name=".VideoActivity"/>
+        <activity
+            android:name=".Login"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".Support"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".VideoActivity" />
         <activity android:name=".ResourcesActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".DailyScheduleActivity"></activity>
     </application>
 
 </manifest>

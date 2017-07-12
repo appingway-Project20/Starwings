@@ -16,10 +16,10 @@ import java.util.List;
 
 public class CentreAdapter extends RecyclerView.Adapter<CentreAdapter.myHolder> {
 
-    String[] arrayList;
+    ArrayList<String> arrayList;
     public Context context;
    // private int lastPosition = -1;
-    public CentreAdapter(String[] List, Context context){
+    public CentreAdapter(ArrayList<String> List, Context context){
         this.arrayList=List;
         this.context=context;
     }
@@ -32,13 +32,13 @@ public class CentreAdapter extends RecyclerView.Adapter<CentreAdapter.myHolder> 
 
     @Override
     public void onBindViewHolder(myHolder holder, int position) {
-        //holder.textView.setText(arrayList.get(position));
+        holder.textView.setText(arrayList.get(position));
         setAnimation(holder.itemView, position);
     }
 
     @Override
     public int getItemCount() {
-        return arrayList.length;
+        return arrayList.size();
     }
 
     public class myHolder extends RecyclerView.ViewHolder {

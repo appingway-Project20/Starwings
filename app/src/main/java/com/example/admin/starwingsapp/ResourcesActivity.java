@@ -5,32 +5,46 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
- * Created by AKASH on 09-07-2017.
+ * Created by LALIT on 09-07-2017.
  */
 
-public class ResourcesActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView resources,courses;
+public class ResourcesActivity extends AppCompatActivity  {
+    @BindView(R.id.ivprofile)
+    ImageView profile;
+    @BindView(R.id.ivcourses)
+    ImageView course;
+    @BindView(R.id.ivresource)
+    ImageView resource;
     Toolbar toolbar;
     TextView title;
     String uid;
+    String profileDetails[];
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resources_layout);
+        ButterKnife.bind(this);
         init();
         uid=getIntent().getStringExtra("uid");
+        profileDetails=getIntent().getStringArrayExtra("profile details");
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         title= (TextView) toolbar.findViewById(R.id.title);
+        title.setText("Resources");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setTitle("Courses");
         View v = toolbar.findViewById(R.id.dashboard);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,28 +54,39 @@ public class ResourcesActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-
-        resources.setOnClickListener(this);
-        courses.setOnClickListener(this);
     }
 
     private void init() {
-        resources= (TextView) findViewById(R.id.resources);
-        courses= (TextView) findViewById(R.id.courses);
+        resource= (ImageView) findViewById(R.id.ivresource);
+        course= (ImageView) findViewById(R.id.ivcourses);
+        profile= (ImageView) findViewById(R.id.ivprofile);
     }
-
-    @Override
-    public void onClick(View v) {
-        int id =v.getId();
-        if(id==R.id.courses){
+    @OnClick({R.id.ivprofile, R.id.ivcourses, R.id.ivresource})
+    public void onViewClicked(View view) {
+        int id =view.getId();
+        if(id==R.id.ivcourses){
             Intent intent = new Intent(ResourcesActivity.this,CourseActivity.class);
             intent.putExtra("uid",uid);
             startActivity(intent);
         }
-        if(id==R.id.resources){
+        if(id==R.id.ivresource){
             Intent intent = new Intent(ResourcesActivity.this,VideoActivity.class);
             intent.putExtra("uid",uid);
             startActivity(intent);
         }
+        if(id==R.id.ivprofile){
+            Intent intent = new Intent(ResourcesActivity.this,ProfileActivity.class);
+            intent.putExtra("profile details",profileDetails);
+            startActivity(intent);
+        }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

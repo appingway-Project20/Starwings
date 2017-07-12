@@ -26,7 +26,8 @@ public class CenterActivity extends AppCompatActivity {
     Toolbar toolbar;
     TextView toolbartitle;
     LinearLayoutManager layoutManager;
-    String[] arrayList={"Dwarka Ramphal Chowk (Coming Soon)","Laxmi Nagar Near Metrostation (Coming Soon)",
+    ArrayList<String> arrayList=new ArrayList<String>();
+    String[] centres={"Dwarka Ramphal Chowk (Coming Soon)","Laxmi Nagar Near Metrostation (Coming Soon)",
             "Pitam Pura near Metrostation (Coming Soon)","Janak Puri (Coming Soon)"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class CenterActivity extends AppCompatActivity {
         setContentView(R.layout.centre_layout);
 
         init();
-        toolbartitle.setText("States");
+        toolbartitle.setText("Centres");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -49,12 +50,12 @@ public class CenterActivity extends AppCompatActivity {
         layoutManager=new LinearLayoutManager(this);
         cenrv.setLayoutManager(layoutManager);
         //List<String> Centres = Arrays.asList(getResources().getStringArray(R.array.Centres));
-
         cenrv.setAdapter(new CentreAdapter(arrayList,this));
-        /*for(String item : Centres){
-            arrayList.add(item);
+
+        for(int i=0; i<4; i++){
+            arrayList.add(centres[i]);
             cenrv.getAdapter().notifyDataSetChanged();
-        }*/
+        }
 
 
     }
@@ -69,7 +70,6 @@ public class CenterActivity extends AppCompatActivity {
     }
 
     private void init() {
-
         cenrv= (RecyclerView) findViewById(R.id.cenrv);
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         toolbartitle= (TextView) toolbar.findViewById(R.id.title);

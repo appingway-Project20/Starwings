@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
 	ProgressBar progressBar;
 	String name,reg_number;
 	TextView responseView;
-	private static final String API_URL="https://techinsta22.000webhostapp.com/app_api/apiLogin.php?";
+	private static final String API_URL="http://starwing.appingway.com/php/app_api/apiLogin.php?";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -124,6 +124,7 @@ public class Login extends AppCompatActivity {
 
 		protected void onPostExecute(String response) {
 			String success="";
+			String profileDetails[] ={"","","",""};
 			if(response == null) {
 				response = "THERE WAS AN ERROR";
 			}
@@ -133,9 +134,14 @@ public class Login extends AppCompatActivity {
 				JSONObject root=new JSONObject(response);
 				success=root.getString("auth_value");
 				String uid=root.getString("uid");
+				profileDetails[0]=root.getString("username");
+				profileDetails[1]=root.getString("user_img");
+				profileDetails[2]=root.getString("dob");
+				profileDetails[3]=root.getString("phone");
 				if(success.equals("1")){
 					Intent intent =new Intent(Login.this,ResourcesActivity.class);
 					intent.putExtra("uid",uid);
+					intent.putExtra("profile details",profileDetails);
 					startActivity(intent);
 				}else{
 					responseView.setText("Invalid Name or Registration Number");

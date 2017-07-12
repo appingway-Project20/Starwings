@@ -4,7 +4,7 @@
     android:fitsSystemWindows="true"
     android:background="#FF7E26"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="45dp"
     android:minHeight="30dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:adndroid="http://schemas.android.com/apk/res-auto">

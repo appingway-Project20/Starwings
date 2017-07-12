@@ -8,7 +8,7 @@ import com.google.android.gms.maps.model.Dash;
 
 public class SplashScreen extends AppCompatActivity {
 
-    private static final int SPLASH_TIME = 3000;
+    private static final int SPLASH_TIME = 2000;
     static int i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

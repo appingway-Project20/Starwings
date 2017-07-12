@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
         android:textAllCaps="true"
-        android:text="DELHI"
         android:textSize="18dp"
         />
 

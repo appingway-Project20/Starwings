@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar"/>
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:background="@drawable/arrowmain">
+
+            <ImageView
+                android:id="@+id/profilepic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/profiletransparent"
+                android:scaleType="fitXY"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="right"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Linda Jonew"
+                        android:textSize="30dp"
+                        android:textColor="#fff"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginBottom="1dp"
+                        android:letterSpacing="0.1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:src="@drawable/cake" />
+
+            <TextView
+                android:id="@+id/dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="July 12, 1998"
+                android:textSize="15dp"
+                android:textColor="@color/colorHead" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="#c6cbcf"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:src="@drawable/phone"
+                android:layout_gravity="right"
+                />
+            <TextView
+                android:id="@+id/phone"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="8090634736"
+                android:textSize="15dp"
+                android:textColor="@color/colorHead"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

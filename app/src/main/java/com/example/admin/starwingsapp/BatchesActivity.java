@@ -75,7 +75,7 @@ String[] courses = {"ACCA","C.A","Excel","G.S.T"};
                 Log.i("End: ", end + "");
 
                 // Multiplication factor
-                int DELAY = 1000;
+                int DELAY = 700;
 
                 // Loop through all visible element
                 for (int i = start; i <= end; i++) {

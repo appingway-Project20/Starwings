@@ -65,9 +65,12 @@
         <activity
             android:name=".Support"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".VideosListActivity"/>
         <activity android:name=".VideoActivity" />
         <activity android:name=".ResourcesActivity" />
         <activity android:name=".ProfileActivity" />
+        <activity android:name=".PapersActivity"/>
+        <activity android:name=".PapersDisplayActivity"/>
         <activity android:name=".DailyScheduleActivity"></activity>
     </application>
 

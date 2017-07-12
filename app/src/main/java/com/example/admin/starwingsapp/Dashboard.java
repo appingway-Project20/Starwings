@@ -9,8 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.model.Dash;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -46,6 +44,7 @@ public class Dashboard extends AppCompatActivity {
     @BindView(R.id.support)
     ImageView support;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +59,7 @@ public class Dashboard extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.about_us, R.id.courses, R.id.schedule, R.id.batches, R.id.editText,R.id.centers, R.id.downloads, R.id.notifications, R.id.lms, R.id.contact_details, R.id.support})
+    @OnClick({R.id.about_us, R.id.courses, R.id.schedule, R.id.batches, R.id.editText, R.id.centers, R.id.downloads, R.id.notifications, R.id.lms, R.id.contact_details, R.id.support})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -69,7 +68,7 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.courses:
-                intent=new Intent(Dashboard.this,OurCourses.class);
+                intent = new Intent(Dashboard.this, OurCourses.class);
                 startActivity(intent);
                 break;
             case R.id.schedule:
@@ -83,32 +82,33 @@ public class Dashboard extends AppCompatActivity {
             case R.id.editText:
                 break;
             case R.id.centers:
-                intent=new Intent(Dashboard.this,CenterActivity.class);
+                intent = new Intent(Dashboard.this, CenterActivity.class);
                 startActivity(intent);
                 break;
             case R.id.downloads:
-                intent=new Intent(Dashboard.this,Downloads.class);
+                intent = new Intent(Dashboard.this, Downloads.class);
                 startActivity(intent);
                 break;
             case R.id.notifications:
-                intent=new Intent(Dashboard.this,NotificationActivity.class);
+                intent = new Intent(Dashboard.this, NotificationActivity.class);
                 startActivity(intent);
                 break;
             case R.id.lms:
-                intent=new Intent(Dashboard.this,Login.class);
+                intent = new Intent(Dashboard.this, Login.class);
                 startActivity(intent);
                 break;
             case R.id.contact_details:
-                intent = new Intent(Dashboard.this,ContactInfoActivity.class);
+                intent = new Intent(Dashboard.this, ContactInfoActivity.class);
                 startActivity(intent);
                 break;
             case R.id.support:
-                intent=new Intent(Dashboard.this,Support.class);
+                intent = new Intent(Dashboard.this, Support.class);
                 startActivity(intent);
                 break;
         }
     }
 
 
-    }
+
+}
 

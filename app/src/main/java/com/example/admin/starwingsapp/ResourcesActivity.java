@@ -3,9 +3,7 @@ package com.example.admin.starwingsapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
@@ -70,7 +68,7 @@ public class ResourcesActivity extends AppCompatActivity  {
             startActivity(intent);
         }
         if(id==R.id.ivresource){
-            Intent intent = new Intent(ResourcesActivity.this,VideoActivity.class);
+            Intent intent = new Intent(ResourcesActivity.this,VideosListActivity.class);
             intent.putExtra("uid",uid);
             startActivity(intent);
         }

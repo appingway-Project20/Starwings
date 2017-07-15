@@ -25,6 +25,8 @@ public class ResourcesActivity extends AppCompatActivity  {
     ImageView course;
     @BindView(R.id.ivresource)
     ImageView resource;
+    @BindView(R.id.ivprevpap)
+    ImageView papers;
     Toolbar toolbar;
     TextView title;
     String uid;
@@ -58,8 +60,9 @@ public class ResourcesActivity extends AppCompatActivity  {
         resource= (ImageView) findViewById(R.id.ivresource);
         course= (ImageView) findViewById(R.id.ivcourses);
         profile= (ImageView) findViewById(R.id.ivprofile);
+        papers= (ImageView) findViewById(R.id.ivprevpap);
     }
-    @OnClick({R.id.ivprofile, R.id.ivcourses, R.id.ivresource})
+    @OnClick({R.id.ivprofile, R.id.ivcourses, R.id.ivresource, R.id.ivprevpap})
     public void onViewClicked(View view) {
         int id =view.getId();
         if(id==R.id.ivcourses){
@@ -77,6 +80,11 @@ public class ResourcesActivity extends AppCompatActivity  {
             intent.putExtra("profile details",profileDetails);
             startActivity(intent);
         }
+        if(id==R.id.ivprevpap){
+            Intent intent = new Intent(ResourcesActivity.this,PapersActivity.class);
+            startActivity(intent);
+        }
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

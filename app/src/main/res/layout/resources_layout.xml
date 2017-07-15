@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#283747"
+    android:orientation="vertical"
     tools:context="com.example.admin.starwingsapp.Dashboard"
     android:weightSum="1">
 
@@ -18,25 +18,26 @@
     <View
         android:layout_width="match_parent"
         android:layout_marginTop="15dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#c0c0c0" />
-
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:layout_weight="0.10">
+        android:layout_weight="0.08">
 
         <android.support.v7.widget.CardView
             android:id="@+id/home"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginRight="12dp"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:elevation="15dp"
             app:cardCornerRadius="8dp">
 
@@ -44,14 +45,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_margin="5dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/ivprofile"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:layout_gravity="center"
                     android:src="@drawable/profile" />
 
@@ -62,17 +63,17 @@
                     android:layout_marginTop="3dp"
                     android:text="PROFILE"
                     android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             android:id="@+id/course"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="12dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/home"
             android:elevation="15dp"
             app:cardCornerRadius="8dp">
@@ -87,9 +88,8 @@
 
                 <ImageView
                     android:id="@+id/ivcourses"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:layout_gravity="center"
                     android:src="@drawable/notes" />
 
@@ -97,20 +97,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="13dp"
+                    android:layout_marginTop="5dp"
                     android:text="NOTES"
                     android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:id="@+id/resource"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
+            android:id="@+id/daily"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/course"
             android:elevation="15dp"
             app:cardCornerRadius="8dp">
@@ -125,9 +124,8 @@
 
                 <ImageView
                     android:id="@+id/ivresource"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
                     android:layout_gravity="center"
                     android:src="@drawable/video" />
 
@@ -138,11 +136,54 @@
                     android:layout_marginTop="5dp"
                     android:text="VIDEO LECTURES"
                     android:textColor="#000000"
-                    android:textSize="15sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
+        <android.support.v7.widget.CardView
+            android:id="@+id/bat"
+            android:layout_width="80dp"
+            android:layout_height="85dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/daily"
+            android:elevation="15dp"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivprevpap"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/papers2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:text="PREVIOUS PAPERS"
+                    android:textColor="#000000"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </RelativeLayout>
 
-
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Log Out"/>
 </LinearLayout>

@@ -61,7 +61,7 @@
                 android:orientation="vertical" >
 
                 <EditText
-                    android:id="@+id/editText1"
+                    android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -80,7 +80,7 @@
                     android:background="#060606" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/etmobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -98,7 +98,7 @@
                     android:background="#060606" />
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -116,7 +116,7 @@
                     android:background="#060606" />
 
                 <EditText
-                    android:id="@+id/editText4"
+                    android:id="@+id/etQuery"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:ems="10"
@@ -172,12 +172,11 @@
                     android:textSize="10sp" />
 
                 <Button
-                    android:id="@+id/button1"
+                    android:id="@+id/btSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginTop="10dp"
                     android:background="#7078f1"
-                    android:enabled="false"
                     android:text="Submit"
                     android:textAlignment="center"
                     android:textColor="#ffffff" />

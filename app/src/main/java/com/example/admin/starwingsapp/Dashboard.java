@@ -1,6 +1,5 @@
 package com.example.admin.starwingsapp;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -50,6 +49,8 @@ public class Dashboard extends AppCompatActivity {
     ImageView contactDetails;
     @BindView(R.id.support)
     ImageView support;
+    @BindView(R.id.gallery)
+    ImageView gallery;
     AlertDialog.Builder builder;
     AlertDialog my_dialog;
 
@@ -107,7 +108,7 @@ public class Dashboard extends AppCompatActivity {
         }
         return haveConnectedWifi || haveConnectedMobile;
     }
-    @OnClick({R.id.about_us, R.id.courses, R.id.schedule, R.id.batches, R.id.editText, R.id.centers, R.id.downloads, R.id.notifications, R.id.lms, R.id.contact_details, R.id.support})
+    @OnClick({R.id.about_us, R.id.courses, R.id.schedule, R.id.batches, R.id.editText, R.id.centers, R.id.downloads, R.id.notifications, R.id.lms, R.id.contact_details, R.id.support, R.id.gallery})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -151,6 +152,10 @@ public class Dashboard extends AppCompatActivity {
                 break;
             case R.id.support:
                 intent = new Intent(Dashboard.this, Support.class);
+                startActivity(intent);
+                break;
+            case R.id.gallery:
+                intent = new Intent(Dashboard.this, GalleryActivity.class);
                 startActivity(intent);
                 break;
         }

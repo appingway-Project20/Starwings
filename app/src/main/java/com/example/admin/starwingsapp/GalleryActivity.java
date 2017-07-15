@@ -1,0 +1,119 @@
+package com.example.admin.starwingsapp;
+
+import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
+
+import com.example.admin.starwingsapp.adpaters.GalleryAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
+public class GalleryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<String>> {
+
+    private static final String TAG = GalleryActivity.class.getSimpleName();
+    private static final String API_URL = "http://starwing.appingway.com/php/app_api/apiGallery.php";
+    private static final String API_KEY = "zxcvbnm123zxdewas";
+    private static final String SEARCH_QUERY_URL_EXTRA = "query";
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdpater;
+
+    private static final int IMAGES_LOADER = 101;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)   {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_gallery);
+
+
+        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        fetchImageUrlsQuery();
+    }
+
+    @Override
+    public Loader<ArrayList<String>> onCreateLoader(int id, final Bundle args) {
+        return new AsyncTaskLoader<ArrayList<String>>(this) {
+            @Override
+            protected void onStartLoading() {
+                if(args == null)
+                    return;
+                forceLoad();
+                super.onStartLoading();
+            }
+
+            @Override
+            public ArrayList<String> loadInBackground() {
+                String response = null;
+                ArrayList<String> links = new ArrayList<>();
+
+                String url = args.getString(SEARCH_QUERY_URL_EXTRA);
+                Log.i(TAG,"url: "+url);
+                if(url == null || TextUtils.isEmpty(url)){
+                    return null;
+                }try {
+                    url = url + "?apikey=" + API_KEY;
+
+                    response = HttpRequest.get(url).body();
+                    Log.d(TAG,"response: "+response);
+                    links = parseJsonAndReturnImageUrls(response);
+                    return links;
+                }
+                catch (HttpRequest.HttpRequestException e){
+                    e.printStackTrace();
+                }
+                return links;
+            }
+        };
+    }
+
+    @Override
+    public void onLoadFinished(Loader<ArrayList<String>> loader, ArrayList<String> data) {
+        mAdpater = new GalleryAdapter(data,this);
+        mRecyclerView.setAdapter(mAdpater);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<ArrayList<String>> loader) {
+
+    }
+
+
+    private void fetchImageUrlsQuery(){
+        Bundle bundle = new Bundle();
+        bundle.putString(SEARCH_QUERY_URL_EXTRA, API_URL);
+
+        LoaderManager loaderManager = getSupportLoaderManager();
+        loaderManager.initLoader(IMAGES_LOADER, bundle, this);
+    }
+    private ArrayList<String> parseJsonAndReturnImageUrls(String jsonData){
+        String imageUri = null;
+
+        ArrayList<String> imageUrls = new ArrayList<>();
+        try {
+            JSONArray root = new JSONArray(jsonData);
+            for (int i=0; i< root.length(); i++){
+                JSONObject imageLinksProperty = root.getJSONObject(i);
+                imageUri = imageLinksProperty.getString("Link");
+                Log.d(TAG,"Link: "+imageUri);
+                imageUrls.add(imageUri);
+
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return imageUrls;
+
+    }
+}

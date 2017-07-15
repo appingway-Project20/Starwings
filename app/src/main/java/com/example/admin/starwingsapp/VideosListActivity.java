@@ -137,5 +137,9 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
         intent.putExtra(Intent.EXTRA_TEXT, videoPath);
         startActivity(intent);
     }
+    private void parseJsonAndReturnImageUrls(String data){
+
+
+    }
 }
 

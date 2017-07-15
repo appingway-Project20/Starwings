@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "795032897658",
+    "firebase_url": "https://starwing-682e2.firebaseio.com",
+    "project_id": "starwing-682e2",
+    "storage_bucket": "starwing-682e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795032897658:android:266817e4577ca1ec",
+        "android_client_info": {
+          "package_name": "com.example.admin.starwingsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795032897658-3qvt862urh7dl0osm7holftf74knsp9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV_2t8-fryBwTxTNHTaRnmlQ2s_Sx2Y00"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

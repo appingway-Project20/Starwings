@@ -3,6 +3,7 @@ package com.example.admin.starwingsapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
@@ -21,6 +22,7 @@ import butterknife.OnClick;
 
 public class Dashboard extends AppCompatActivity {
 
+    String filename ="myFile" ;
     @BindView(R.id.about_us)
     ImageView aboutUs;
     @BindView(R.id.courses)
@@ -53,7 +55,7 @@ public class Dashboard extends AppCompatActivity {
     ImageView gallery;
     AlertDialog.Builder builder;
     AlertDialog my_dialog;
-
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +92,38 @@ public class Dashboard extends AppCompatActivity {
                     my_dialog=builder.create();
                     my_dialog.show();
         }
+        SharedPreferences sharedPrefs = getApplicationContext().getSharedPreferences(filename, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        if(sharedPrefs.getBoolean("firstTime",true)){
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(this);
+            }
 
+            builder.setTitle("Enable Notifications");
+            builder.setMessage("It's good to stay updated and informed! Do you want to enable notifications?");
+
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    my_dialog.dismiss();
+                    intent =new Intent(Dashboard.this,NotificationActivity.class);
+
+                    startActivity(intent);
+
+                }
+            })
+                    .setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            my_dialog.dismiss();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert);
+            my_dialog=builder.create();
+            my_dialog.show();
+            editor.putBoolean("firstTime",false);
+            editor.commit();
+        }
     }
     private boolean haveNetworkConnection() {
         boolean haveConnectedWifi = false;

@@ -108,6 +108,7 @@
         <activity android:name=".PapersDisplayActivity" />
         <activity android:name=".DailyScheduleActivity" />
         <activity android:name=".GalleryActivity"></activity>
+        <activity android:name=".TimeTableActivity"></activity>
     </application>
 
 </manifest>

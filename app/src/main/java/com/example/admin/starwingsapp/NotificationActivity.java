@@ -15,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,7 @@ public class NotificationActivity extends AppCompatActivity {
     ArrayList<NotificationData> arrayList;
     LinearLayoutManager layoutManager;
     TextView titleView;
+    Switch switchnotify;
     private static final String TAG = "MainActivity";
 
     private BroadcastReceiver mRegistrationBroadcastReceiver;
@@ -71,16 +74,20 @@ public class NotificationActivity extends AppCompatActivity {
                 if (!intent.getExtras().getBoolean("register"))
                     tkmsg = getString(R.string.gcm_unregister_message);
                 tkmsg = intent.getStringExtra("prefix") + tkmsg;
-                if (sentToken) {
-                    //mInformationTextView.setText(tkmsg);
-                } else {
-                    //mInformationTextView.setText(getString(R.string.token_error_message) + tkmsg);
-                }
             }
         };
-        //mInformationTextView = (TextView) findViewById(R.id.informationTextView);
 
-        startRegistrationService(true, false);
+        switchnotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    startRegistrationService(true, false);
+                }else {
+                    startRegistrationService(false,false);
+                }
+            }
+        });
+        //startRegistrationService(true, false);
         //GCM related part end
 
         layoutManager=new LinearLayoutManager(this);
@@ -129,17 +136,13 @@ public class NotificationActivity extends AppCompatActivity {
         arrayList=new ArrayList<>();
         rv= (RecyclerView) findViewById(R.id.notrv);
         toolbar= (Toolbar) findViewById(R.id.toolbar);
+        switchnotify = (Switch) findViewById(R.id.switchnotify);
     }
 
     public void startRegistrationService(boolean reg, boolean tkr) {
 
         if (GCMCommonUtils.checkPlayServices(this)) {
-            //mRegistrationProgressBar = (ProgressBar) findViewById(R.id.registrationProgressBar);
-            //mRegistrationProgressBar.setVisibility(View.VISIBLE);
-            //TextView tv = (TextView) findViewById(R.id.informationTextView);
-            //if (reg) tv.setText(R.string.registering_message);
-            //else tv.setText(R.string.unregistering_message);
-            Toast.makeText(this, "Background service started...", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "Background service started...", Toast.LENGTH_LONG).show();
             // Start IntentService to register this application with GCM.
             Intent intent = new Intent(this, MyGCMRegistrationIntentService.class);
             intent.putExtra("register", reg);

@@ -11,8 +11,7 @@
         <FrameLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:background="@drawable/arrowmain">
+            android:layout_height="450dp">
 
             <ImageView
                 android:id="@+id/profilepic"

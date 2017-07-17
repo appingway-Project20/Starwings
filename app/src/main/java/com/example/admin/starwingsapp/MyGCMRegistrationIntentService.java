@@ -133,6 +133,7 @@ public class MyGCMRegistrationIntentService extends IntentService {
                 // sent to your server. If the boolean is false, send the token to your server,
                 // otherwise your server should have already received the token.
                 sharedPreferences.edit().putBoolean(GCMSharedPreferences.SENT_TOKEN_TO_SERVER, true).apply();
+                Toast.makeText(this, "Registered with server", Toast.LENGTH_SHORT).show();
                 return;
             } catch (IOException e) {
                 Toast.makeText(this, "Failed to register...", Toast.LENGTH_SHORT).show();
@@ -176,6 +177,7 @@ public class MyGCMRegistrationIntentService extends IntentService {
             try {
                 post(serverUrl, params);
                 sharedPreferences.edit().putBoolean(GCMSharedPreferences.SENT_TOKEN_TO_SERVER, true).apply();
+                Toast.makeText(this, "Unregistered from server", Toast.LENGTH_SHORT).show();
                 return;
             } catch (IOException e) {
                 Toast.makeText(this, "Failed to un-register...", Toast.LENGTH_SHORT).show();

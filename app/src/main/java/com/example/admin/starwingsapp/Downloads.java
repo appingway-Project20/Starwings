@@ -28,7 +28,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.IOException;
 
 public class Downloads extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 	Toast t;
@@ -40,8 +39,10 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 	private static final String API_KEY = "zxcvbnm123zxdewas";
 	private static final int WRITE_REQUEST_CODE = 43;
 	private static final String FILE_URL = "http://starwing.appingway.com/php/web_api/uploads/5962f9b499909statusmessages.pdf";
-	private Uri fileUri;
 	private ProgressBar progressBar;
+
+	View fileContainerView;
+	TextView fileDownloadStatusTv;
 
 	private static final String TAG = Downloads.class.getSimpleName();
 
@@ -62,11 +63,13 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 			public void onClick(View view) {
 				Intent intent = new Intent(Downloads.this, Dashboard.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 		Toast t = Toast.makeText(Downloads.this,
 				"My downloads", Toast.LENGTH_SHORT);
 		t.show();
+		initViews();
 		checkPermission();
 
 	}
@@ -111,29 +114,29 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 				} catch (HttpRequest.HttpRequestException e) {
 					e.printStackTrace();
 				}
-				String fileUrl = "http://starwing.appingway.com/php/web_api/uploads/5962f9b499909statusmessages.pdf";
-				Log.d(TAG, "file url: " + fileUrl);
-				String fileName = "test.pdf";
-				String extStorageDirectory = Environment.getExternalStorageDirectory().getAbsolutePath();
-				Log.d(TAG, "external storage directory: " + extStorageDirectory);
-//				String storagePath = null;
+//				String fileUrl = "http://starwing.appingway.com/php/web_api/uploads/5962f9b499909statusmessages.pdf";
+//				Log.d(TAG, "file url: " + fileUrl);
+//				String fileName = "test.pdf";
+//				String extStorageDirectory = Environment.getExternalStorageDirectory().getAbsolutePath();
+//				Log.d(TAG, "external storage directory: " + extStorageDirectory);
+////				String storagePath = null;
+////				try {
+////					storagePath = PathUtil.getPath(Downloads.this, Uri.parse(extStorageDirectory));
+////					Log.d(TAG, "path: " + storagePath);
+////				} catch (URISyntaxException e) {
+////					e.printStackTrace();
+////				}
+//				File folder = new File(extStorageDirectory, "testthreepdf");
+//				folder.mkdir();
+////				createFile("application/pdf", fileName);
+//				File pdfFile = new File(folder, fileName);
+//
 //				try {
-//					storagePath = PathUtil.getPath(Downloads.this, Uri.parse(extStorageDirectory));
-//					Log.d(TAG, "path: " + storagePath);
-//				} catch (URISyntaxException e) {
+//					pdfFile.createNewFile();
+//				} catch (IOException e) {
 //					e.printStackTrace();
 //				}
-				File folder = new File(extStorageDirectory, "testthreepdf");
-				folder.mkdir();
-//				createFile("application/pdf", fileName);
-				File pdfFile = new File(folder, fileName);
-
-				try {
-					pdfFile.createNewFile();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				FileDownloader.downloadFile(fileUrl, pdfFile);
+//				FileDownloader.downloadFile(fileUrl, pdfFile);
 				return response;
 
 			}
@@ -144,7 +147,16 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 	public void onLoadFinished(Loader<String> loader, String data) {
 		progressBar.setVisibility(View.INVISIBLE);
 		//String url = parseJsonAndReturnFileUrl(data);
-		showFile();
+		//showFile();
+//
+
+		fileDownloadStatusTv.setText("Click here to open file: "+"test.pdf");
+		fileContainerView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				showFile();
+			}
+		});
 	}
 
 
@@ -193,12 +205,12 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 	void checkPermission() {
 		if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 			//if permission granted, initialize the views
-			if(!fileExistance("test.pdf")){
+//			if(!fileExistance("test.pdf")){
 				fetchNotesQuery();
-			}
-			else {
-				showFile();
-			}
+//			}
+//			else {
+//			showFile();
+//			}
 		} else {
 			//show the dialog requesting to grant permission
 			ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
@@ -242,6 +254,34 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 		} catch (ActivityNotFoundException e) {
 			Toast.makeText(Downloads.this, "No Application available to view PDF", Toast.LENGTH_SHORT).show();
 		}
+	}
+	private void initViews(){
+		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		toolbar = (Toolbar) findViewById(R.id.toolbar);
+		title = (TextView) toolbar.findViewById(R.id.title);
+
+		fileContainerView = findViewById(R.id.file_container);
+		fileDownloadStatusTv = (TextView)findViewById(R.id.tvfiles);
+	}
+	private void updateContents(String data){
+		String filePath = parseJsonAndReturnFileUrl(data);
+		File file = new File(filePath);
+		String fileName = file.getName();
+
+		fileDownloadStatusTv.setText("Click here to open file: "+fileName);
+		fileContainerView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if(fileExistance("test.pdf")){
+					showFile();
+
+				}
+				else {
+					Toast.makeText(getApplicationContext(), "File doesn't exist!", Toast.LENGTH_SHORT).show();
+				}
+			}
+
+		});
 	}
 }
 

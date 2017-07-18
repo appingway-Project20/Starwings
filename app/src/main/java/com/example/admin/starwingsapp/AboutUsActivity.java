@@ -35,6 +35,7 @@ public class AboutUsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(AboutUsActivity.this,Dashboard.class);
                 startActivity(intent);
+                finish();
             }
         });
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);

@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.example.admin.starwingsapp.adpaters.CentreAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by AKASH on 22-06-2017.
@@ -45,6 +43,7 @@ public class CenterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CenterActivity.this,Dashboard.class);
                 startActivity(intent);
+                finish();
             }
         });
         layoutManager=new LinearLayoutManager(this);

@@ -2,8 +2,7 @@ package com.example.admin.starwingsapp;
 
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +16,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -35,6 +32,8 @@ public class Login extends AppCompatActivity {
 	String name,reg_number;
 	TextView responseView;
 	private static final String API_URL="http://starwing.appingway.com/php/app_api/apiLogin.php?";
+	public static final String PREFS_NAME = "LoginPrefs";
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,12 +45,18 @@ public class Login extends AppCompatActivity {
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		TextView toolbartitle= (TextView) toolbar.findViewById(R.id.title);
 		toolbartitle.setText("Login");
+		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+		if (settings.getString("logged", "").toString().equals("logged")) {
+			Intent intent = new Intent(Login.this, ResourcesActivity.class);
+			startActivity(intent);
+		}
 		View v = toolbar.findViewById(R.id.dashboard);
 		v.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				Intent intent = new Intent(Login.this,Dashboard.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 
@@ -139,6 +144,12 @@ public class Login extends AppCompatActivity {
 				profileDetails[2]=root.getString("dob");
 				profileDetails[3]=root.getString("phone");
 				if(success.equals("1")){
+					SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+					SharedPreferences.Editor editor = settings.edit();
+					editor.putString("logged", "logged");
+					editor.commit();
+					Toast.makeText(getApplicationContext(), "Successful Login", Toast.LENGTH_SHORT).show();
+
 					Intent intent =new Intent(Login.this,ResourcesActivity.class);
 					intent.putExtra("uid",uid);
 					intent.putExtra("profile details",profileDetails);
@@ -149,6 +160,7 @@ public class Login extends AppCompatActivity {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
+				Toast.makeText(getApplicationContext(),"Invalid username or password!", Toast.LENGTH_SHORT).show();
 			}
 
 		}

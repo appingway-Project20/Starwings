@@ -56,6 +56,7 @@ String[] courses = {"ACCA","C.A","Excel","G.S.T"};
             public void onClick(View view) {
                 Intent intent = new Intent(BatchesActivity.this,Dashboard.class);
                 startActivity(intent);
+                finish();
             }
         });
 

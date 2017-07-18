@@ -62,6 +62,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:background="#FF4C00"
+            android:id="@+id/file_container"
             android:orientation="vertical" >
 
             <LinearLayout

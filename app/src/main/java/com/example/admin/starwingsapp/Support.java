@@ -1,19 +1,14 @@
 package com.example.admin.starwingsapp;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.AbsListView;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -47,6 +42,7 @@ public class Support extends AppCompatActivity {
 			public void onClick(View view) {
 				Intent intent = new Intent(Support.this,Dashboard.class);
 				startActivity(intent);
+				finish();
 			}
 		});
 		submit.setOnClickListener(new View.OnClickListener() {

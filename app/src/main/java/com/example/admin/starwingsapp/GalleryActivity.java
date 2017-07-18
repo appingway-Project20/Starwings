@@ -1,5 +1,6 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -7,8 +8,10 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 
 import com.example.admin.starwingsapp.adpaters.GalleryAdapter;
 
@@ -28,12 +31,29 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdpater;
 
+    private Toolbar toolbar;
+
+
     private static final int IMAGES_LOADER = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
+        toolbar =(Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        View v = toolbar.findViewById(R.id.dashboard);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GalleryActivity.this,Dashboard.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);

@@ -41,6 +41,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImagesHo
         Log.d(TAG,"link: "+link);
         Picasso.with(context)
                 .load(link)
+                .placeholder(R.drawable.ic_picture_gallery)
+                .error(R.drawable.ic_error_triangle)
                 .resize(320,240)
                 .centerCrop()
                 .into(holder.galleryIv);

@@ -107,8 +107,8 @@
         <activity android:name=".PapersActivity" />
         <activity android:name=".PapersDisplayActivity" />
         <activity android:name=".DailyScheduleActivity" />
-        <activity android:name=".GalleryActivity"></activity>
-        <activity android:name=".TimeTableActivity"></activity>
+        <activity android:name=".GalleryActivity"
+            android:parentActivityName=".Dashboard"></activity>
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 package com.example.admin.starwingsapp;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,12 +24,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -68,7 +61,7 @@ public class CourseActivity extends AppCompatActivity {
         });
 
         uid=getIntent().getStringExtra("uid");
-        url = "https://techinsta22.000webhostapp.com/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
+        url = "http://starwing.appingway.com/php/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Courses");

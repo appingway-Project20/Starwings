@@ -34,6 +34,7 @@ public class ContactInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ContactInfoActivity.this,Dashboard.class);
                 startActivity(intent);
+                finish();
             }
         });
 

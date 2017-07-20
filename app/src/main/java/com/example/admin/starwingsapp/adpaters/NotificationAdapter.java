@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.R;
-import com.example.admin.starwingsapp.models.NotificationData;
 
 import java.util.ArrayList;
 
@@ -20,10 +19,10 @@ import java.util.ArrayList;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.myViewHolder> {
 
-    public ArrayList<NotificationData> arrayList=new ArrayList<>();
+    public ArrayList<String> arrayList=new ArrayList<>();
     public Context context;
 
-    public NotificationAdapter(ArrayList<NotificationData> arrayList, Context context){
+    public NotificationAdapter(ArrayList<String> arrayList, Context context){
         this.arrayList=arrayList;
         this.context=context;
     }
@@ -36,8 +35,12 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(final myViewHolder holder, int position) {
-        holder.notdet.setText(arrayList.get(position).getDetails());
-        holder.nottit.setText(arrayList.get(position).getTitle());
+        holder.nottit.setText("Click to see the notifications");
+        if (getItemCount()==0) {
+            holder.notdet.setText("There are no new notifications till now!");
+        }else{
+            holder.notdet.setText(arrayList.get(position));
+        }
         holder.notcv.setVisibility(View.GONE);
 
         holder.nottitrl.setOnClickListener(new View.OnClickListener() {

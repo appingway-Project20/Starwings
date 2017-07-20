@@ -18,24 +18,25 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.admin.starwingsapp.adpaters.NotificationAdapter;
-import com.example.admin.starwingsapp.models.NotificationData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
- * Created by AKASH on 21-06-2017.
+ * Created by LALIT on 21-06-2017.
  */
 
 public class NotificationActivity extends AppCompatActivity {
     RecyclerView rv;
     Toolbar toolbar;
-    String message;
-    ArrayList<NotificationData> arrayList;
+    String message,file;
+    ArrayList<String> arrayList;
     LinearLayoutManager layoutManager;
     TextView titleView;
+    SharedPreferences.Editor editor;
+    SharedPreferences prefs;
     Switch switchnotify;
     private static final String TAG = "MainActivity";
 
@@ -46,7 +47,7 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notification_layout);
         init();
-        titleView = (TextView)toolbar.findViewById(R.id.title);
+        titleView = (TextView) toolbar.findViewById(R.id.title);
         titleView.setText("Notifications");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,7 +56,7 @@ public class NotificationActivity extends AppCompatActivity {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NotificationActivity.this,Dashboard.class);
+                Intent intent = new Intent(NotificationActivity.this, Dashboard.class);
                 startActivity(intent);
             }
         });
@@ -76,51 +77,47 @@ public class NotificationActivity extends AppCompatActivity {
                 tkmsg = intent.getStringExtra("prefix") + tkmsg;
             }
         };
-
+        prefs = getApplicationContext().getSharedPreferences(file, Context.MODE_PRIVATE);
+        editor = prefs.edit();
+        switchnotify.setChecked(prefs.getBoolean("isChecked", false));
         switchnotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     startRegistrationService(true, false);
-                }else {
-                    startRegistrationService(false,false);
+                } else {
+                    startRegistrationService(false, false);
                 }
+                editor.putBoolean("isChecked", isChecked);
+                editor.commit();
             }
         });
         //startRegistrationService(true, false);
         //GCM related part end
-
-        layoutManager=new LinearLayoutManager(this);
+        message = getIntent().getStringExtra("message");
+        arrayList=new ArrayList<String>(prefs.getStringSet("list",new HashSet<String>()));
+        if (message!=null){
+            arrayList.add(message);
+        }
+        layoutManager = new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
-        message=getIntent().getStringExtra("message");
-        arrayList.add(new NotificationData("This is the title",message));
-        rv.setAdapter(new NotificationAdapter(arrayList,this));
-
+        rv.setAdapter(new NotificationAdapter(arrayList, this));
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
                 new IntentFilter(GCMSharedPreferences.REGISTRATION_COMPLETE));
+        //arrayList=new ArrayList<String>(prefs.getStringSet("list",new HashSet<String>()));
     }
 
     @Override
     protected void onPause() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+        editor.putStringSet("list",new HashSet<String>(arrayList));
+        editor.commit();
         super.onPause();
     }
-    /*@Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.ret_btn) {
-            startRegistrationService(true, true);
-        }
-        if (view.getId() == R.id.unreg_btn) {
-            //try to unregister
-            startRegistrationService(false, false);
-        }
-
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -142,8 +139,6 @@ public class NotificationActivity extends AppCompatActivity {
     public void startRegistrationService(boolean reg, boolean tkr) {
 
         if (GCMCommonUtils.checkPlayServices(this)) {
-            //Toast.makeText(this, "Background service started...", Toast.LENGTH_LONG).show();
-            // Start IntentService to register this application with GCM.
             Intent intent = new Intent(this, MyGCMRegistrationIntentService.class);
             intent.putExtra("register", reg);
             intent.putExtra("tokenRefreshed", tkr);

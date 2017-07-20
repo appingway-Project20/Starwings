@@ -109,6 +109,9 @@
         <activity android:name=".DailyScheduleActivity" />
         <activity android:name=".GalleryActivity"
             android:parentActivityName=".Dashboard"></activity>
+        <activity android:name=".BatchDetailsActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".TimeTableActivity" />
     </application>
 
 </manifest>

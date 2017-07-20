@@ -345,40 +345,8 @@
         android:id="@+id/row3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:gravity="center">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="6dp"
-            android:elevation="15dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_home" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:text="HOME"
-                    android:textColor="#000000"
-                    android:textSize="7sp" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
             android:id="@+id/det"
@@ -390,25 +358,25 @@
             app:cardCornerRadius="8dp">
 
             <LinearLayout
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/contact_details"
                     android:layout_width="42dp"
-                    android:layout_height="42dp"
                     android:layout_gravity="center"
+                    android:layout_height="42dp"
                     android:src="@drawable/ic_contact_details" />
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
                     android:text="CONTACT INFO"
                     android:textColor="#000000"
                     android:textSize="7sp" />
@@ -427,45 +395,79 @@
             app:cardCornerRadius="8dp">
 
             <LinearLayout
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
+                    android:layout_gravity="center"
                     android:id="@+id/support"
                     android:layout_width="42dp"
                     android:layout_height="42dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
                     android:src="@drawable/ic_support_speech_bubble" />
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="5dp"
                     android:text="SUPPORT/QUERY"
                     android:textColor="#000000"
                     android:textSize="7sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
+            android:id="@+id/news"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:layout_toRightOf="@id/suppo"
-            android:id="@+id/gallery_container"
+            android:layout_toRightOf="@+id/suppo"
             android:elevation="15dp"
             app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_margin="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivnews"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/news" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="NEWS"
+                    android:textColor="#000000"
+                    android:textSize="7sp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/gallery_container"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_toRightOf="@id/news"
+            android:elevation="15dp"
+            app:cardCornerRadius="8dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -476,26 +478,19 @@
                 <ImageView
                     android:id="@+id/gallery"
                     android:layout_width="42dp"
-                    android:layout_height="42dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
+                    android:layout_height="42dp"
                     android:src="@drawable/ic_icon" />
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginEnd="1dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginTop="5dp"
-                    android:text="Gallery"
+                    android:text="GALLERY"
                     android:textColor="#000000"
                     android:textSize="7sp" />
             </LinearLayout>
-
         </android.support.v7.widget.CardView>
     </RelativeLayout>
 

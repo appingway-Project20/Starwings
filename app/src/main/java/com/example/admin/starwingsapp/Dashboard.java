@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,14 +24,14 @@ import butterknife.OnClick;
 public class Dashboard extends AppCompatActivity {
 
     String filename ="myFile" ;
-    @BindView(R.id.about_us)
-    ImageView aboutUs;
-    @BindView(R.id.courses)
-    ImageView courses;
-    @BindView(R.id.schedule)
-    ImageView schedule;
-    @BindView(R.id.batches)
-    ImageView batches;
+    @BindView(R.id.home)
+    CardView home;
+    @BindView(R.id.course)
+    CardView courses;
+    @BindView(R.id.daily)
+    CardView schedule;
+    @BindView(R.id.bat)
+    CardView batches;
     @BindView(R.id.editText)
     TextView editText;
     @BindView(R.id.title)
@@ -39,20 +40,23 @@ public class Dashboard extends AppCompatActivity {
     LinearLayout dashboard;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.centers)
-    ImageView centers;
-    @BindView(R.id.downloads)
-    ImageView downloads;
-    @BindView(R.id.notifications)
-    ImageView notifications;
-    @BindView(R.id.lms)
-    ImageView lms;
-    @BindView(R.id.contact_details)
-    ImageView contactDetails;
-    @BindView(R.id.support)
-    ImageView support;
-    @BindView(R.id.gallery)
-    ImageView gallery;
+    @BindView(R.id.india)
+    CardView centers;
+    @BindView(R.id.down)
+    CardView downloads;
+    @BindView(R.id.not)
+    CardView notifications;
+    @BindView(R.id.lm)
+    CardView lms;
+    @BindView(R.id.det)
+    CardView contactDetails;
+    @BindView(R.id.suppo)
+    CardView support;
+    @BindView(R.id.news)
+    CardView news;
+    @BindView(R.id.gallery_container)
+    CardView gallery;
+
     AlertDialog.Builder builder;
     AlertDialog my_dialog;
     Intent intent;
@@ -141,53 +145,57 @@ public class Dashboard extends AppCompatActivity {
         }
         return haveConnectedWifi || haveConnectedMobile;
     }
-    @OnClick({R.id.about_us, R.id.courses, R.id.schedule, R.id.batches, R.id.editText, R.id.centers, R.id.downloads, R.id.notifications, R.id.lms, R.id.contact_details, R.id.support, R.id.gallery})
+    @OnClick({R.id.home, R.id.course, R.id.daily, R.id.bat, R.id.editText, R.id.india, R.id.down, R.id.not, R.id.lm, R.id.det, R.id.suppo, R.id.news,R.id.gallery_container})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
-            case R.id.about_us:
+            case R.id.home:
                 intent = new Intent(Dashboard.this, AboutUsActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.courses:
+            case R.id.course:
                 intent = new Intent(Dashboard.this, OurCourses.class);
                 startActivity(intent);
                 break;
-            case R.id.schedule:
+            case R.id.daily:
                 intent=new Intent(Dashboard.this,DailyScheduleActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.batches:
+            case R.id.bat:
                 intent = new Intent(Dashboard.this, BatchesActivity.class);
                 startActivity(intent);
                 break;
             case R.id.editText:
                 break;
-            case R.id.centers:
+            case R.id.india:
                 intent = new Intent(Dashboard.this, CenterActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.downloads:
+            case R.id.down:
                 intent = new Intent(Dashboard.this, Downloads.class);
                 startActivity(intent);
                 break;
-            case R.id.notifications:
+            case R.id.not:
                 intent = new Intent(Dashboard.this, NotificationActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.lms:
+            case R.id.lm:
                 intent = new Intent(Dashboard.this, Login.class);
                 startActivity(intent);
                 break;
-            case R.id.contact_details:
+            case R.id.det:
                 intent = new Intent(Dashboard.this, ContactInfoActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.support:
+            case R.id.suppo:
                 intent = new Intent(Dashboard.this, Support.class);
                 startActivity(intent);
                 break;
-            case R.id.gallery:
+            case R.id.news:
+                intent = new Intent(Dashboard.this, NewsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.gallery_container:
                 intent = new Intent(Dashboard.this, GalleryActivity.class);
                 startActivity(intent);
                 break;

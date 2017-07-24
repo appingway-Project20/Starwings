@@ -12,7 +12,7 @@ public class GCMCommonUtils {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     // put your server registration url here, must end with a /
-    public static final String SERVER_URL = "http://starwing.appingway.com/php/gcmsender/";
+    public static final String SERVER_URL = "http://starwingslearningdestination.com/php/gcmsender/";
 
     public static String notificationType[] = {"default", "type1"};
 

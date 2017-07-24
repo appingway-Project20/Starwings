@@ -31,7 +31,7 @@ public class Login extends AppCompatActivity {
 	ProgressBar progressBar;
 	String name,reg_number;
 	TextView responseView;
-	private static final String API_URL="http://starwing.appingway.com/php/app_api/apiLogin.php?";
+	private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiLogin.php?";
 	public static final String PREFS_NAME = "LoginPrefs";
 
 	@Override

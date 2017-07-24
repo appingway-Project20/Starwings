@@ -60,7 +60,7 @@ public class ChapterActivity extends AppCompatActivity {
             }
         });
         String cid = getIntent().getStringExtra("cid");
-        url = "https://techinsta22.000webhostapp.com/app_api/apiChapter.php?course_id="+cid+"&apikey=zxcvbnm123zxdewas";
+        url = "http://starwingslearningdestination.com/php/app_api/apiChapter.php?course_id="+cid+"&apikey=zxcvbnm123zxdewas";
 
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
         rv = (RecyclerView) findViewById(R.id.rv);

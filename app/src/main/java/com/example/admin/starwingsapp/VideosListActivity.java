@@ -27,7 +27,7 @@ import java.io.File;
 public class VideosListActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>, VideosAdapter.ListItemClickListener {
 
     private static final int VIDEO_LOADER = 100;
-    private static final String API_URL="http://starwing.appingway.com/php/app_api/apiTopic.php";
+    private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiTopic.php";
     private static final String API_KEY = "zxcvbnm123zxdewas";
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     private static final String TAG = VideosListActivity.class.getSimpleName();

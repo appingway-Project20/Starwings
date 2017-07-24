@@ -25,7 +25,7 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
     private static final int PAPERS_DOWNLOAD_LOADER = 100;
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     private static final int WRITE_REQUEST_CODE = 43;
-    private static final String API_URL = "http://starwing.appingway.com/php/web_api/";
+    private static final String API_URL = "http://starwingslearningdestination.com/php/web_api/";
     private String fileUrl;
 
     @Override

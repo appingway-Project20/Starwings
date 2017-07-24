@@ -66,7 +66,7 @@ public class TopicsActivity extends AppCompatActivity {
         });
 
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
-        url = "https://techinsta22.000webhostapp.com/app_api/apiTopic.php?apikey=zxcvbnm123zxdewas&chapter_id="+topic_id;
+        url = "http://starwingslearningdestination.com/php/app_api/apiTopic.php?apikey=zxcvbnm123zxdewas&chapter_id="+topic_id;
         trv = (RecyclerView) findViewById(R.id.trv);
         layoutManager = new LinearLayoutManager(this);
         trv.setLayoutManager(layoutManager);

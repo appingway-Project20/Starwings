@@ -33,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity{
     private FrameLayout frame;
     private ImageView image;
     Bitmap bmp;
-    final static String API_URL="http://starwing.appingway.com/php/web_api/";
+    final static String API_URL="http://starwingslearningdestination.com/php/web_api/";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -27,7 +27,7 @@ import java.net.URL;
  */
 
 public class TimeTableActivity extends AppCompatActivity {
-    private static final String API_URL="http://starwing.appingway.com/php/app_api/apiTimetable.php?apikey=zxcvbnm123zxdewas";
+    private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiTimetable.php?apikey=zxcvbnm123zxdewas";
     int day;
     String link;
     WebView webView;

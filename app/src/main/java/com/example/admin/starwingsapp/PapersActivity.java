@@ -24,7 +24,7 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private static final int PAPERS_LOADER = 101;
-    private static final String API_URL="http://starwing.appingway.com/php/app_api/apiPaper.php";
+    private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiPaper.php";
     private static final String API_KEY = "zxcvbnm123zxdewas";
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     private static final String TAG = VideosListActivity.class.getSimpleName();

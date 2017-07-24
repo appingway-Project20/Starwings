@@ -34,11 +34,11 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 	Toolbar toolbar;
 	TextView title;
 	private static final int NOTES_LOADER = 100;
-	private static final String API_URL = "http://starwing.appingway.com/php/app_api/apiTopic.php";
+	private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiTopic.php";
 	private static final String SEARCH_QUERY_URL_EXTRA = "query";
 	private static final String API_KEY = "zxcvbnm123zxdewas";
 	private static final int WRITE_REQUEST_CODE = 43;
-	private static final String FILE_URL = "http://starwing.appingway.com/php/web_api/uploads/5962f9b499909statusmessages.pdf";
+	private static final String FILE_URL = "http://starwingslearningdestination.com/php/web_api/uploads/5962f9b499909statusmessages.pdf";
 	private ProgressBar progressBar;
 
 	View fileContainerView;

@@ -37,7 +37,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImagesHo
 
     @Override
     public void onBindViewHolder(GalleryAdapter.ImagesHolder holder, int position) {
-        String link = "http://starwing.appingway.com/php/web_api/" + imageLinks.get(position);
+        String link = "http://starwingslearningdestination.com/php/web_api/" + imageLinks.get(position);
         Log.d(TAG,"link: "+link);
         Picasso.with(context)
                 .load(link)

@@ -61,7 +61,7 @@ public class CourseActivity extends AppCompatActivity {
         });
 
         uid=getIntent().getStringExtra("uid");
-        url = "http://starwing.appingway.com/php/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
+        url = "http://starwingslearningdestination.com/php/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Courses");

@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class GalleryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<String>> {
 
     private static final String TAG = GalleryActivity.class.getSimpleName();
-    private static final String API_URL = "http://starwing.appingway.com/php/app_api/apiGallery.php";
+    private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiGallery.php";
     private static final String API_KEY = "zxcvbnm123zxdewas";
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
 

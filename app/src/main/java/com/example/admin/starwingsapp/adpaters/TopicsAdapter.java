@@ -54,8 +54,8 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
                 Toast.makeText(context, "downloading Chapter", Toast.LENGTH_SHORT).show();
                 PDFDownload_Async task=new PDFDownload_Async((Activity) context,arrayList.get(position).getTitle());
                 //task.execute(arrayList.get(position).getLink());
-                task.execute("http://starwing.appingway.com/php/web_api/"+arrayList.get(position).getLink());
-                Toast.makeText(context, "Async task running"+"http://starwing.appingway.com/php/web_api/"+arrayList.get(position).getLink(), Toast.LENGTH_SHORT).show();
+                task.execute("http://starwingslearningdestination.com/php/web_api/"+arrayList.get(position).getLink());
+                Toast.makeText(context, "Async task running"+"http://starwingslearningdestination.com/php/web_api/"+arrayList.get(position).getLink(), Toast.LENGTH_SHORT).show();
                 holder.topdwn.setVisibility(View.GONE);
             }
         });

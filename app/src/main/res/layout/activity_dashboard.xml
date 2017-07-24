@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#283747"
     tools:context="com.example.admin.starwingsapp.Dashboard">
 
     <include
@@ -24,7 +25,7 @@
         android:text="Hi There!"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="18dp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
     <View

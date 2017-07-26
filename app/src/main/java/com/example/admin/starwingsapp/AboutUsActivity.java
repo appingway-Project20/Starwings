@@ -14,7 +14,6 @@ import com.example.admin.starwingsapp.adpaters.AboutUsAdapter;
 
 public class AboutUsActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager layoutManager;
     private AboutUsAdapter mAdapter;
     Toolbar toolbar;
     TextView titleView;

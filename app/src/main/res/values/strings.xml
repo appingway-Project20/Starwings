@@ -2,39 +2,10 @@
     <string name="app_name">StarwingsApp</string>
     <string name="hint_name"><font size="13">Name</font></string>
     <string name="hint_regis"><font size="13">Registration Number</font></string>
-    <string-array name="Centres">
-        <item>Assam</item>
-        <item>Bihar</item>
-        <item>Chattisgarh</item>
-        <item>Delhi Ncr</item>
-        <item>Gujarat</item>
-        <item>Haryana</item>
-        <item>Himachal Pradesh</item>
-        <item>Jammu and Kashmir</item>
-        <item>Jharkhand</item>
-        <item>Madhya Pradesh</item>
-        <item>Maharashtra</item>
-        <item>Nepal</item>
-        <item>Odisha</item>
-        <item>punjab</item>
-        <item>Rajasthan</item>
-        <item>Telangana</item>
-        <item>Uttar Pradesh</item>
-        <item>Uttrakhand</item>
-        <item>West Bengal</item>
-    </string-array>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="server_registered">Successfully registered on server</string>
     <string name="gcm_send_message">Token retrieved and sent to server! You can now use gcmsender to
         send downstream messages to this app.</string>
     <string name="gcm_unregister_message">Token unsubscribed from GCM and notification server. You will no longer
     get any notification.</string>
-    <string name="registering_message">Generating InstanceID token...</string>
-    <string name="unregistering_message">Un-registering Notification Service...</string>
-    <string name="token_error_message">An error occurred while either fetching the InstanceID token,
-        sending the fetched token to the server. Please refresh.</string>
 </resources>
 

@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -56,6 +55,10 @@ public class Dashboard extends AppCompatActivity {
     CardView news;
     @BindView(R.id.gallery_container)
     CardView gallery;
+    @BindView(R.id.publication)
+    CardView publication;
+    @BindView(R.id.stocks)
+    CardView stocks;
 
     AlertDialog.Builder builder;
     AlertDialog my_dialog;
@@ -145,7 +148,7 @@ public class Dashboard extends AppCompatActivity {
         }
         return haveConnectedWifi || haveConnectedMobile;
     }
-    @OnClick({R.id.home, R.id.course, R.id.daily, R.id.bat, R.id.editText, R.id.india, R.id.down, R.id.not, R.id.lm, R.id.det, R.id.suppo, R.id.news,R.id.gallery_container})
+    @OnClick({R.id.home, R.id.course, R.id.daily, R.id.bat, R.id.editText, R.id.india, R.id.down, R.id.not, R.id.lm, R.id.det, R.id.suppo, R.id.news,R.id.gallery_container,R.id.getintouch, R.id.publication, R.id.stocks})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -197,6 +200,18 @@ public class Dashboard extends AppCompatActivity {
                 break;
             case R.id.gallery_container:
                 intent = new Intent(Dashboard.this, GalleryActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.getintouch:
+                intent = new Intent(Dashboard.this, GetInTouchActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.publication:
+                intent = new Intent(Dashboard.this, PublicationsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.stocks:
+                intent = new Intent(Dashboard.this, StockRateActivity.class);
                 startActivity(intent);
                 break;
         }

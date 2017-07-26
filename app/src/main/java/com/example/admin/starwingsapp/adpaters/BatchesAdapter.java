@@ -28,8 +28,7 @@ public class BatchesAdapter extends RecyclerView.Adapter<BatchesAdapter.BatchesV
     @Override
     public BatchesAdapter.BatchesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_batches,parent,false);
-        BatchesViewHolder viewHolder = new BatchesViewHolder(v);
-        return viewHolder;
+        return new BatchesViewHolder(v);
     }
 
     @Override

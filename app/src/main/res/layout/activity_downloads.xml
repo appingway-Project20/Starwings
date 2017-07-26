@@ -2,15 +2,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+
+    <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
         android:fitsSystemWindows="true"
         android:background="#FF7E26"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:minHeight="30dp"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:adndroid="http://schemas.android.com/apk/res-auto">
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
         <RelativeLayout
             android:gravity="right"
@@ -52,7 +51,6 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
     <ScrollView
-        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -81,7 +79,6 @@
                     android:textSize="17dp" />
 
                 <Button
-                    android:id="@+id/btrefresh"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="34dp"
                     android:layout_height="34dp"
@@ -91,7 +88,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvrefresh"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginBottom="15dp"

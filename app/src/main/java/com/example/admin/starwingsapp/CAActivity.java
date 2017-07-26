@@ -13,7 +13,6 @@ import com.example.admin.starwingsapp.adpaters.BatchesAdapter;
 
 public class CAActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
     Toolbar toolbar;
 

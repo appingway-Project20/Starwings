@@ -24,7 +24,6 @@
                     android:textColor="#000000"/>
                 <TextView
                     android:padding="10dp"
-                    android:id="@+id/tvPartnership"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=" 1. Fundamentals of Partnership\n 2. Goodwill\n 3. Change in Profit Sharing Ratio\n 4. Admission of Partner\n 5. Retirement/Death of a Partner\n 6. Dissolution of Partnership firm"

@@ -22,8 +22,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter<AboutUsAdapter.AboutUsV
     @Override
     public AboutUsAdapter.AboutUsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout,parent,false);
-        AboutUsViewHolder viewHolder = new AboutUsViewHolder(v);
-        return viewHolder;
+        return new AboutUsViewHolder(v);
     }
 
     @Override

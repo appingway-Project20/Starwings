@@ -28,9 +28,7 @@ class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdapter.MyV
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.daily_schedule_item, parent, false);
 
-        MyViewHolder myViewHolder = new MyViewHolder(view);
-
-        return myViewHolder;
+        return new MyViewHolder(view);
     }
 
     @Override

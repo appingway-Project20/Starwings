@@ -20,7 +20,6 @@ import com.example.admin.starwingsapp.adpaters.BatchesAdapter;
 public class BatchesActivity extends AppCompatActivity implements BatchesAdapter.ListItemClickListener {
 String[] courses = {"ACCA","C.A","Excel","G.S.T"};
     private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
     Toolbar toolbar;
     @Override

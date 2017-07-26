@@ -46,7 +46,7 @@ public class Login extends AppCompatActivity {
 		TextView toolbartitle= (TextView) toolbar.findViewById(R.id.title);
 		toolbartitle.setText("Login");
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-		if (settings.getString("logged", "").toString().equals("logged")) {
+		if (settings.getString("logged", "").equals("logged")) {
 			Intent intent = new Intent(Login.this, ResourcesActivity.class);
 			startActivity(intent);
 		}

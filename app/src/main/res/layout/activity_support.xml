@@ -6,7 +6,6 @@
 
 <include layout="@layout/toolbar" />
     <ScrollView
-        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -22,7 +21,6 @@
                 android:weightSum="10" >
 
                 <TextView
-                    android:id="@+id/tv6"
                     android:layout_width="254dp"
                     android:layout_height="40dp"
                     android:paddingLeft="15dp"
@@ -126,7 +124,6 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -136,7 +133,6 @@
                     android:textColor="#FF0000" />
 
                 <TextView
-                    android:id="@+id/tv2"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
@@ -148,7 +144,6 @@
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/tv3"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
@@ -160,7 +155,6 @@
                     android:textSize="10sp" />
 
                 <TextView
-                    android:id="@+id/tv4"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_gravity="center"

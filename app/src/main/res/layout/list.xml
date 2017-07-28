@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#f2f2f2"
+    android:elevation="8dp"
+    android:layout_margin="10dp"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:layout_margin="10dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        >
+
+      <LinearLayout
+
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <ImageView
+              android:id="@+id/newsimage1"
+              android:layout_width="45px"
+              android:layout_height="45px"
+              android:src="@drawable/newsname1"
+              android:scaleType="centerCrop"
+              />
+
+          <TextView
+              android:id="@+id/newsname"
+              android:layout_width="74dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:layout_marginLeft="16dp"
+              android:text="Business Insider ."
+              android:textColor="@color/colorHead"
+              android:textSize="14dp" />
+
+          <TextView
+              android:id="@+id/time"
+              android:layout_weight="0.6"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="2 day ago"
+              android:textColor="@color/listsub1"
+              android:textSize="14dp"
+              android:layout_gravity="center"
+              />
+
+          <ImageView
+              android:id="@+id/more"
+              android:visibility="invisible"
+              android:layout_width="15dp"
+              android:layout_height="22dp"
+              android:src="@drawable/more"
+              android:layout_gravity="center"
+              />
+      </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="5dp"
+        >
+
+        <TextView
+            android:id="@+id/news"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:textSize="17dp"
+            android:textColor="@color/listtext"
+            android:lineSpacingExtra="3dp"
+            android:maxLines="3"
+            />
+
+        <TextView
+            android:id="@+id/newssub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:layout_marginTop="13dp"
+            android:textSize="13dp"
+            android:textColor="@color/listsub1"
+            android:lineSpacingExtra="3dp"
+            />
+
+
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:textColor="@color/listsub2"
+            android:maxLines="1"
+            android:layout_marginTop="13dp"
+            />
+
+    </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="2.2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+                >
+
+                <ImageView
+
+                    android:id="@+id/newsimage2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200px"
+                    android:scaleType="fitXY"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+</android.support.v7.widget.CardView>
+
+</LinearLayout>

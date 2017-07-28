@@ -4,4 +4,11 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorHead">#363147</color>
+    <color name="colorTex">#585858</color>
+    <color name="colordevider">#64dad8d8</color>
+    <color name="colorblue">#4c71f5</color>
+    <color name="colorSub">#b0afaf</color>
+    <color name="listsub1">#7b7b7b</color>
+    <color name="listsub2">#9e9e9e</color>
+    <color name="listtext">#585858</color>
 </resources>

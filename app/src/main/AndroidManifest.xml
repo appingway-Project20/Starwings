@@ -117,6 +117,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".TimeTableActivity" />
         <activity android:name=".NewsActivity" />
+        <activity android:name=".NewsDetailActivity"/>
         <activity android:name=".GetInTouchActivity" />
         <activity android:name=".PublicationsActivity" />
         <activity android:name=".StockRateActivity"></activity>

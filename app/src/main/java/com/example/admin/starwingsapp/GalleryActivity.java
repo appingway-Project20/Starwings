@@ -61,6 +61,14 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
         fetchImageUrlsQuery();
     }
 
+    private void fetchImageUrlsQuery(){
+        Bundle bundle = new Bundle();
+        bundle.putString(SEARCH_QUERY_URL_EXTRA, API_URL);
+
+        LoaderManager loaderManager = getSupportLoaderManager();
+        loaderManager.initLoader(IMAGES_LOADER, bundle, this);
+    }
+
     @Override
     public Loader<ArrayList<String>> onCreateLoader(int id, final Bundle args) {
         return new AsyncTaskLoader<ArrayList<String>>(this) {
@@ -97,25 +105,6 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
         };
     }
 
-    @Override
-    public void onLoadFinished(Loader<ArrayList<String>> loader, ArrayList<String> data) {
-        mAdpater = new GalleryAdapter(data,this);
-        mRecyclerView.setAdapter(mAdpater);
-    }
-
-    @Override
-    public void onLoaderReset(Loader<ArrayList<String>> loader) {
-
-    }
-
-
-    private void fetchImageUrlsQuery(){
-        Bundle bundle = new Bundle();
-        bundle.putString(SEARCH_QUERY_URL_EXTRA, API_URL);
-
-        LoaderManager loaderManager = getSupportLoaderManager();
-        loaderManager.initLoader(IMAGES_LOADER, bundle, this);
-    }
     private ArrayList<String> parseJsonAndReturnImageUrls(String jsonData){
         String imageUri = null;
 
@@ -136,4 +125,16 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
         return imageUrls;
 
     }
+
+    @Override
+    public void onLoadFinished(Loader<ArrayList<String>> loader, ArrayList<String> data) {
+        mAdpater = new GalleryAdapter(data,this);
+        mRecyclerView.setAdapter(mAdpater);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<ArrayList<String>> loader) {
+
+    }
+
 }

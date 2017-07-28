@@ -7,6 +7,8 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -21,6 +23,7 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
     private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiStock.php";
 
     TextView stockRateTv;
+    ProgressBar progressBar;
 
     private static  final String TAG = StockRateActivity.class.getSimpleName();
     @Override
@@ -29,6 +32,7 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
         setContentView(R.layout.activity_stock_rate);
 
         stockRateTv = (TextView)findViewById(R.id.stock_rate_tv);
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
 
         stockRateQuery();
     }
@@ -67,6 +71,7 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
+        progressBar.setVisibility(View.INVISIBLE);
         String stockRate = parseJsonAndReturnStockRate(data);
 
         stockRateTv.setText("The stock rate is: "+stockRate);

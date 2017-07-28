@@ -211,7 +211,7 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.stocks:
-                intent = new Intent(Dashboard.this, StockRateActivity.class);
+                intent = new Intent(Dashboard.this, StockActivity.class);
                 startActivity(intent);
                 break;
         }

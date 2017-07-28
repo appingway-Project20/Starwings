@@ -35,11 +35,14 @@ public class StockActivity extends AppCompatActivity {
 
     @OnClick({R.id.stock_news, R.id.stock_rate})
     public void onViewClicked(View view) {
+        Intent intent;
         switch (view.getId()) {
             case R.id.stock_news:
+                intent = new Intent(StockActivity.this, StockNewsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.stock_rate:
-                Intent intent = new Intent(StockActivity.this, StockRateActivity.class);
+                intent = new Intent(StockActivity.this, StockRateActivity.class);
                 startActivity(intent);
                 break;
         }

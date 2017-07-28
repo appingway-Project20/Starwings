@@ -117,13 +117,15 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".TimeTableActivity" />
         <activity android:name=".NewsActivity" />
-        <activity android:name=".NewsDetailActivity"/>
+        <activity android:name=".NewsDetailActivity" />
         <activity android:name=".GetInTouchActivity" />
         <activity android:name=".PublicationsActivity" />
         <activity android:name=".StockActivity"
             android:launchMode="singleTop"/>
         <activity android:name=".StockRateActivity"
             android:parentActivityName=".StockActivity"></activity>
+        <activity android:name=".StockNewsActivity"
+            android:parentActivityName=".StockActivity"/>
     </application>
 
 </manifest>

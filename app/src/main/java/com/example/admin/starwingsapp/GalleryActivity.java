@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.GalleryAdapter;
 
@@ -27,7 +28,7 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
     private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiGallery.php";
     private static final String API_KEY = "zxcvbnm123zxdewas";
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
-
+    TextView title;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdpater;
 
@@ -41,6 +42,8 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
         toolbar =(Toolbar) findViewById(R.id.toolbar);
+        title = (TextView) toolbar.findViewById(R.id.title);
+        title.setText("Gallery");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

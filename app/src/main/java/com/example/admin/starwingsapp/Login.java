@@ -49,6 +49,7 @@ public class Login extends AppCompatActivity {
 		if (settings.getString("logged", "").equals("logged")) {
 			Intent intent = new Intent(Login.this, ResourcesActivity.class);
 			startActivity(intent);
+			finish();
 		}
 		View v = toolbar.findViewById(R.id.dashboard);
 		v.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +155,7 @@ public class Login extends AppCompatActivity {
 					intent.putExtra("uid",uid);
 					intent.putExtra("profile details",profileDetails);
 					startActivity(intent);
+					finish();
 				}else{
 					responseView.setText("Invalid Name or Registration Number");
 

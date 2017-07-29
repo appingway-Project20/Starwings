@@ -1,5 +1,8 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -22,7 +25,7 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiStock.php";
 
-    TextView stockRateTv;
+    TextView stockRateTv, emptyView;
     ProgressBar progressBar;
 
     private static  final String TAG = StockRateActivity.class.getSimpleName();
@@ -33,8 +36,25 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
 
         stockRateTv = (TextView)findViewById(R.id.stock_rate_tv);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        emptyView =   (TextView)findViewById(R.id.empty_view);
 
-        stockRateQuery();
+        ConnectivityManager cm =
+                (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+        if(isConnected){
+
+            stockRateQuery();
+
+        }
+        else {
+            progressBar.setVisibility(View.INVISIBLE);
+            emptyView.setText("No Internet Connection!");
+        }
+
     }
 
     @Override

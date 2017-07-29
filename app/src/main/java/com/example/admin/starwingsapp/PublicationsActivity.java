@@ -1,5 +1,8 @@
 package com.example.admin.starwingsapp;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
@@ -32,7 +35,7 @@ public class PublicationsActivity extends AppCompatActivity implements LoaderMan
     private Publications publications;
 
     ImageView bookIv;
-    TextView bookTv;
+    TextView bookTv, emptyView;
     ProgressBar progressBar;
 
     @Override
@@ -43,8 +46,24 @@ public class PublicationsActivity extends AppCompatActivity implements LoaderMan
         bookIv = (ImageView)findViewById(R.id.book_image);
         bookTv = (TextView)findViewById(R.id.book_name);
         progressBar = (ProgressBar)findViewById(R.id.progress_bar);
+        emptyView = (TextView)findViewById(R.id.empty_view);
 
-        publicationsQuery();
+        ConnectivityManager cm =
+                (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+
+        if(isConnected){
+            publicationsQuery();
+
+        }
+        else {
+            progressBar.setVisibility(View.INVISIBLE);
+            emptyView.setText("No Internet Connection!");
+        }
+
     }
 
     @Override

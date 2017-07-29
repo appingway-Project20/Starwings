@@ -23,6 +23,7 @@
         >
         <activity
             android:name=".AboutUsActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Dashboard" />
         <activity android:name=".SplashScreen">
             <intent-filter>
@@ -31,7 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotificationActivity" />
+        <activity android:name=".NotificationActivity"
+            android:screenOrientation="portrait"/>
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
@@ -65,6 +67,7 @@
 
         <activity
             android:name=".OurCourses"
+            android:screenOrientation="portrait"
             android:label="Our Courses">
             <intent-filter>
                 <action android:name="com.example.admin.starwingsapp.OURCOURSES" />
@@ -74,57 +77,86 @@
         </activity>
         <activity
             android:name=".Dashboard"
+            android:screenOrientation="portrait"
             android:launchMode="singleTop" />
         <activity
             android:name=".ContactInfoActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Dashboard" />
         <activity
             android:name=".BatchesActivity"
+            android:screenOrientation="portrait"
             android:launchMode="singleTop" />
         <activity
             android:name=".ACCACourseActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".BatchesActivity" />
         <activity
             android:name=".CAActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".BatchesActivity" />
         <activity
             android:name=".ExcelCourseActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".BatchesActivity" />
         <activity
             android:name=".GSTCourseActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".BatchesActivity" />
-        <activity android:name=".CenterActivity" />
-        <activity android:name=".Downloads" />
-        <activity android:name=".TopicsActivity" />
-        <activity android:name=".ChapterActivity" />
-        <activity android:name=".CourseActivity" />
+        <activity android:name=".CenterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Downloads"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".TopicsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ChapterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CourseActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Login"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".Support"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".VideosListActivity" />
-        <activity android:name=".VideoActivity" />
-        <activity android:name=".ResourcesActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".PapersActivity" />
-        <activity android:name=".PapersDisplayActivity" />
-        <activity android:name=".DailyScheduleActivity" />
+        <activity android:name=".VideosListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VideoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ResourcesActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PapersActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PapersDisplayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DailyScheduleActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".GalleryActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".Dashboard" />
-        <activity android:name=".BatchDetailsActivity" />
+        <activity android:name=".BatchDetailsActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity" />
-        <activity android:name=".NewsActivity" />
-        <activity android:name=".NewsDetailActivity" />
-        <activity android:name=".GetInTouchActivity" />
-        <activity android:name=".PublicationsActivity" />
+        <activity android:name=".NewsActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".GetInTouchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".PublicationsActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".StockActivity"
+            android:screenOrientation="portrait"
             android:launchMode="singleTop"/>
         <activity android:name=".StockRateActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".StockActivity"></activity>
         <activity android:name=".StockNewsActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".StockActivity"/>
     </application>
 

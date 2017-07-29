@@ -8,6 +8,8 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,12 +17,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.starwingsapp.adpaters.PublicationsAdapter;
 import com.example.admin.starwingsapp.models.Publications;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class PublicationsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>{
 
@@ -34,9 +38,14 @@ public class PublicationsActivity extends AppCompatActivity implements LoaderMan
 
     private Publications publications;
 
+    private ArrayList<Publications> publicationsArrayList;
+
     ImageView bookIv;
     TextView bookTv, emptyView;
     ProgressBar progressBar;
+
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,8 @@ public class PublicationsActivity extends AppCompatActivity implements LoaderMan
         bookTv = (TextView)findViewById(R.id.book_name);
         progressBar = (ProgressBar)findViewById(R.id.progress_bar);
         emptyView = (TextView)findViewById(R.id.empty_view);
+        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ConnectivityManager cm =
                 (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -106,16 +117,12 @@ public class PublicationsActivity extends AppCompatActivity implements LoaderMan
     public void onLoadFinished(Loader<String> loader, String data) {
         progressBar.setVisibility(View.INVISIBLE);
         publications = new Publications();
-        String imageUrl = "http://starwingslearningdestination.com/php/web_api/"+publications.getmImageUrl();
+//        String imageUrl = "http://starwingslearningdestination.com/php/web_api/"+publications.getmImageUrl();
         parseJson(data);
-        Picasso.with(this)
-                .load(imageUrl)
-                .placeholder(R.drawable.ic_picture_gallery)
-                .error(R.drawable.ic_error_triangle)
-                .resize(320,240)
-                .centerCrop()
-                .into(bookIv);
-        bookTv.setText(publications.getmImageName());
+
+        adapter = new PublicationsAdapter(publicationsArrayList, this);
+        recyclerView.setAdapter(adapter);
+
     }
 
     @Override
@@ -130,17 +137,20 @@ public class PublicationsActivity extends AppCompatActivity implements LoaderMan
 
     }
     private void parseJson(String response){
-        publications = new Publications();
+        publicationsArrayList = new ArrayList<>();
         try {
             JSONArray root = new JSONArray(response);
-            JSONObject jsonObject = root.getJSONObject(1);
-            String imageUrl = jsonObject.getString("Link");
-            Log.d(TAG,"image url: "+imageUrl);
-            String imageName = jsonObject.getString("name");
-            Log.d(TAG,"image name: "+imageName);
-
-            publications.setmImageName(imageName);
-            publications.setmImageUrl(imageUrl);
+            for (int i=0; i< root.length(); i++){
+                JSONObject jsonObject = root.getJSONObject(i);
+                String imageUrl = jsonObject.getString("Link");
+                Log.d(TAG,"image url: "+imageUrl);
+                String imageName = jsonObject.getString("name");
+                Log.d(TAG,"image name: "+imageName);
+                publications = new Publications();
+                publications.setmImageName(imageName);
+                publications.setmImageUrl(imageUrl);
+                publicationsArrayList.add(publications);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

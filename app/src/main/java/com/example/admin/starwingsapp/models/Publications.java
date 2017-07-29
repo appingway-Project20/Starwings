@@ -7,6 +7,7 @@ package com.example.admin.starwingsapp.models;
 public class Publications {
     private String mImageName;
     private String mImageUrl;
+    private String mImageLink;
 
     public Publications() {
     }
@@ -26,4 +27,5 @@ public class Publications {
     public String getmImageUrl() {
         return mImageUrl;
     }
+
 }

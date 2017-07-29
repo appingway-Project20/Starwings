@@ -29,10 +29,13 @@ public class AboutUsAdapter extends RecyclerView.Adapter<AboutUsAdapter.AboutUsV
     public void onBindViewHolder(AboutUsAdapter.AboutUsViewHolder holder, int position) {
         switch(position){
             case 0:
-                holder.tv1.setTextSize(24);
+                holder.tv1.setTextSize(20);
                 holder.tv1.setText("STARWINGS LEARNING DESTINATION Pvt. Ltd.");
                 holder.tv1.setTextColor(Color.BLACK);
-                holder.tv2.setText(placeHolderText);break;
+                holder.tv2.setText(placeHolderText);
+                holder.companyLogo.setImageResource(R.drawable.starwings_72);
+                holder.sachin.setVisibility(View.INVISIBLE);
+                break;
             case 1:
                 holder.tv1.setTextSize(20);
                 holder.tv1.setText("ABOUT SACHIN KAUSHIK");
@@ -44,6 +47,7 @@ public class AboutUsAdapter extends RecyclerView.Adapter<AboutUsAdapter.AboutUsV
                         "inspired by his mother Smt. Sunita Kaushik who always motivated and encouraged him.\n His technique of approaching the " +
                         "subject matter, style of revision and guidelines for preparation of examination are quite popular among students.");
                 holder.companyLogo.setVisibility(View.INVISIBLE);
+                holder.sachin.setImageResource(R.drawable.sachin);
         }
 
     }
@@ -54,13 +58,13 @@ public class AboutUsAdapter extends RecyclerView.Adapter<AboutUsAdapter.AboutUsV
     }
     class AboutUsViewHolder extends RecyclerView.ViewHolder{
         TextView tv1,tv2;
-        ImageView companyLogo;
+        ImageView companyLogo,sachin;
         public AboutUsViewHolder(View itemView) {
             super(itemView);
             tv1 = (TextView)itemView.findViewById(R.id.company_name);
             tv2 = (TextView)itemView.findViewById(R.id.about_company);
             companyLogo = (ImageView)itemView.findViewById(R.id.logo);
-
+            sachin = (ImageView) itemView.findViewById(R.id.sachin);
         }
     }
 }

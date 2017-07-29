@@ -94,8 +94,8 @@ public class NotificationActivity extends AppCompatActivity {
         });
         //startRegistrationService(true, false);
         //GCM related part end
+        arrayList = new ArrayList<>(prefs.getStringSet("list", new HashSet<String>()));
         message = getIntent().getStringExtra("message");
-        arrayList=new ArrayList<String>(prefs.getStringSet("list",new HashSet<String>()));
         if (message!=null){
             arrayList.add(message);
         }

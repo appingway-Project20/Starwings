@@ -29,8 +29,6 @@ public class Dashboard extends AppCompatActivity {
     CardView courses;
     @BindView(R.id.daily)
     CardView schedule;
-    @BindView(R.id.bat)
-    CardView batches;
     @BindView(R.id.editText)
     TextView editText;
     @BindView(R.id.title)
@@ -148,7 +146,7 @@ public class Dashboard extends AppCompatActivity {
         }
         return haveConnectedWifi || haveConnectedMobile;
     }
-    @OnClick({R.id.home, R.id.course, R.id.daily, R.id.bat, R.id.editText, R.id.india, R.id.down, R.id.not, R.id.lm, R.id.det, R.id.suppo, R.id.news,R.id.gallery_container,R.id.getintouch, R.id.publication, R.id.stocks})
+    @OnClick({R.id.home, R.id.course, R.id.daily, R.id.editText, R.id.india, R.id.down, R.id.not, R.id.lm, R.id.det, R.id.suppo, R.id.news,R.id.gallery_container,R.id.getintouch, R.id.publication, R.id.stocks})
     public void onViewClicked(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -162,10 +160,6 @@ public class Dashboard extends AppCompatActivity {
                 break;
             case R.id.daily:
                 intent=new Intent(Dashboard.this,DailyScheduleActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.bat:
-                intent = new Intent(Dashboard.this, BatchesActivity.class);
                 startActivity(intent);
                 break;
             case R.id.editText:
@@ -216,8 +210,6 @@ public class Dashboard extends AppCompatActivity {
                 break;
         }
     }
-
-
 
 }
 

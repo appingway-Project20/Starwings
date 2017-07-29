@@ -111,7 +111,7 @@
                 android:layout_gravity="center_horizontal"
                 android:paddingBottom="25dp"
                 android:paddingTop="30dp"
-                android:text="Please note in case of failed login"
+                android:text="Please note in case of failed login,contact us :-"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="#F90000" />
 
@@ -120,7 +120,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="15dp"
                 android:paddingLeft="25dp"
-                android:text="* If you are using LMS for the first time,you must login through web browser and Update your &apos;ATTEMPT DUE&apos;."
+                android:text="* 884-A SomBazaar Najafgarh,Glamour Classes and Starwings Learning Destination - 9643068841"
                 android:textColor="#F90000" />
 
             <TextView
@@ -128,24 +128,9 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="15dp"
                 android:paddingLeft="25dp"
-                android:text="* It usually takes upto 24 hours for LMS to be activated/linked to your Registration ID."
+                android:text="* 1625 B/3 Main Thana Road Opp. Petrol Pump, Najafgarh, New Delhi,PIN-110043 - 9716640675 , 9278250408"
                 android:textColor="#F90000" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="15dp"
-                android:paddingLeft="25dp"
-                android:text="* If full fees has not been paid for the batch and your Registration Status is not Confirmed."
-                android:textColor="#F90000" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="80dp"
-                android:paddingLeft="25dp"
-                android:text="* Attempt-Due is not mentioned for each batch."
-                android:textColor="#F90000" />
         </LinearLayout>
     </ScrollView>
 

@@ -31,18 +31,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DailyScheduleActivity extends AppCompatActivity implements DailyScheduleAdapter.ListItemClickListener{
+public class DailyScheduleActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DailyScheduleAdapter adapter;
     private LinearLayoutManager layoutManager;
     private Toolbar toolbar;
     private TextView titleView;
-    String[] days = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
+    private WebView webView;
+    private ArrayList<String> urllist;
+    private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiTimetable.php?apikey=zxcvbnm123zxdewas";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daily_schedule);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        webView= (WebView) findViewById(R.id.web);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -56,62 +59,66 @@ public class DailyScheduleActivity extends AppCompatActivity implements DailySch
                 startActivity(intent);
             }
         });
+        urllist=new ArrayList<>();
         recyclerView = (RecyclerView) findViewById(R.id.dailyrecycler);
-        adapter = new DailyScheduleAdapter(this,days,this);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAlpha(0);
-        recyclerView.setAdapter(adapter);
+        try {
+            new RetrieveFeedTask().execute();
+        }catch (Exception ex){
+            Toast.makeText(DailyScheduleActivity.this,ex.toString(),Toast.LENGTH_SHORT);
+        }
+    }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+    class RetrieveFeedTask extends AsyncTask<Void, Void, String> {
 
-                // This will give me the initial first and last visible element's position.
-                // This is required as only this elements needs to be animated
-                // Start will be always zero in this case as we are calling in onCreate
-                int start = layoutManager.findFirstVisibleItemPosition();
-                int end = layoutManager.findLastVisibleItemPosition();
+        protected String doInBackground(Void... urls) {
+            // Do some validation here
 
-                Log.i("Start: ", start + "");
-                Log.i("End: ", end + "");
-
-                // Multiplication factor
-                int DELAY = 700;
-
-                // Loop through all visible element
-                for (int i = start; i <= end; i++) {
-                    Log.i("Animatining: ", i + "");
-
-                    // Get View
-                    View v = recyclerView.findViewHolderForAdapterPosition(i).itemView;
-
-                    // Hide that view initially
-                    v.setAlpha(0);
-                    // Setting animations: slide and alpha 0 to 1
-                    PropertyValuesHolder slide = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, 150, 0);
-                    PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat(View.ALPHA, 0, 1);
-                    ObjectAnimator a = ObjectAnimator.ofPropertyValuesHolder(v, slide, alpha);
-                    a.setDuration(300);
-
-                    // It will set delay. As loop progress it will increment
-                    // And it will look like items are appearing one by one.
-                    // Not all at a time
-                    a.setStartDelay(i * DELAY);
-
-                    a.setInterpolator(new DecelerateInterpolator());
-
-                    a.start();
-
+            try {
+                URL url = new URL(API_URL);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                    StringBuilder stringBuilder = new StringBuilder();
+                    String line = "";
+                    while ((line = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(line).append("\n");
+                    }
+                    bufferedReader.close();
+                    return stringBuilder.toString();
+                } finally {
+                    urlConnection.disconnect();
                 }
-
-                // Set Recycler View visible as all visible are now hidden
-                // Animation will start, so set it visible
-                recyclerView.setAlpha(1);
-
+            } catch (Exception e) {
+                Log.e("ERROR", e.getMessage(), e);
+                return null;
             }
-        }, 50);
+        }
+
+        protected void onPostExecute(String response) {
+
+            if (response == null) {
+                response = "THERE WAS AN ERROR";
+            }
+
+            Log.i("INFO", response);
+            try {
+
+                JSONArray array = new JSONArray(response);
+                for(int i=0;i<array.length();i++) {
+                    JSONObject jsonObject = array.getJSONObject(i);
+                    String link = jsonObject.getString("Link");
+                    urllist.add(link);
+                }
+                adapter=new DailyScheduleAdapter(DailyScheduleActivity.this,urllist);
+                recyclerView.setAdapter(adapter);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -121,11 +128,5 @@ public class DailyScheduleActivity extends AppCompatActivity implements DailySch
         }
 
         return super.onOptionsItemSelected(item);
-    }
-    @Override
-    public void onListItemClicked(int position) {
-        Intent intent= new Intent(DailyScheduleActivity.this,TimeTableActivity.class);
-        intent.putExtra("day",position);
-        startActivity(intent);
     }
 }

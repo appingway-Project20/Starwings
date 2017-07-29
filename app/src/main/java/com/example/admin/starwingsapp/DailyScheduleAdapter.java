@@ -6,7 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Lalit on 12-07-2017.
@@ -14,13 +18,11 @@ import android.widget.TextView;
 
 class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdapter.MyViewHolder>{
     private Context context;
-    String[] days;
-    private ListItemClickListener listener;
+    private ArrayList<String> urllist;
 
-    public DailyScheduleAdapter(Context contetxt,String[] days,ListItemClickListener listener) {
+    public DailyScheduleAdapter(Context contetxt,ArrayList<String> list) {
         this.context = context;
-        this.days = days;
-        this.listener=listener;
+        this.urllist = list;
     }
 
     @Override
@@ -34,31 +36,26 @@ class DailyScheduleAdapter extends RecyclerView.Adapter<DailyScheduleAdapter.MyV
     @Override
     public void onBindViewHolder(DailyScheduleAdapter.MyViewHolder holder, int position) {
         //String url=urlList.get(position);
-
-        holder.dayName.setText(days[position]);
-        holder.dayName.setTextColor(Color.WHITE);
+        holder.webView.setVisibility(WebView.VISIBLE);
+        String completeUrl="http://starwingslearningdestination.com/php/web_api/"+urllist.get(position);
+        String doc="<iframe src='http://docs.google.com/viewer?url="+completeUrl+"&embedded=true' width='100%' height='100%'  style='border: none;'></iframe>";
+        holder.webView.loadData(doc,"text/html", "utf-8");
     }
 
     @Override
     public int getItemCount() {
-        return days.length;
+        return urllist.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView dayName;
+    public class MyViewHolder extends RecyclerView.ViewHolder{
+        WebView webView;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            dayName= (TextView) itemView.findViewById(R.id.day_name);
-            itemView.setOnClickListener(this);
+            webView= (WebView) itemView.findViewById(R.id.web);
+            webView.getSettings().setJavaScriptEnabled(true);
+            webView.getSettings().setAllowFileAccess(true);
+            webView.getSettings().setPluginState(WebSettings.PluginState.ON);
         }
-        @Override
-        public void onClick(View view) {
-            int listItemIndex = getAdapterPosition();
-            listener.onListItemClicked(listItemIndex);
-        }
-    }
-    public interface ListItemClickListener {
-        void onListItemClicked(int position);
     }
 }

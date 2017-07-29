@@ -25,8 +25,8 @@ public class CenterActivity extends AppCompatActivity {
     TextView toolbartitle;
     LinearLayoutManager layoutManager;
     ArrayList<String> arrayList=new ArrayList<String>();
-    String[] centres={"Dwarka Ramphal Chowk (Coming Soon)","Laxmi Nagar Near Metrostation (Coming Soon)",
-            "Pitam Pura near Metrostation (Coming Soon)","Janak Puri (Coming Soon)"};
+    String[] centres={"Dwarka Ramphal Chowk","Laxmi Nagar Near Metrostation",
+            "Pitam Pura near Metrostation","Janak Puri"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

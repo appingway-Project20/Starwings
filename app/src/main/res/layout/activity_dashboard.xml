@@ -149,15 +149,14 @@
                     android:textSize="7sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
-
         <android.support.v7.widget.CardView
-            android:id="@+id/bat"
+            android:id="@+id/stocks"
             android:layout_width="70dp"
             android:layout_height="70dp"
+            android:layout_toRightOf="@id/daily"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:layout_toRightOf="@+id/daily"
             android:elevation="15dp"
             app:cardCornerRadius="8dp">
 
@@ -170,18 +169,18 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/batches"
+                    android:id="@+id/ivstocks"
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_calendar" />
+                    android:src="@drawable/ic_increasing_stocks_graphic_of_bars" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
-                    android:text="BATCHES"
+                    android:text="Stocks"
                     android:textColor="#000000"
                     android:textSize="7sp" />
             </LinearLayout>
@@ -568,42 +567,6 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="5dp"
                     android:text="Publications"
-                    android:textColor="#000000"
-                    android:textSize="7sp" />
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView
-            android:id="@+id/stocks"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_toRightOf="@id/publication"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginRight="6dp"
-            android:elevation="15dp"
-            app:cardCornerRadius="8dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/ivstocks"
-                    android:layout_width="42dp"
-                    android:layout_height="42dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_increasing_stocks_graphic_of_bars" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:text="Stocks"
                     android:textColor="#000000"
                     android:textSize="7sp" />
             </LinearLayout>

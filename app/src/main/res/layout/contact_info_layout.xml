@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="884-A SomBazaar Majafgarh,Glamour Classes and Starwings Learning Destination"
+                android:text="884-A SomBazaar Najafgarh,Glamour Classes and Starwings Learning Destination"
                 android:layout_gravity="center_vertical"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -74,7 +74,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1625 B/3 Main Thana Road Opp. Petrol Pump, Majafgarh, New Delhi- 110043"
+                    android:text="1625 B/3 Main Thana Road Opp. Petrol Pump, Najafgarh, New Delhi- 110043"
                     android:layout_gravity="center_vertical"
                     android:textSize="16sp"
                     android:textStyle="bold"

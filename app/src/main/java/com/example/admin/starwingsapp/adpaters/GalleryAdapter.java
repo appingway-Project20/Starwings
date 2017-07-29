@@ -23,9 +23,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImagesHo
     ArrayList<String> imageLinks;
     Context context;
 
-    public GalleryAdapter(ArrayList<String> imageLinks, Context context) {
+    private OnListItemClickListener listItemClickListener;
+
+    public GalleryAdapter(ArrayList<String> imageLinks, Context context, OnListItemClickListener listItemClickListener) {
         this.imageLinks = imageLinks;
         this.context = context;
+        this.listItemClickListener = listItemClickListener;
     }
 
     @Override
@@ -64,11 +67,21 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImagesHo
 
         return size;
     }
-    class ImagesHolder extends RecyclerView.ViewHolder {
+    class ImagesHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView galleryIv;
         public ImagesHolder(View itemView) {
             super(itemView);
             galleryIv = (ImageView)itemView.findViewById(R.id.gallery_image);
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            listItemClickListener.onListItemClicked(position);
+        }
+    }
+    public interface OnListItemClickListener{
+        public void onListItemClicked(int position);
     }
 }

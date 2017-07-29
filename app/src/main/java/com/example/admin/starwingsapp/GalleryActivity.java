@@ -22,7 +22,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class GalleryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<String>> {
+public class GalleryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<String>>, GalleryAdapter.OnListItemClickListener {
 
     private static final String TAG = GalleryActivity.class.getSimpleName();
     private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiGallery.php";
@@ -33,6 +33,8 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
     private RecyclerView.Adapter mAdpater;
 
     private Toolbar toolbar;
+
+    private ArrayList<String> imageUrls;
 
 
     private static final int IMAGES_LOADER = 101;
@@ -111,7 +113,7 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
     private ArrayList<String> parseJsonAndReturnImageUrls(String jsonData){
         String imageUri = null;
 
-        ArrayList<String> imageUrls = new ArrayList<>();
+        imageUrls = new ArrayList<>();
         try {
             JSONArray root = new JSONArray(jsonData);
             for (int i=0; i< root.length(); i++){
@@ -131,7 +133,7 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     public void onLoadFinished(Loader<ArrayList<String>> loader, ArrayList<String> data) {
-        mAdpater = new GalleryAdapter(data,this);
+        mAdpater = new GalleryAdapter(data,this, this);
         mRecyclerView.setAdapter(mAdpater);
     }
 
@@ -140,4 +142,10 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
 
     }
 
+    @Override
+    public void onListItemClicked(int position) {
+        Intent intent = new Intent(GalleryActivity.this, DisplayGalleryPictureActivity.class);
+        intent.putExtra(Intent.EXTRA_TEXT, imageUrls.get(position));
+        startActivity(intent);
+    }
 }

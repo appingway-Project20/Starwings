@@ -8,17 +8,24 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.admin.starwingsapp.adpaters.StockRateAdapter;
+import com.example.admin.starwingsapp.models.Stock;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class StockRateActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>{
+import java.util.ArrayList;
+
+public class StockRateActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<Stock>>{
 
     private static final int STOCK_RATE_LOADER = 100;
     private static final String API_KEY = "zxcvbnm123zxdewas";
@@ -27,6 +34,12 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
 
     TextView stockRateTv, emptyView;
     ProgressBar progressBar;
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+
+    ArrayList<Stock> stocks;
+
+    Stock stock;
 
     private static  final String TAG = StockRateActivity.class.getSimpleName();
     @Override
@@ -37,6 +50,8 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
         stockRateTv = (TextView)findViewById(R.id.stock_rate_tv);
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         emptyView =   (TextView)findViewById(R.id.empty_view);
+        recyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         ConnectivityManager cm =
                 (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -58,8 +73,8 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
     }
 
     @Override
-    public Loader<String> onCreateLoader(int id, final Bundle args) {
-        return new AsyncTaskLoader<String>(this) {
+    public Loader<ArrayList<Stock>> onCreateLoader(int id, final Bundle args) {
+        return new AsyncTaskLoader<ArrayList<Stock>>(this) {
             @Override
             protected void onStartLoading() {
                 super.onStartLoading();
@@ -69,7 +84,8 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
             }
 
             @Override
-            public String loadInBackground() {
+            public ArrayList<Stock> loadInBackground() {
+
                 String response = null;
                 String url = args.getString(SEARCH_QUERY_URL_EXTRA);
                 Log.i(TAG,"url: "+url);
@@ -80,29 +96,30 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
 
                     response = HttpRequest.get(url).body();
                     Log.d(TAG,"response: "+response);
-                    return response;
+
+                    stocks = parseJsonAndReturnStockRate(response);
+                    return stocks;
                 }
                 catch (HttpRequest.HttpRequestException e){
                     e.printStackTrace();
                 }
-                return response;            }
+                return stocks;            }
         };
     }
 
     @Override
-    public void onLoadFinished(Loader<String> loader, String data) {
+    public void onLoadFinished(Loader<ArrayList<Stock>> loader, ArrayList<Stock> data) {
+
         progressBar.setVisibility(View.INVISIBLE);
-        String stockRate = parseJsonAndReturnStockRate(data);
-
-        stockRateTv.setText("The stock rate is: "+stockRate);
-        stockRateTv.setTextSize(32);
-
+        adapter = new StockRateAdapter(data);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
-    public void onLoaderReset(Loader<String> loader) {
+    public void onLoaderReset(Loader<ArrayList<Stock>> loader) {
 
     }
+
 
     private void stockRateQuery(){
 
@@ -113,20 +130,33 @@ public class StockRateActivity extends AppCompatActivity implements LoaderManage
         loaderManager.initLoader(STOCK_RATE_LOADER, bundle, this);
 
     }
-    private  String parseJsonAndReturnStockRate(String response){
+    private  ArrayList<Stock> parseJsonAndReturnStockRate(String response){
+        stocks = new ArrayList<>();
 
         String stockRate = null;
+        String companyName = null;
         try {
             JSONArray root = new JSONArray(response);
-            JSONObject stockObject = root.getJSONObject(0);
-             stockRate = stockObject.getString("stock");
+            for (int i=0; i<root.length(); i++){
+                JSONObject stockObject = root.getJSONObject(i);
+                stockRate = stockObject.getString("stock");
+                companyName = stockObject.getString("company");
+                stock = new Stock();
+
+                stock.setmCompanyName(companyName);
+                stock.setmStockRate(stockRate);
+
+                stocks.add(stock);
+
+            }
+
 
 
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return stockRate;
+        return stocks;
 
     }
 }

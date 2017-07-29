@@ -19,12 +19,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".AboutUsActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Dashboard" />
+            android:parentActivityName=".Dashboard"
+            android:screenOrientation="portrait" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,8 +31,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotificationActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".NotificationActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
@@ -67,8 +67,8 @@
 
         <activity
             android:name=".OurCourses"
-            android:screenOrientation="portrait"
-            android:label="Our Courses">
+            android:label="Our Courses"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="com.example.admin.starwingsapp.OURCOURSES" />
 
@@ -77,42 +77,47 @@
         </activity>
         <activity
             android:name=".Dashboard"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ContactInfoActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Dashboard" />
+            android:parentActivityName=".Dashboard"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".BatchesActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop" />
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ACCACourseActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".BatchesActivity" />
+            android:parentActivityName=".BatchesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".CAActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".BatchesActivity" />
+            android:parentActivityName=".BatchesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ExcelCourseActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".BatchesActivity" />
+            android:parentActivityName=".BatchesActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GSTCourseActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".BatchesActivity" />
-        <activity android:name=".CenterActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Downloads"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".TopicsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ChapterActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".CourseActivity"
-            android:screenOrientation="portrait"/>
+            android:parentActivityName=".BatchesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Downloads"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TopicsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChapterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CourseActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Login"
             android:screenOrientation="portrait"
@@ -120,44 +125,60 @@
         <activity
             android:name=".Support"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".VideosListActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".VideoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ResourcesActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PapersActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PapersDisplayActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".DailyScheduleActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".VideosListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".VideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResourcesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PapersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PapersDisplayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DailyScheduleActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GalleryActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".Dashboard" />
-        <activity android:name=".BatchDetailsActivity"
-            android:screenOrientation="portrait"/>
+            android:parentActivityName=".Dashboard"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".BatchDetailsActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".NewsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".NewsDetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".GetInTouchActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".PublicationsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".StockActivity"
-            android:screenOrientation="portrait"
-            android:launchMode="singleTop"/>
-        <activity android:name=".StockRateActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".StockActivity"></activity>
-        <activity android:name=".StockNewsActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".StockActivity"/>
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GetInTouchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PublicationsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StockActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StockRateActivity"
+            android:parentActivityName=".StockActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StockNewsActivity"
+            android:parentActivityName=".StockActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".DisplayGalleryPictureActivity"></activity>
     </application>
 
 </manifest>

@@ -46,11 +46,13 @@ public class Login extends AppCompatActivity {
 		TextView toolbartitle= (TextView) toolbar.findViewById(R.id.title);
 		toolbartitle.setText("Login");
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-//		if (settings.getString("logged", "").equals("logged")) {
-//			Intent intent = new Intent(Login.this, ResourcesActivity.class);
-//			startActivity(intent);
-//			finish();
-//		}
+		if (settings.getString("logged", "").equals("logged")) {
+			String storedProfileDetails[]={settings.getString("username","") , settings.getString("user_img","") , settings.getString("dob","") , settings.getString("phone","")};
+			Intent intent = new Intent(Login.this, ResourcesActivity.class);
+			intent.putExtra("profile details", storedProfileDetails);
+			startActivity(intent);
+			finish();
+		}
 		View v = toolbar.findViewById(R.id.dashboard);
 		v.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -148,6 +150,10 @@ public class Login extends AppCompatActivity {
 					SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 					SharedPreferences.Editor editor = settings.edit();
 					editor.putString("logged", "logged");
+					editor.putString("username", profileDetails[0]);
+					editor.putString("user_img", profileDetails[1]);
+					editor.putString("dob", profileDetails[2]);
+					editor.putString("phone", profileDetails[3]);
 					editor.commit();
 					Toast.makeText(getApplicationContext(), "Successful Login", Toast.LENGTH_SHORT).show();
 
@@ -175,8 +181,5 @@ public class Login extends AppCompatActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
-	}
-	private void parseJson(String response){
-
 	}
 }

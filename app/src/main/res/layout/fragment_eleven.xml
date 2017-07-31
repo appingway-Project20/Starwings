@@ -27,9 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="  1. Introduction of Accounting\n
- 2. Accounting Terms\n
- 3. ACcounting Principles and Concept\n
- 4. Vouchers\n
+                            2. Accounting Terms\n
+                            3. ACcounting Principles and Concept\n
+                            4. Vouchers\n
  5. Accounting Equations\n
  6. Rules of Debit and Credit\n
  7. Journal Entries, Ledger and Trial Balance\n

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.admin.starwingsapp.GetInTouchActivity">
+    <include layout="@layout/toolbar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,6 +26,12 @@
             android:layout_gravity="center_vertical"
             android:text="Get in touch with us on Facebook!"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#C0C0C0"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,6 +51,12 @@
             android:layout_gravity="center_vertical"
             android:text="Get in touch with us on Instagram!"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#C0C0C0"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,24 +76,60 @@
             android:layout_gravity="center_vertical"
             android:text="Get in touch with us on Twitter!"/>
     </LinearLayout>
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:padding="16dp"-->
-        <!--android:id="@+id/google_plus_container"-->
-        <!--android:orientation="horizontal">-->
-        <!--<ImageView-->
-            <!--android:layout_width="32dp"-->
-            <!--android:layout_height="32dp"-->
-            <!--android:src="@drawable/ic_google_plus"/>-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:textSize="18sp"-->
-            <!--android:layout_marginLeft="16dp"-->
-            <!--android:layout_gravity="center_vertical"-->
-            <!--android:text="Get in touch with us on Google+!"/>-->
-    <!--</LinearLayout>-->
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#C0C0C0"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/google_plus_container"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_google_plus"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center_vertical"
+            android:text="Get in touch with us on Google+ !"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#C0C0C0"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:id="@+id/youtube_container"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_youtube"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center_vertical"
+            android:text="Get in touch with us on Youtube!"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#C0C0C0"/>
 </LinearLayout>

@@ -109,13 +109,6 @@ public class ResourcesActivity extends AppCompatActivity {
         if (item.getItemId() == android.R.id.home) {
             finish(); // close this activity and return to preview activity (if there is any)
         }
-//        else if (item.getItemId() == R.id.logout){
-//            uid = null;
-//            Intent intent = new Intent(ResourcesActivity.this, Login.class);
-//            startActivity(intent);
-//            finish();
-//        }
-
         return super.onOptionsItemSelected(item);
     }
 

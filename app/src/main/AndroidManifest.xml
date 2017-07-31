@@ -84,26 +84,6 @@
             android:parentActivityName=".Dashboard"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".BatchesActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ACCACourseActivity"
-            android:parentActivityName=".BatchesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".CAActivity"
-            android:parentActivityName=".BatchesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ExcelCourseActivity"
-            android:parentActivityName=".BatchesActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".GSTCourseActivity"
-            android:parentActivityName=".BatchesActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".CenterActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -149,9 +129,6 @@
         <activity
             android:name=".GalleryActivity"
             android:parentActivityName=".Dashboard"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BatchDetailsActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".MainActivity" />
         <activity

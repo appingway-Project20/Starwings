@@ -100,7 +100,6 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
                     response = HttpRequest.get(url).body();
                     Log.d(TAG,"response: "+response);
                     links = parseJsonAndReturnImageUrls(response);
-                    return links;
                 }
                 catch (HttpRequest.HttpRequestException e){
                     e.printStackTrace();

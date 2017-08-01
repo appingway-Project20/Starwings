@@ -18,6 +18,7 @@ public class DisplayGalleryPictureActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent.hasExtra(Intent.EXTRA_TEXT)){
             String imageLink = intent.getStringExtra(Intent.EXTRA_TEXT);
+            imageLink = "http://starwingslearningdestination.com/php/web_api/" + imageLink;
             Picasso.with(this)
                     .load(imageLink)
                     .placeholder(R.drawable.ic_picture_gallery)

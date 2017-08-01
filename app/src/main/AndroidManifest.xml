@@ -97,7 +97,8 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".CourseActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:parentActivityName=".ResourcesActivity"/>
         <activity
             android:name=".Login"
             android:screenOrientation="portrait"

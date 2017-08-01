@@ -10,6 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.example.admin.starwingsapp.adpaters.PapersAdapter;
 
@@ -28,7 +30,8 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
     private static final String API_KEY = "zxcvbnm123zxdewas";
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     private static final String TAG = VideosListActivity.class.getSimpleName();
-    String fileUrl;
+
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
         setContentView(R.layout.activity_papers);
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
         fetchPapersQuery();
     }
 
@@ -74,12 +78,15 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
-        String fileName = parseJsonAndReturnFileName(data);
-        fileUrl = fileName;
+
+//        String fileName = parseJsonAndReturnFileName(data);
+//        fileUrl = fileName;
 //        String segments[] = fileName.split(".");
 //        fileName = segments[segments.length - 2] + ".pdf";
+
+        progressBar.setVisibility(View.INVISIBLE);
         fileNames = new ArrayList<>();
-        fileNames.add(fileName);
+        fileNames = parseJsonAndReturnFileName(data);
         mAdapter = new PapersAdapter(fileNames,this);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
@@ -97,25 +104,31 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
         LoaderManager loaderManager = getSupportLoaderManager();
         loaderManager.initLoader(PAPERS_LOADER, bundle, this);
     }
-    private String parseJsonAndReturnFileName(String jsonData){
+    private ArrayList<String> parseJsonAndReturnFileName(String jsonData){
         String fileName = null;
+        fileNames = new ArrayList<>();
         try {
             JSONObject root = new JSONObject(jsonData);
+
             JSONArray topicsArray = root.getJSONArray("chapter_id:chapter_name:noT");
-            JSONArray firstTopic = topicsArray.getJSONArray(0);
-            fileName = firstTopic.getString(1);
-            Log.d(TAG, "video path: "+fileName);
+            for(int i = 0; i<topicsArray.length(); i++){
+                JSONArray firstTopic = topicsArray.getJSONArray(i);
+                fileName = firstTopic.getString(1);
+                fileNames.add(fileName);
+                Log.d(TAG, "file path: "+fileName);
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return fileName;
+        return fileNames;
 
     }
 
     @Override
     public void onListItemClicked(int itemPosition) {
         Intent intent = new Intent(PapersActivity.this, PapersDisplayActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT,fileUrl);
+        intent.putExtra(Intent.EXTRA_TEXT,fileNames.get(itemPosition));
         startActivity(intent);
     }
 }

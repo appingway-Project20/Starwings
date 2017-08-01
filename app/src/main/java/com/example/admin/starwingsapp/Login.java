@@ -50,6 +50,7 @@ public class Login extends AppCompatActivity {
 			String storedProfileDetails[]={settings.getString("username","") , settings.getString("user_img","") , settings.getString("dob","") , settings.getString("phone","")};
 			Intent intent = new Intent(Login.this, ResourcesActivity.class);
 			intent.putExtra("profile details", storedProfileDetails);
+			intent.putExtra("uid",settings.getString("uid",""));
 			startActivity(intent);
 			finish();
 		}
@@ -154,6 +155,7 @@ public class Login extends AppCompatActivity {
 					editor.putString("user_img", profileDetails[1]);
 					editor.putString("dob", profileDetails[2]);
 					editor.putString("phone", profileDetails[3]);
+					editor.putString("uid",uid);
 					editor.commit();
 					Toast.makeText(getApplicationContext(), "Successful Login", Toast.LENGTH_SHORT).show();
 

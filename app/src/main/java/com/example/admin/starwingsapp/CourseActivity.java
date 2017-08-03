@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,7 +51,7 @@ public class CourseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setTitle("Courses");
+        title.setText("Notes");
         View v = toolbar.findViewById(R.id.dashboard);
         v.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +63,6 @@ public class CourseActivity extends AppCompatActivity {
 
         uid=getIntent().getStringExtra("uid");
         url = "http://starwingslearningdestination.com/php/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Courses");
 
         mRequestQueue = VolleySingleton.getInstance().getmRequestQueue();
         rv = (RecyclerView) findViewById(R.id.rv);
@@ -104,6 +102,14 @@ public class CourseActivity extends AppCompatActivity {
             }
         });
         mRequestQueue.add(request);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.VideosAdapter;
 
@@ -19,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * Created by Lalit on 07-07-2017.
@@ -34,12 +36,18 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private static String videoName;
-    private static String videoPath;
 
+    private TextView emptyViewTv;
+
+    private String videoPath;
+
+    private ArrayList<String> mVideoUris;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_videoactivity);
+
+        emptyViewTv = (TextView)findViewById(R.id.empty_view);
 //        getSupportLoaderManager().initLoader(VIDEO_LOADER,null,this);
         fetchVideosQuery();
     }
@@ -81,21 +89,28 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
-     //String videoPath = parseJsonAndReturnUrl(data);
-//        VideoView videoView = (VideoView)findViewById(R.id.videoView);
-//        videoView.setVideoPath("http://starwing.appingway.com/"+"php/web_api/uploads/595fb4de67b0b02.AIPursuit.mp4");
-//        MediaController mediaController = new MediaController(this);
-//        mediaController.setAnchorView(videoView);
-//        videoView.setMediaController(mediaController);
-//        videoView.start();
-        videoPath = "http://starwing.appingway.com/php/web_api/uploads/595fb4de67b0b02.AIPursuit.mp4";
-        File videoFile = new File(videoPath);
+     String videoPath = parseJsonAndReturnUrl(data);
+        if(videoPath!= null){
+            File videoFile = new File(videoPath);
         videoName = videoFile.getName();
         Log.d(TAG,"video name: "+videoName);
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new VideosAdapter(videoName,this);
         mRecyclerView.setAdapter(mAdapter);
+        }
+        else{
+            emptyViewTv.setText("No videos to display!");
+        }
+
+        //videoPath = "http://starwing.appingway.com/php/web_api/uploads/595fb4de67b0b02.AIPursuit.mp4";
+//        File videoFile = new File(videoPath);
+//        videoName = videoFile.getName();
+//        Log.d(TAG,"video name: "+videoName);
+//        mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mAdapter = new VideosAdapter(videoName,this);
+//        mRecyclerView.setAdapter(mAdapter);
 
     }
 
@@ -120,6 +135,12 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
         try {
             JSONObject root = new JSONObject(jsonData);
             JSONArray topicsArray = root.getJSONArray("topic_data");
+            if(topicsArray.length() == 0){
+                return  null;
+            }
+            for(int i=0; i< topicsArray.length(); i++){
+
+            }
             JSONArray firstTopic = topicsArray.getJSONArray(0);
              videoUri = firstTopic.getString(3);
             Log.d(TAG, "video path: "+videoUri);
@@ -137,9 +158,6 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
         intent.putExtra(Intent.EXTRA_TEXT, videoPath);
         startActivity(intent);
     }
-    private void parseJsonAndReturnImageUrls(String data){
 
-
-    }
 }
 

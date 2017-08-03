@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.PapersAdapter;
 
@@ -33,6 +34,8 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
 
     ProgressBar progressBar;
 
+    private TextView emptyViewTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        emptyViewTv = (TextView)findViewById(R.id.empty_view);
         fetchPapersQuery();
     }
 
@@ -83,13 +87,19 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
 //        fileUrl = fileName;
 //        String segments[] = fileName.split(".");
 //        fileName = segments[segments.length - 2] + ".pdf";
-
         progressBar.setVisibility(View.INVISIBLE);
         fileNames = new ArrayList<>();
         fileNames = parseJsonAndReturnFileName(data);
-        mAdapter = new PapersAdapter(fileNames,this);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setAdapter(mAdapter);
+
+        if(fileNames!= null){
+            mAdapter = new PapersAdapter(fileNames,this);
+            mRecyclerView.setHasFixedSize(true);
+            mRecyclerView.setAdapter(mAdapter);
+        }
+        else {
+            emptyViewTv.setText("No papers to display!");
+        }
+
     }
 
     @Override
@@ -111,6 +121,9 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
             JSONObject root = new JSONObject(jsonData);
 
             JSONArray topicsArray = root.getJSONArray("chapter_id:chapter_name:noT");
+            if(topicsArray.length() == 0){
+                return null;
+            }
             for(int i = 0; i<topicsArray.length(); i++){
                 JSONArray firstTopic = topicsArray.getJSONArray(i);
                 fileName = firstTopic.getString(1);

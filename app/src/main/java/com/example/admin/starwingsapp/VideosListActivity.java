@@ -41,11 +41,15 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
 
     private String videoPath;
 
+    String cid;
+
     private ArrayList<String> mVideoUris;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_videoactivity);
+
+        cid = getIntent().getStringExtra("cid");
 
         emptyViewTv = (TextView)findViewById(R.id.empty_view);
 //        getSupportLoaderManager().initLoader(VIDEO_LOADER,null,this);
@@ -73,7 +77,7 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
                 if(url == null || TextUtils.isEmpty(url)){
                     return null;
                 }try {
-                    url = url + "?apikey=" + API_KEY + "&chapter_id=90789901041997191098" + "&video=1";
+                    url = url + "?apikey=" + API_KEY + "&chapter_id=" + cid + "&video=1";
 
                      response = HttpRequest.get(url).body();
                     Log.d(TAG,"response: "+response);

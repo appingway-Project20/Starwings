@@ -157,7 +157,9 @@
             android:parentActivityName=".StockActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".DisplayGalleryPictureActivity" />
-        <activity android:name=".CoursePapersActivity"></activity>
+        <activity android:name=".CoursePapersActivity" />
+        <activity android:name=".CourseVideosActivity" />
+        <activity android:name=".VideosChapterActivity"></activity>
     </application>
 
 </manifest>

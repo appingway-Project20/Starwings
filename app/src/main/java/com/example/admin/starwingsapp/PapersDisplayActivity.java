@@ -58,6 +58,8 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
                 int slash = fileUrl.lastIndexOf("/");
                 fileName = fileUrl.substring(slash + 1);
 
+                Log.d(TAG, "filename: "+ fileName);
+
                 String extStorageDirectory = Environment.getExternalStorageDirectory().getAbsolutePath();
                 Log.d(TAG, "external storage directory: " + extStorageDirectory);
 //				String storagePath = null;
@@ -101,7 +103,7 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
         loaderManager.initLoader(PAPERS_DOWNLOAD_LOADER, bundle, this);
     }
     private void showFile(){
-        File pdfFile = new File(Environment.getExternalStorageDirectory() + "/papers/" + "test.pdf");  // -> filename = maven.pdf
+        File pdfFile = new File(Environment.getExternalStorageDirectory() + "/papers/" + fileName);  // -> filename = maven.pdf
         Uri path = Uri.fromFile(pdfFile);
         Log.d(TAG, "file path: " + path);
         Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
@@ -117,7 +119,7 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
     void checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             //if permission granted, initialize the views
-            if(!fileExistance("test.pdf")){
+            if(!fileExistance(fileName)){
                 fetchPaperFilesQuery();
             }
             else {
@@ -134,7 +136,7 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
         switch (requestCode) {
             case 1:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (!fileExistance("test.pdf")){
+                    if (!fileExistance(fileName)){
                         fetchPaperFilesQuery();
                     }
                     else

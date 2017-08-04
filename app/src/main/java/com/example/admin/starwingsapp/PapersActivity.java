@@ -136,8 +136,7 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
                 JSONArray firstTopic = topicsArray.getJSONArray(i);
                 fileName = firstTopic.getString(1);
                 year = firstTopic.getString(2);
-                int slash = fileName.lastIndexOf("/");
-                fileName = fileName.substring(slash + 1);
+
                 paperData = new PapersData();
 
                 paperData.setmFilename(fileName);

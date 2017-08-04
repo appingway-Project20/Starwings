@@ -80,7 +80,7 @@ public class ResourcesActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.ivresource) {
-            Intent intent = new Intent(ResourcesActivity.this, VideosListActivity.class);
+            Intent intent = new Intent(ResourcesActivity.this, CourseVideosActivity.class);
             intent.putExtra("uid", uid);
             startActivity(intent);
         }

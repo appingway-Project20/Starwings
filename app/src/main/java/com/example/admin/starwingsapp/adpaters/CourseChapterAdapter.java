@@ -12,9 +12,12 @@ import android.widget.TextView;
 import com.example.admin.starwingsapp.ChapterActivity;
 import com.example.admin.starwingsapp.CourseActivity;
 import com.example.admin.starwingsapp.CoursePapersActivity;
+import com.example.admin.starwingsapp.CourseVideosActivity;
 import com.example.admin.starwingsapp.PapersActivity;
 import com.example.admin.starwingsapp.R;
 import com.example.admin.starwingsapp.TopicsActivity;
+import com.example.admin.starwingsapp.VideosChapterActivity;
+import com.example.admin.starwingsapp.VideosListActivity;
 import com.example.admin.starwingsapp.models.CourseChapterData;
 
 import java.util.ArrayList;
@@ -60,6 +63,16 @@ public class CourseChapterAdapter extends RecyclerView.Adapter<CourseChapterAdap
                 }
                 else if(context instanceof CoursePapersActivity){
                     intent = new Intent(context, PapersActivity.class);
+                    intent.putExtra("cid",arrayList.get(position).getCourse_id());
+                    context.startActivity(intent);
+                }
+                else if(context instanceof CourseVideosActivity){
+                    intent = new Intent(context, VideosChapterActivity.class);
+                    intent.putExtra("cid",arrayList.get(position).getCourse_id());
+                    context.startActivity(intent);
+                }
+                else if(context instanceof VideosChapterActivity){
+                    intent = new Intent(context, VideosListActivity.class);
                     intent.putExtra("cid",arrayList.get(position).getCourse_id());
                     context.startActivity(intent);
                 }

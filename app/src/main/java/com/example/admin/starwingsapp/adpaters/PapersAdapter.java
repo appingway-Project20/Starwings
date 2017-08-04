@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.R;
+import com.example.admin.starwingsapp.models.PapersData;
 
 import java.util.ArrayList;
 
@@ -15,11 +16,11 @@ import java.util.ArrayList;
  */
 
 public class PapersAdapter extends RecyclerView.Adapter<PapersAdapter.PapersHolder> {
-    ArrayList<String> fileNames;
+    ArrayList<PapersData> papersData;
     ListItemClickListener listItemClickListener;
 
-    public PapersAdapter(ArrayList<String> fileNames, ListItemClickListener listItemClickListener) {
-        this.fileNames = fileNames;
+    public PapersAdapter(ArrayList<PapersData> fileNames, ListItemClickListener listItemClickListener) {
+        this.papersData = fileNames;
         this.listItemClickListener = listItemClickListener;
     }
 
@@ -32,18 +33,22 @@ public class PapersAdapter extends RecyclerView.Adapter<PapersAdapter.PapersHold
 
     @Override
     public void onBindViewHolder(PapersHolder holder, int position) {
-        holder.fileNameTv.setText(fileNames.get(position));
+        holder.fileNameTv.setText(papersData.get(position).getmFilename());
+        holder.yearTv.setText(papersData.get(position).getYear());
+
+
     }
 
     @Override
     public int getItemCount() {
-        return fileNames.size();
+        return papersData.size();
     }
     class PapersHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView fileNameTv;
+        TextView fileNameTv, yearTv;
         public PapersHolder(View itemView) {
             super(itemView);
             fileNameTv = (TextView)itemView.findViewById(R.id.file_name);
+            yearTv = (TextView)itemView.findViewById(R.id.year);
             itemView.setOnClickListener(this);
         }
 

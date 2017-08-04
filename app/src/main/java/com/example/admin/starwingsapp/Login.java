@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
 	private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiLogin.php?";
 	public static final String PREFS_NAME = "LoginPrefs";
 
+	public static final String TAG = Login.class.getSimpleName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -143,6 +144,7 @@ public class Login extends AppCompatActivity {
 				JSONObject root=new JSONObject(response);
 				success=root.getString("auth_value");
 				String uid=root.getString("uid");
+				Log.d(TAG, "uid: "+uid);
 				profileDetails[0]=root.getString("username");
 				profileDetails[1]=root.getString("user_img");
 				profileDetails[2]=root.getString("dob");

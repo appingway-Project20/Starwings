@@ -90,7 +90,8 @@ public class ResourcesActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.ivprevpap) {
-            Intent intent = new Intent(ResourcesActivity.this, PapersActivity.class);
+            Intent intent = new Intent(ResourcesActivity.this, CoursePapersActivity.class);
+            intent.putExtra("uid", uid);
             startActivity(intent);
         }
         if(id == R.id.logout_btn){

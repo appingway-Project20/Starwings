@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.PapersAdapter;
+import com.example.admin.starwingsapp.models.PapersData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class PapersActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String>, PapersAdapter.ListItemClickListener{
-    ArrayList<String> fileNames;
+
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private static final int PAPERS_LOADER = 101;
@@ -32,9 +33,13 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     private static final String TAG = VideosListActivity.class.getSimpleName();
 
+    ArrayList<PapersData> papersData;
+
     ProgressBar progressBar;
 
     private TextView emptyViewTv;
+
+    String cid, fileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,8 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         emptyViewTv = (TextView)findViewById(R.id.empty_view);
         fetchPapersQuery();
+
+         cid = getIntent().getStringExtra("cid");
     }
 
     @Override
@@ -66,7 +73,7 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
                 if(url == null || TextUtils.isEmpty(url)){
                     return null;
                 }try {
-                    url = url + "?course_id=2147483647" + "&apikey=" + API_KEY;
+                    url = url + "?course_id=" + cid + "&apikey=" + API_KEY;
 
                     response = HttpRequest.get(url).body();
                     Log.d(TAG,"response: "+response);
@@ -88,11 +95,10 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
 //        String segments[] = fileName.split(".");
 //        fileName = segments[segments.length - 2] + ".pdf";
         progressBar.setVisibility(View.INVISIBLE);
-        fileNames = new ArrayList<>();
-        fileNames = parseJsonAndReturnFileName(data);
+        parseJsonAndReturnFileName(data);
 
-        if(fileNames!= null){
-            mAdapter = new PapersAdapter(fileNames,this);
+        if(papersData!= null){
+            mAdapter = new PapersAdapter(papersData,this);
             mRecyclerView.setHasFixedSize(true);
             mRecyclerView.setAdapter(mAdapter);
         }
@@ -114,34 +120,42 @@ public class PapersActivity extends AppCompatActivity implements LoaderManager.L
         LoaderManager loaderManager = getSupportLoaderManager();
         loaderManager.initLoader(PAPERS_LOADER, bundle, this);
     }
-    private ArrayList<String> parseJsonAndReturnFileName(String jsonData){
-        String fileName = null;
-        fileNames = new ArrayList<>();
+    private void parseJsonAndReturnFileName(String jsonData){
+        papersData = new ArrayList<>();
+        PapersData paperData = null;
+        fileName = null;
+        String year;
         try {
             JSONObject root = new JSONObject(jsonData);
 
             JSONArray topicsArray = root.getJSONArray("chapter_id:chapter_name:noT");
             if(topicsArray.length() == 0){
-                return null;
+                return;
             }
             for(int i = 0; i<topicsArray.length(); i++){
                 JSONArray firstTopic = topicsArray.getJSONArray(i);
                 fileName = firstTopic.getString(1);
-                fileNames.add(fileName);
+                year = firstTopic.getString(2);
+                int slash = fileName.lastIndexOf("/");
+                fileName = fileName.substring(slash + 1);
+                paperData = new PapersData();
+
+                paperData.setmFilename(fileName);
+                paperData.setYear(year);
+                papersData.add(paperData);
                 Log.d(TAG, "file path: "+fileName);
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return fileNames;
 
     }
 
     @Override
     public void onListItemClicked(int itemPosition) {
         Intent intent = new Intent(PapersActivity.this, PapersDisplayActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT,fileNames.get(itemPosition));
+        intent.putExtra(Intent.EXTRA_TEXT, fileName);
         startActivity(intent);
     }
 }

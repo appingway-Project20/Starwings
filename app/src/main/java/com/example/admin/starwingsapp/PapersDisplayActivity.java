@@ -28,6 +28,8 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
     private static final String API_URL = "http://starwingslearningdestination.com/php/web_api/";
     private String fileUrl;
 
+    private String fileName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,9 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
             public Void loadInBackground() {
                 fileUrl = API_URL + fileUrl;
                 Log.d(TAG, "file url: " + fileUrl);
-                String fileName = "test.pdf";
+                //String fileName = "test.pdf";
+                int slash = fileUrl.lastIndexOf("/");
+                fileName = fileUrl.substring(slash + 1);
 
                 String extStorageDirectory = Environment.getExternalStorageDirectory().getAbsolutePath();
                 Log.d(TAG, "external storage directory: " + extStorageDirectory);

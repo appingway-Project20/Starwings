@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 import com.example.admin.starwingsapp.ChapterActivity;
 import com.example.admin.starwingsapp.CourseActivity;
-import com.example.admin.starwingsapp.Login;
+import com.example.admin.starwingsapp.CoursePapersActivity;
+import com.example.admin.starwingsapp.PapersActivity;
 import com.example.admin.starwingsapp.R;
 import com.example.admin.starwingsapp.TopicsActivity;
 import com.example.admin.starwingsapp.models.CourseChapterData;
@@ -54,6 +55,11 @@ public class CourseChapterAdapter extends RecyclerView.Adapter<CourseChapterAdap
                 }
                 else if(context instanceof CourseActivity){
                     intent=new Intent(context, ChapterActivity.class);
+                    intent.putExtra("cid",arrayList.get(position).getCourse_id());
+                    context.startActivity(intent);
+                }
+                else if(context instanceof CoursePapersActivity){
+                    intent = new Intent(context, PapersActivity.class);
                     intent.putExtra("cid",arrayList.get(position).getCourse_id());
                     context.startActivity(intent);
                 }

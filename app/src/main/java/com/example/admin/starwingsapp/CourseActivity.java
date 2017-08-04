@@ -60,7 +60,7 @@ public class CourseActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+//15495086100953416101
         uid=getIntent().getStringExtra("uid");
         url = "http://starwingslearningdestination.com/php/app_api/apiCourse.php?token="+uid+"&apikey=zxcvbnm123zxdewas";
 

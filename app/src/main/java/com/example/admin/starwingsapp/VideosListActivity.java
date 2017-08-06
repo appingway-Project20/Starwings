@@ -1,6 +1,7 @@
 package com.example.admin.starwingsapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
@@ -9,6 +10,7 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
@@ -37,9 +39,10 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
     private RecyclerView.Adapter mAdapter;
     private static String videoName;
 
+    private Toolbar toolbar;
     ArrayList<Video> videos;
 
-    private TextView emptyViewTv;
+    private TextView emptyViewTv, toolbarTitleTv;
 
     private String videoPath;
 
@@ -51,7 +54,12 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_videoactivity);
 
-        setTitle("Videos");
+        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbarTitleTv = (TextView)toolbar.findViewById(R.id.title);
+
+
+        toolbarTitleTv.setText("Videos");
+        toolbarTitleTv.setTextColor(Color.WHITE);
 
         cid = getIntent().getStringExtra("cid");
 

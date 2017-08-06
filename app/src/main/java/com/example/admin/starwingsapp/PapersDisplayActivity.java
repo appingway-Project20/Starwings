@@ -112,6 +112,7 @@ public class PapersDisplayActivity extends AppCompatActivity implements LoaderMa
 
         try {
             startActivity(pdfIntent);
+            finish();
         } catch (ActivityNotFoundException e) {
             Toast.makeText(PapersDisplayActivity.this, "No Application available to view PDF", Toast.LENGTH_SHORT).show();
         }

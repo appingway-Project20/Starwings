@@ -29,7 +29,7 @@ public class VideosChapterActivity extends AppCompatActivity implements LoaderMa
     private Toolbar toolbar;
 
     LinearLayoutManager layoutManager;
-    public ArrayList<CourseChapterData> arrayList = new ArrayList<>();
+    public ArrayList<CourseChapterData> arrayList;
     public String url = "";
 
     private static final int CHAPTERS_LOADER = 101;
@@ -109,6 +109,7 @@ public class VideosChapterActivity extends AppCompatActivity implements LoaderMa
 
     private void parseJSON(String response){
         JSONObject root = null;
+        arrayList = new ArrayList<>();
         try {
             root = new JSONObject(response);
             JSONArray jarray = root.getJSONArray("chapter_id:chapter_name:noT");
@@ -125,5 +126,11 @@ public class VideosChapterActivity extends AppCompatActivity implements LoaderMa
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        arrayList = null;
     }
 }

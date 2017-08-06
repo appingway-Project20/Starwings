@@ -43,7 +43,7 @@ public class CourseVideosActivity extends AppCompatActivity implements LoaderMan
 
     private String uid, url;
 
-    public ArrayList<CourseChapterData> arrayList = new ArrayList<>();
+    public ArrayList<CourseChapterData> arrayList;
 
     RecyclerView.Adapter adapter;
 
@@ -52,6 +52,8 @@ public class CourseVideosActivity extends AppCompatActivity implements LoaderMan
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursesapi);
         ButterKnife.bind(this);
+
+
 
 
         uid=getIntent().getStringExtra("uid");
@@ -103,6 +105,7 @@ public class CourseVideosActivity extends AppCompatActivity implements LoaderMan
 
     }
     private void parseJSON(String response)  {
+        arrayList = new ArrayList<>();
         try {
             JSONObject root = new JSONObject(response);
             JSONArray jarray = root.getJSONArray("course_id:course_name:noc");
@@ -121,5 +124,11 @@ public class CourseVideosActivity extends AppCompatActivity implements LoaderMan
         }
 
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        arrayList = null;
     }
 }

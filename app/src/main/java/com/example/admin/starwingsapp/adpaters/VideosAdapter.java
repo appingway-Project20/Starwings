@@ -8,18 +8,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.R;
+import com.example.admin.starwingsapp.models.Video;
+
+import java.util.ArrayList;
 
 /**
  * Created by admin on 7/10/2017.
  */
 
 public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoHolder> {
-    String fileName;
+    ArrayList<Video> videos;
+
     ListItemClickListener listItemClickListener;
     private static final String TAG = VideosAdapter.class.getSimpleName();
 
-    public VideosAdapter(String fileName , ListItemClickListener listItemClickListener) {
-        this.fileName = fileName;
+    public VideosAdapter(ArrayList<Video> videos , ListItemClickListener listItemClickListener) {
+        this.videos = videos;
         this.listItemClickListener = listItemClickListener;
     }
 
@@ -32,12 +36,12 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoHolde
 
     @Override
     public void onBindViewHolder(VideosAdapter.VideoHolder holder, int position) {
-        holder.fileNameTv.setText(fileName);
+        holder.fileNameTv.setText(videos.get(position).getmVideoName());
     }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return videos.size();
     }
     class VideoHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView fileNameTv;

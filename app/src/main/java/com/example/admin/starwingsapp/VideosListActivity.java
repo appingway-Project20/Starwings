@@ -14,12 +14,12 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.example.admin.starwingsapp.adpaters.VideosAdapter;
+import com.example.admin.starwingsapp.models.Video;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -37,6 +37,8 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
     private RecyclerView.Adapter mAdapter;
     private static String videoName;
 
+    ArrayList<Video> videos;
+
     private TextView emptyViewTv;
 
     private String videoPath;
@@ -48,6 +50,8 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_videoactivity);
+
+        setTitle("Videos");
 
         cid = getIntent().getStringExtra("cid");
 
@@ -77,6 +81,7 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
                 if(url == null || TextUtils.isEmpty(url)){
                     return null;
                 }try {
+                    //11071017701961108909
                     url = url + "?apikey=" + API_KEY + "&chapter_id=" + cid + "&video=1";
 
                      response = HttpRequest.get(url).body();
@@ -93,14 +98,14 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
 
     @Override
     public void onLoadFinished(Loader<String> loader, String data) {
-     String videoPath = parseJsonAndReturnUrl(data);
-        if(videoPath!= null){
-            File videoFile = new File(videoPath);
-        videoName = videoFile.getName();
+      parseJsonAndReturnUrl(data);
+        if(videos.size()!= 0){
+//            File videoFile = new File(videoPath);
+//        videoName = videoFile.getName();
         Log.d(TAG,"video name: "+videoName);
         mRecyclerView = (RecyclerView)findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new VideosAdapter(videoName,this);
+        mAdapter = new VideosAdapter(videos,this);
         mRecyclerView.setAdapter(mAdapter);
         }
         else{
@@ -134,24 +139,38 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
 
     }
     // parses json and extracts url of the video file.
-    private String parseJsonAndReturnUrl(String jsonData){
-        String videoUri = null;
+    private void parseJsonAndReturnUrl(String jsonData){
+        String videoUri, videoName;
+        videos = new ArrayList<>();
+        Video video = null;
         try {
             JSONObject root = new JSONObject(jsonData);
             JSONArray topicsArray = root.getJSONArray("topic_data");
             if(topicsArray.length() == 0){
-                return  null;
+                return;
             }
             for(int i=0; i< topicsArray.length(); i++){
+                JSONArray topics = topicsArray.getJSONArray(i);
+                videoUri = topics.getString(3);
+
+                Log.d(TAG, "video path: "+videoUri);
+
+                videoName = topics.getString(0);
+
+                Log.d(TAG, "video name: "+videoUri);
+
+                video = new Video();
+
+                video.setmVideoName(videoName);
+                video.setmVideoUrl(videoUri);
+
+                videos.add(video);
 
             }
-            JSONArray firstTopic = topicsArray.getJSONArray(0);
-             videoUri = firstTopic.getString(3);
-            Log.d(TAG, "video path: "+videoUri);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return videoUri;
 
     }
 
@@ -159,7 +178,7 @@ public class VideosListActivity extends AppCompatActivity implements LoaderManag
     @Override
     public void onListItemClicked(int position) {
         Intent intent = new Intent(VideosListActivity.this, VideoActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT, videoPath);
+        intent.putExtra(Intent.EXTRA_TEXT, videos.get(position).getmVideoUrl());
         startActivity(intent);
     }
 

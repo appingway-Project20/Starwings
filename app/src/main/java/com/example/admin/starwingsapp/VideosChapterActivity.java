@@ -115,6 +115,7 @@ public class VideosChapterActivity extends AppCompatActivity implements LoaderMa
             for (int i = 0; i < jarray.length(); i++) {
                 JSONArray actor = jarray.getJSONArray(i);
                 String chapter_id = actor.getString(0);
+                Log.d(TAG, "chapter id: "+chapter_id);
                 String chapter_name = actor.getString(1);
                 String noc = actor.getString(2);
 

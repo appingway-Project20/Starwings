@@ -111,7 +111,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".VideoActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".ResourcesActivity"
             android:screenOrientation="portrait" />
@@ -157,9 +157,12 @@
             android:parentActivityName=".StockActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".DisplayGalleryPictureActivity" />
-        <activity android:name=".CoursePapersActivity" />
-        <activity android:name=".CourseVideosActivity" />
-        <activity android:name=".VideosChapterActivity"></activity>
+        <activity android:name=".CoursePapersActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CourseVideosActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".VideosChapterActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

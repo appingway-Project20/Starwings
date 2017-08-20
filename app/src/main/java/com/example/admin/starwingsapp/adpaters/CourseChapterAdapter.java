@@ -52,7 +52,7 @@ public class CourseChapterAdapter extends RecyclerView.Adapter<CourseChapterAdap
                 Intent intent;
                 if(context instanceof ChapterActivity){
                     intent=new Intent(context, TopicsActivity.class);
-                    intent.putExtra("cid",arrayList.get(position).getCourse_id());
+                    intent.putExtra("tid",arrayList.get(position).getCourse_id());
                     intent.putExtra("cname",arrayList.get(position).getCourse_name());
                     context.startActivity(intent);
                 }

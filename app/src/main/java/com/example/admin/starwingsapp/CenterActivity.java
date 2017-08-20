@@ -26,7 +26,7 @@ public class CenterActivity extends AppCompatActivity {
     LinearLayoutManager layoutManager;
     ArrayList<String> arrayList=new ArrayList<String>();
     String[] centres={"Dwarka Ramphal Chowk","Laxmi Nagar Near Metrostation",
-            "Pitam Pura near Metrostation","Janak Puri"};
+            "Pitam Pura near Metrostation","Janak Puri","Najafgarh","Rajouri Garden"};
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +51,7 @@ public class CenterActivity extends AppCompatActivity {
         //List<String> Centres = Arrays.asList(getResources().getStringArray(R.array.Centres));
         cenrv.setAdapter(new CentreAdapter(arrayList,this));
 
-        for(int i=0; i<4; i++){
+        for(int i=0; i<6; i++){
             arrayList.add(centres[i]);
             cenrv.getAdapter().notifyDataSetChanged();
         }

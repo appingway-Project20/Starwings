@@ -144,7 +144,9 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
     @Override
     public void onListItemClicked(int position) {
         Intent intent = new Intent(GalleryActivity.this, DisplayGalleryPictureActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT, imageUrls.get(position));
+        String imageUrl = imageUrls.get(position);
+        imageUrl = imageUrl.replaceAll("\\s+","%20");
+        intent.putExtra(Intent.EXTRA_TEXT, imageUrl);
         startActivity(intent);
     }
 }

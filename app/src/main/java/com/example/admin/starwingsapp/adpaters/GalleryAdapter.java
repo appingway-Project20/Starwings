@@ -41,7 +41,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ImagesHo
     @Override
     public void onBindViewHolder(GalleryAdapter.ImagesHolder holder, int position) {
         String link = "http://starwingslearningdestination.com/php/web_api/" + imageLinks.get(position);
-        link = link.replaceAll("\\s+","");
+        link = link.replaceAll("\\s+","%20");
         Log.d(TAG,"link: "+link);
         Picasso.with(context)
                 .load(link)

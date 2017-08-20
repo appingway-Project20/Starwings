@@ -40,7 +40,7 @@
             android:layout_weight="1"
             android:gravity="end|center_vertical"
             android:paddingRight="10dp"
-            android:text="No of notes"
+            android:text="No of Chapters"
             android:textColor="#fff"
             android:textSize="15sp" />
     </LinearLayout>

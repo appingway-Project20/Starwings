@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class GalleryActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<String>>, GalleryAdapter.OnListItemClickListener {
 
     private static final String TAG = GalleryActivity.class.getSimpleName();
-    private static final String API_URL = "http://starwingslearningdestination.com/php/app_api/apiGallery.php";
+    private static final String API_URL = "http://starwingslearningdestination.com/php/web_api/apiGallery.php";
     private static final String API_KEY = "zxcvbnm123zxdewas";
     private static final String SEARCH_QUERY_URL_EXTRA = "query";
     TextView title;
@@ -95,7 +95,7 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
                 if(url == null || TextUtils.isEmpty(url)){
                     return null;
                 }try {
-                    url = url + "?apikey=" + API_KEY;
+                   // url = url + "?apikey=" + API_KEY;
 
                     response = HttpRequest.get(url).body();
                     Log.d(TAG,"response: "+response);
@@ -117,7 +117,7 @@ public class GalleryActivity extends AppCompatActivity implements LoaderManager.
             JSONArray root = new JSONArray(jsonData);
             for (int i=0; i< root.length(); i++){
                 JSONObject imageLinksProperty = root.getJSONObject(i);
-                imageUri = imageLinksProperty.getString("Link");
+                imageUri = imageLinksProperty.getString("Link").trim();
                 Log.d(TAG,"Link: "+imageUri);
                 imageUrls.add(imageUri);
 

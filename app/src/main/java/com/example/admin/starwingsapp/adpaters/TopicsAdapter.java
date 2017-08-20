@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.admin.starwingsapp.ChapterActivity;
 import com.example.admin.starwingsapp.PDFDownload_Async;
 import com.example.admin.starwingsapp.R;
-import com.example.admin.starwingsapp.models.CourseChapterData;
 import com.example.admin.starwingsapp.models.TopicData;
 
 import java.io.File;
@@ -29,6 +26,9 @@ import java.util.ArrayList;
 public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHolder> {
     public ArrayList<TopicData> arrayList = new ArrayList<>();
     public Context context;
+    public static int downloadsCount = 0;
+
+
 
     public TopicsAdapter(ArrayList<TopicData> arrayList, Context context) {
         this.arrayList = arrayList;
@@ -51,6 +51,8 @@ public class TopicsAdapter extends RecyclerView.Adapter<TopicsAdapter.myViewHold
         holder.topdwn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                downloadsCount++;
+                //Downloads.fileDownloadStatusTv.setText("No. of files downloaded: "+downloadsCount);
                 Toast.makeText(context, "downloading Chapter", Toast.LENGTH_SHORT).show();
                 PDFDownload_Async task=new PDFDownload_Async((Activity) context,arrayList.get(position).getTitle());
                 //task.execute(arrayList.get(position).getLink());

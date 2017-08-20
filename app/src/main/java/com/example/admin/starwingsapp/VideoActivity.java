@@ -27,6 +27,7 @@ public class VideoActivity extends AppCompatActivity implements MediaPlayer.OnCo
         if(intent.hasExtra(Intent.EXTRA_TEXT)){
             videoPath = intent.getStringExtra(Intent.EXTRA_TEXT);
             videoPath = API_URL + videoPath;
+            videoPath = videoPath.replaceAll("\\s+","%20");
             Log.d(TAG,"path: "+ videoPath);
             videoView = (VideoView)findViewById(R.id.videoView);
 

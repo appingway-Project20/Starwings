@@ -91,6 +91,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".TopicsActivity"
+            android:parentActivityName=".CourseActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ChapterActivity"

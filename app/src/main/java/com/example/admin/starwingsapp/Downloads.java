@@ -42,7 +42,7 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 	private ProgressBar progressBar;
 
 	View fileContainerView;
-	TextView fileDownloadStatusTv;
+	public static TextView fileDownloadStatusTv;
 
 	private static final String TAG = Downloads.class.getSimpleName();
 
@@ -70,7 +70,7 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 				"My downloads", Toast.LENGTH_SHORT);
 		t.show();
 		initViews();
-		checkPermission();
+		//checkPermission();
 
 	}
 
@@ -206,7 +206,7 @@ public class Downloads extends AppCompatActivity implements LoaderManager.Loader
 		if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 			//if permission granted, initialize the views
 //			if(!fileExistance("test.pdf")){
-				fetchNotesQuery();
+				//fetchNotesQuery();
 //			}
 //			else {
 //			showFile();

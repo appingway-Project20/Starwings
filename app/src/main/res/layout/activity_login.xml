@@ -58,9 +58,10 @@
                 <CheckBox
                     android:layout_width="315dp"
                     android:layout_height="50dp"
+                    android:id="@+id/show_password"
                     android:background="@drawable/my_custom_background"
                     android:paddingLeft="10dp"
-                    android:text="Show password" />
+                    android:text="hide password" />
             </LinearLayout>
 
             <LinearLayout

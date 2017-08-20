@@ -7,10 +7,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,6 +34,7 @@ public class Login extends AppCompatActivity {
 	ProgressBar progressBar;
 	String name,reg_number;
 	TextView responseView;
+	CheckBox checkBox;
 	private static final String API_URL="http://starwingslearningdestination.com/php/app_api/apiLogin.php?";
 	public static final String PREFS_NAME = "LoginPrefs";
 
@@ -45,6 +49,8 @@ public class Login extends AppCompatActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		getSupportActionBar().setDisplayShowHomeEnabled(true);
 		TextView toolbartitle= (TextView) toolbar.findViewById(R.id.title);
+		checkBox = (CheckBox)findViewById(R.id.show_password);
+
 		toolbartitle.setText("Login");
 		SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 		if (settings.getString("logged", "").equals("logged")) {
@@ -62,6 +68,17 @@ public class Login extends AppCompatActivity {
 				Intent intent = new Intent(Login.this,Dashboard.class);
 				startActivity(intent);
 				finish();
+			}
+		});
+		checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if(!isChecked) {
+					etregisno.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+				} else {
+					etregisno.setInputType(129);
+				}
 			}
 		});
 

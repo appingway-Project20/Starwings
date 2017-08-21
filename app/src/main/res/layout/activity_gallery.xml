@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.admin.starwingsapp.GalleryActivity">
+    tools:context="com.sachinstarwings.learning.destination.GalleryActivity">
     <include layout="@layout/toolbar"/>
 
     <android.support.v7.widget.RecyclerView

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.admin.starwingsapp">
+    package="com.sachinstarwings.learning.destination">
 
     <permission
-        android:name="com.example.admin.starwingsapp.permission.C2D_MESSAGE"
+        android:name="com.sachinstarwings.learning.destination.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.admin.starwingsapp.permission.C2D_MESSAGE" />
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.sachinstarwings.learning.destination.MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/starwings_72"
         android:label="@string/app_name"
@@ -21,10 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AboutUsActivity"
-            android:parentActivityName=".Dashboard"
+            android:name="com.sachinstarwings.learning.destination.AboutUsActivity"
+            android:parentActivityName="com.sachinstarwings.learning.destination.Dashboard"
             android:screenOrientation="portrait" />
-        <activity android:name=".SplashScreen">
+        <activity android:name="com.sachinstarwings.learning.destination.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NotificationActivity"
+            android:name="com.sachinstarwings.learning.destination.NotificationActivity"
             android:screenOrientation="portrait" />
 
         <receiver
@@ -48,25 +48,25 @@
         </receiver>
 
         <service
-            android:name=".MyGcmListenerService"
+            android:name="com.sachinstarwings.learning.destination.MyGcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
         </service>
         <service
-            android:name=".MyInstanceIDListenerService"
+            android:name="com.sachinstarwings.learning.destination.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <service
-            android:name=".MyGCMRegistrationIntentService"
+            android:name="com.sachinstarwings.learning.destination.MyGCMRegistrationIntentService"
             android:exported="false" />
 
         <activity
-            android:name=".OurCourses"
+            android:name="com.sachinstarwings.learning.destination.OurCourses"
             android:label="Our Courses"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -76,93 +76,92 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Dashboard"
+            android:name="com.sachinstarwings.learning.destination.Dashboard"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ContactInfoActivity"
-            android:parentActivityName=".Dashboard"
+            android:name="com.sachinstarwings.learning.destination.ContactInfoActivity"
+            android:parentActivityName="com.sachinstarwings.learning.destination.Dashboard"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CenterActivity"
+            android:name="com.sachinstarwings.learning.destination.CenterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Downloads"
+            android:name="com.sachinstarwings.learning.destination.Downloads"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".TopicsActivity"
-            android:parentActivityName=".CourseActivity"
+            android:name="com.sachinstarwings.learning.destination.TopicsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ChapterActivity"
+            android:name="com.sachinstarwings.learning.destination.ChapterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".CourseActivity"
-            android:parentActivityName=".ResourcesActivity"
+            android:name="com.sachinstarwings.learning.destination.CourseActivity"
+            android:parentActivityName="com.sachinstarwings.learning.destination.ResourcesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Login"
+            android:name="com.sachinstarwings.learning.destination.Login"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".Support"
+            android:name="com.sachinstarwings.learning.destination.Support"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name=".VideosListActivity"
+            android:name="com.sachinstarwings.learning.destination.VideosListActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".VideoActivity"
+            android:name="com.sachinstarwings.learning.destination.VideoActivity"
             android:screenOrientation="landscape"/>
         <activity
-            android:name=".ResourcesActivity"
+            android:name="com.sachinstarwings.learning.destination.ResourcesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ProfileActivity"
+            android:name="com.sachinstarwings.learning.destination.ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PapersActivity"
+            android:name="com.sachinstarwings.learning.destination.PapersActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PapersDisplayActivity"
+            android:name="com.sachinstarwings.learning.destination.PapersDisplayActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DailyScheduleActivity"
+            android:name="com.sachinstarwings.learning.destination.DailyScheduleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GalleryActivity"
-            android:parentActivityName=".Dashboard"
+            android:name="com.sachinstarwings.learning.destination.GalleryActivity"
+            android:parentActivityName="com.sachinstarwings.learning.destination.Dashboard"
             android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.sachinstarwings.learning.destination.MainActivity" />
         <activity
-            android:name=".NewsActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".NewsDetailActivity"
+            android:name="com.sachinstarwings.learning.destination.NewsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GetInTouchActivity"
+            android:name="com.sachinstarwings.learning.destination.NewsDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".PublicationsActivity"
+            android:name="com.sachinstarwings.learning.destination.GetInTouchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".StockActivity"
+            android:name="com.sachinstarwings.learning.destination.PublicationsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.sachinstarwings.learning.destination.StockActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".StockRateActivity"
-            android:parentActivityName=".StockActivity"
+            android:name="com.sachinstarwings.learning.destination.StockRateActivity"
+            android:parentActivityName="com.sachinstarwings.learning.destination.StockActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".StockNewsActivity"
-            android:parentActivityName=".StockActivity"
+            android:name="com.sachinstarwings.learning.destination.StockNewsActivity"
+            android:parentActivityName="com.sachinstarwings.learning.destination.StockActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".DisplayGalleryPictureActivity" />
-        <activity android:name=".CoursePapersActivity"
+        <activity android:name="com.sachinstarwings.learning.destination.DisplayGalleryPictureActivity" />
+        <activity android:name="com.sachinstarwings.learning.destination.CoursePapersActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".CourseVideosActivity"
+        <activity android:name="com.sachinstarwings.learning.destination.CourseVideosActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".VideosChapterActivity"
+        <activity android:name="com.sachinstarwings.learning.destination.VideosChapterActivity"
             android:screenOrientation="portrait"></activity>
     </application>
 

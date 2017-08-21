@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#283747"
     android:orientation="vertical"
-    tools:context="com.example.admin.starwingsapp.Dashboard"
+    tools:context="com.sachinstarwings.learning.destination.Dashboard"
     android:weightSum="1">
 
     <include

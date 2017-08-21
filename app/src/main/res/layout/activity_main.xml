@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.admin.starwingsapp.MainActivity">
+    tools:context="com.sachinstarwings.learning.destination.MainActivity">
 <include layout="@layout/toolbar"/>
     <TextView
         android:layout_width="wrap_content"

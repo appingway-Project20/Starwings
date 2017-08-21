@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f2f2f2"
-    tools:context="com.example.admin.starwingsapp.NewsActivity">
+    tools:context="com.sachinstarwings.learning.destination.NewsActivity">
 
 
     <ScrollView
@@ -100,7 +100,7 @@
             android:textColor="#757575"
             />
 
-        <com.example.admin.starwingsapp.ExpandableHeightListView
+        <com.sachinstarwings.learning.destination.ExpandableHeightListView
             android:id="@+id/listview"
             android:layout_marginTop="16dp"
             android:layout_width="match_parent"

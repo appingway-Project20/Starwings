@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:795032897658:android:266817e4577ca1ec",
+        "mobilesdk_app_id": "1:795032897658:android:d8acf864cfebec23",
         "android_client_info": {
-          "package_name": "com.example.admin.starwingsapp"
+          "package_name": "com.sachinstarwings.learning.destination"
         }
       },
       "oauth_client": [

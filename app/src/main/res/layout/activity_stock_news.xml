@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none">
-    <com.example.admin.starwingsapp.ExpandableHeightListView
+    <com.sachinstarwings.learning.destination.ExpandableHeightListView
         android:id="@+id/stocknewslist"
         android:layout_width="match_parent"
         android:layout_height="42dp"
@@ -18,6 +18,6 @@
         android:paddingBottom="64dp"
         android:layout_weight="1.50">
 
-    </com.example.admin.starwingsapp.ExpandableHeightListView>
+    </com.sachinstarwings.learning.destination.ExpandableHeightListView>
     </ScrollView>
 </LinearLayout>
